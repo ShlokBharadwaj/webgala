@@ -1,19 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:Muli@400;700&display=swap');
 
 /*This is done so that if I add padding or border to an element
  it doesnt affect the width of it.*/
 
 * {
-    box-sizing: border-box ;
-
+    box-sizing: border-box ; 
 }
 body {
-    font-family: 'Roboto', sans-serif;
+    background-color: rgb(172, 254, 255);
+    background-image: linear-gradient(
+        to bottom,
+        rgb(210, 254, 255) 0%,
+        rgb(116, 230, 71) 50%,
+        rgb(105, 230, 186) 50%,
+        rgb(51, 71, 197) 100%
+    );
+    font-family: 'Muli', sans-serif;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
     margin: 0;
+}
+
+nav {
+    background-color: #fff;
+    padding: 20px;
+    width: 80px;
 }
