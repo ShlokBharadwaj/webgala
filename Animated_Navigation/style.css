@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:Muli@400;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Red+Hat+Mono:wght@300&display=swap');
 /*This is done so that if I add padding or border to an element
  it doesnt affect the width of it.*/
 
@@ -15,7 +14,7 @@ body {
         rgb(105, 230, 186) 50%,
         rgb(51, 71, 197) 100%
     );
-    font-family: 'Muli', sans-serif;
+    font-family: 'Inconsolata', monospace, 'Red Hat Mono', monospace;
     display: flex;
     align-items: center;
     justify-content: center;
