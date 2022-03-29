@@ -6,25 +6,48 @@
     box-sizing: border-box ; 
 }
 body {
-    background-color: rgb(172, 254, 255);
+    background-color: rgb(255, 226, 172);
     background-image: linear-gradient(
         to bottom,
-        rgb(210, 254, 255) 0%,
-        rgb(116, 230, 71) 50%,
-        rgb(105, 230, 186) 50%,
-        rgb(51, 71, 197) 100%
+        #ffa600a8 0%,
+        #ffa600a8 50%,
+        #4084f8 50%,
+        #5290F9 100%
     );
     font-family: 'Inconsolata', monospace, 'Red Hat Mono', monospace;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    overflow: hidden;
     margin: 0;
 }
 
 nav {
-    background-color: #fff;
+    background-color: rgb(255, 255, 255);
     padding: 20px;
     width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: width 0.6s ease-in-out;
+}
+
+nav.active {
+    width: 350px;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    transition: width 0.6s ease-in-out;
+}
+
+nav.active {
+    width: 100%;
+    
 }
