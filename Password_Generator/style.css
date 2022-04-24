@@ -45,3 +45,32 @@ h2 {
     height: 50px;
     width: 100%;
 }
+
+.result-container #result {
+    word-wrap: break-word;
+    max-width: calc(100% - 40px);
+}
+
+.btn {
+    border: none;
+    border-radius: 3px;
+    background-color: #457b9d82;
+    color: #fff;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.btn2 {
+    background-color: #36627d;
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 16px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: none;
+}
