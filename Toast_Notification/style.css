@@ -46,3 +46,11 @@ body {
     flex-direction: column;
     align-items: flex-end;
 } 
+
+.toast {
+    background-color: #fff;
+    color: #7924cd;
+    border-radius: 5px;
+    padding: 1rem 2rem 0.8rem;
+    margin: 0.4rem;
+}
