@@ -105,8 +105,8 @@ body {
         flex-direction: column;
         align-items: center;
     }
-
     .user-form {
         max-width: 400px;
     }
 }
+
