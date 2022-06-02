@@ -88,7 +88,7 @@ body {
     margin-left: 0.5rem;
 }
 
-.repos {
+.repo {
     text-decoration: none;
     color: #111;
     background-color: #78575e;
@@ -109,4 +109,3 @@ body {
         max-width: 400px;
     }
 }
-
