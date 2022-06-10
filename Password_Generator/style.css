@@ -5,12 +5,29 @@
 }
 
 body {
+    background-color: #8ecae6;
+    color: #000;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+     justify-content: center;
     height: 100vh;
     overflow: hidden;
+    padding: 10px;
     margin: 0;
+}
+
+h2 {
+    margin: 10px 0 20px;
+    text-align: center;
+}
+
+.container {
+    background-color: #457b9d;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    padding: 20px;
+    width: 350px;
+    max-width: 100%;
 }
