@@ -15,3 +15,10 @@ function getRandomNumber() {
 }
 
 console.log(getRandomNumber())
+
+function getRandomSymbol() {
+    const symbols = '!@#$%^&*()[]{}=<>/|,.~`'
+    return symbols[Math.floor(Math.random() * symbols.length)]
+}
+
+console.log(getRandomSymbol())
