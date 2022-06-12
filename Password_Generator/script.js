@@ -54,9 +54,23 @@ function generatePassword(upper, lower, number, symbol, length) {
         })
     }
 
+
     const finalPass = generatedPassword.slice(0, length)
 
-    return finalPass
+    function shuffle(s) {   //to randomize the sequence
+        var arr = s.split('')
+        arr.sort(function() {
+            return 0.5 - Math.random()
+        })
+        s = arr.join('')
+        return s
+    }
+
+    var s = finalPass
+
+    s = shuffle(s)
+
+    return s
 }
 
 
