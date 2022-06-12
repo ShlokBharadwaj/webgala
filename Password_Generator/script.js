@@ -7,13 +7,27 @@ const symbolEle = document.getElementById('symbols')
 const generateEle = document.getElementById('generate')
 const clipboardEle = document.getElementById('clipboard')
 
-
 const randomFunc = {
     lower: getRandomLower,
     upper: getRandomUpper,
     number: getRandomNumber,
     symbol: getRandomSymbol,
 }
+
+clipboardEle.addEventListener('click', () => {
+    const textarea = document.createElement('textarea')
+    const password = result.innerText
+
+    if(!password)
+        return
+    
+    textarea.value = password
+    document.body.appendChild(textarea)
+    textarea.select()
+    document.execCommand('copy')
+    textarea.remove()
+    alert('Password is copied to clipboard!')
+})
 
 generateEle.addEventListener('click', () => {
     const length = +lengthEle.value // + is added so that the value we get is a number not a string
@@ -27,7 +41,7 @@ generateEle.addEventListener('click', () => {
 
 function generatePassword(upper, lower, number, symbol, length) {
     let generatedPassword = ''
-    const typesCount = lower + upper + number + symbol
+    const typesCount = upper + lower + number + symbol
     const typesArr = [{upper}, {lower}, {number}, {symbol}].filter(item => Object.values(item)[0])
     
     if(typesCount === 0)
