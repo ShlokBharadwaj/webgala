@@ -71,7 +71,7 @@ h2 {
 }
 
 .btn2 {
-    background-color: #36627d;
+    background-color: rgba(0,0,0,0.3);
     border: none;
     border-radius: 5px;
     color: #000;
