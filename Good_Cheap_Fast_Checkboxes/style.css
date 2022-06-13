@@ -5,8 +5,8 @@
 
 * {
     box-sizing: border-box ;
-
 }
+
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -16,4 +16,11 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 200px;
 }
