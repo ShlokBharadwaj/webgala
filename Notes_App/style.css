@@ -7,10 +7,16 @@
 body {
     font-family: 'Roboto', sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
+    flex-wrap: wrap;
     margin: 0;
+    padding-top: 3rem;
+    background-image: linear-gradient(to right, #0BAB64, #3BB78F);
+}
+
+.add {
+    background-color: #2ec4b6;
+    position: absolute;
+    top: 5rem;
+    right: 1rem;
+    padding: 0.5rem;
 }
