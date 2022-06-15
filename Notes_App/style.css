@@ -16,10 +16,10 @@ body {
 .add {
     background-color: #2ec4b6;
     color: #000;
-    position: absolute;
-    top: 5rem;
+    position: fixed;
+    top: 1.25rem;
     right: 1rem;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.5rem;
     border-radius: 0.6rem;
     cursor: pointer;
 }
@@ -56,4 +56,8 @@ body {
     height: 400px;
     width: 100%;
     padding: 20px;
+}
+
+.hidden {
+    display: none;
 }
