@@ -33,7 +33,7 @@ function addNewNote(text = '') {
     deleteBtn.addEventListener('click', () => {
         note.remove()
 
-        updateLS()
+        updateLocalStorage()
     })
 
     editBtn.addEventListener('click', () => {
@@ -46,13 +46,13 @@ function addNewNote(text = '') {
 
         main.innerHTML = marked(value)
 
-        updateLS()
+        updateLocalStorage()
     })
 
     document.body.appendChild(note)
 }
 
-function updateLS() {
+function updateLocalStorage() {
     const notesText = document.querySelectorAll('textarea')
 
     const notes = []
