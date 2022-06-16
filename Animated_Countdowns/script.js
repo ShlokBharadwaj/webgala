@@ -5,6 +5,17 @@ const onceAgain = document.querySelector('#onceAgain')
 
 runAnimation()
 
+function resetDOM() {
+    counter.classList.remove('inactive')
+    mainMsg.classList.remove('active')
+
+    numbers.forEach((num) => {
+        num.classList.value = ''
+    })
+
+    numbers[0].classList.add('active')
+}
+
 function runAnimation() {
     numbers.forEach((num, idx) => {
         const nextToLast = numbers.length - 1
@@ -25,3 +36,7 @@ function runAnimation() {
     })
 }
 
+onceAgain.addEventListener('click', () => {
+    resetDOM()
+    runAnimation()
+})
