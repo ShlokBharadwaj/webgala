@@ -1,42 +1,42 @@
-const numbers = document.querySelectorAll('.numbers span')
+const nums = document.querySelectorAll('.nums span')
 const counter = document.querySelector('.counter')
-const mainMsg = document.querySelector('.main')
-const onceAgain = document.querySelector('#onceAgain')
+const finalMessage = document.querySelector('.final')
+const replay = document.querySelector('#replay')
 
 runAnimation()
 
 function resetDOM() {
     counter.classList.remove('hide')
-    mainMsg.classList.remove('show')
+    finalMessage.classList.remove('show')
 
-    numbers.forEach((num) => {
+    nums.forEach((num) => {
         num.classList.value = ''
     })
 
-    numbers[0].classList.add('active')
+    nums[0].classList.add('in')
 }
 
 function runAnimation() {
-    numbers.forEach((num, idx) => {
-        const nextToLast = numbers.length - 1
+    nums.forEach((num, idx) => {
+        const nextToLast = nums.length - 1
 
-        num.addEventListener('going', (e) => {
-            if(e.animationName === 'coming' && idx !== nextToLast) {
-                num.classList.remove('active')
-                num.classList.add('inactive')
+        num.addEventListener('animationend', (e) => {
+            if(e.animationName === 'goIn' && idx !== nextToLast) {
+                num.classList.remove('in')
+                num.classList.add('out')
             }
-            else if(e.animationName === 'going' && num.nextElementSibling) {
-                num.nextElementSibling.classList.add('coming')
+            else if(e.animationName === 'goOut' && num.nextElementSibling) {
+                num.nextElementSibling.classList.add('in')
             }
             else {
                 counter.classList.add('hide')
-                mainMsg.classList.add('show')
+                finalMessage.classList.add('show')
             }
         })
     })
 }
 
-onceAgain.addEventListener('click', () => {
+replay.addEventListener('click', () => {
     resetDOM()
     runAnimation()
 })
