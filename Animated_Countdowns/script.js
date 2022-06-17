@@ -6,8 +6,8 @@ const onceAgain = document.querySelector('#onceAgain')
 runAnimation()
 
 function resetDOM() {
-    counter.classList.remove('inactive')
-    mainMsg.classList.remove('active')
+    counter.classList.remove('hide')
+    mainMsg.classList.remove('show')
 
     numbers.forEach((num) => {
         num.classList.value = ''
@@ -29,8 +29,8 @@ function runAnimation() {
                 num.nextElementSibling.classList.add('coming')
             }
             else {
-                counter.classList.add('active')
-                mainMsg.classList.add('inactive')
+                counter.classList.add('hide')
+                mainMsg.classList.add('show')
             }
         })
     })
