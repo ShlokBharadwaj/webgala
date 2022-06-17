@@ -39,7 +39,7 @@ h4 {
     }
 }
 
-.main {
+.final {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -47,7 +47,7 @@ h4 {
     text-align: center;
 }
 
-.main.show {
+.final.show {
     transform: translate(-50%, -50%) scale(1);
     animation: show .2s ease-out;
 }
@@ -66,16 +66,16 @@ h4 {
     }
 }
 
-.numbers {
+.nums {
     color: #4cc9f0;
     font-size: 4rem;
     position: relative;
     overflow: hidden;
-    width: 25rem;
-    height: 5rem;
+    width: 250px;
+    height: 50px;
 }
 
-.numbers span {
+.nums span {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,16 +83,16 @@ h4 {
     transform-origin: bottom center;
 }
 
-.numbers span.active {
+.nums span.in {
     transform: translate(-50%, -50%) rotate(0deg);
-    animation: coming 0.5s ease-in-out;
+    animation: goIn 0.5s ease-in-out;
 }
 
-.numbers span.inactive {
-    animation: going 0.5s ease-in-out;
+.nums span.out {
+    animation: goOut 0.5s ease-in-out;
 }
 
-@keyframes coming {
+@keyframes goIn {
     0% {
         transform: translate(-50%, -50%) rotate(120deg);
     }
@@ -110,7 +110,7 @@ h4 {
     }
 }
 
-@keyframes going {
+@keyframes goOut {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
@@ -124,7 +124,7 @@ h4 {
     }
 }
 
-#onceAgain{
+#replay{
     background-color: #3498db;
     border-radius: 3px;
     border: none;
@@ -136,14 +136,14 @@ h4 {
     transition: all 0.3s;
   }
   
-  #onceAgain span{
+  #replay span{
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.3s;
   }
   
-  #onceAgain span:after{
+  #replay span:after{
     content: '\00bb';
     position: absolute;
     opacity: 0;
@@ -152,11 +152,11 @@ h4 {
     transition: 0.5s;
   }
   
-  #onceAgain:hover span{
+  #replay:hover span{
     padding-right: 25px;
   }
   
-  #onceAgain:hover span:after{
+  #replay:hover span:after{
     opacity: 1;
     right: 0;
   }
