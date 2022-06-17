@@ -15,6 +15,7 @@ h4 {
     font-size: 20px;
     margin: 5px;
 }
+
 .counter {
     position: fixed;
     top: 50%;
@@ -78,8 +79,8 @@ h4 {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) rotate(240deg);
-    transform-origin: top center;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
 }
 
 .numbers span.active {
@@ -115,10 +116,47 @@ h4 {
     }
     
     60% {
-        transform: translate(-50%, -50%) rotate(-20deg);
+        transform: translate(-50%, -50%) rotate(20deg);
     }
 
     100% {
         transform: translate(-50%, -50%) rotate(-120deg);
     }
 }
+
+#onceAgain{
+    background-color: #3498db;
+    border-radius: 3px;
+    border: none;
+    color: aliceblue;
+    padding: 5px;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  #onceAgain span{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.3s;
+  }
+  
+  #onceAgain span:after{
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  #onceAgain:hover span{
+    padding-right: 25px;
+  }
+  
+  #onceAgain:hover span:after{
+    opacity: 1;
+    right: 0;
+  }
