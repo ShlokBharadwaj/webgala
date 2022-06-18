@@ -49,3 +49,7 @@ button {
 button:hover {
     opacity: 0.85;
 }
+
+button:focus {
+    outline: none;
+}
