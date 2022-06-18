@@ -45,3 +45,7 @@ button {
     cursor: pointer;
     width: 49.8%;
 }
+
+button:hover {
+    opacity: 0.85;
+}
