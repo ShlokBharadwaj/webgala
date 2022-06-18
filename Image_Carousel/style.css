@@ -36,3 +36,12 @@ img {
     display: flex;
     justify-content: space-between;
 }
+
+button {
+    background-color: #0077b6;
+    color: #fff;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    width: 49.8%;
+}
