@@ -1,19 +1,26 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/*This is done so that if I add padding or border to an element
- it doesnt affect the width of it.*/
-
-* {
+*{
     box-sizing: border-box ;
-
 }
+
 body {
-    font-family: 'Roboto', sans-serif;
+    background-color: #111;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
     margin: 0;
+}
+
+.square {
+    background-color: #1d1d1d;
+    box-shadow: 0 0 2px #000;
+    height: 16px;
+    width: 16px;
+    margin: 2px;
+    transition: 2s ease-in;
+}
+
+.square:hover {
+    transition-delay: 0s;
 }
