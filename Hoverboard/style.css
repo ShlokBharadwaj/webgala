@@ -18,11 +18,11 @@ body {
     height: 16px;
     width: 16px;
     margin: 2px;
-    transition: 2s ease-in;
+    transition: 2s ease;
 }
 
 .square:hover {
-    transition-delay: 0s;
+    transition-duration: 0s;
 }
 
 .container {
