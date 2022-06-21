@@ -5,6 +5,8 @@
 }
 
 body {
+    background: #90e0ef;
+    background: linear-gradient(to right, #00b4d8, #caf0f8);
     font-family: 'IM Fell French Canon SC', serif;
     display: flex;
     flex-direction: column;
