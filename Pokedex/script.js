@@ -17,6 +17,8 @@ const colors = {
     normal: '#F5F5F5'
 }
 
+const main_types = Object.keys(colors)
+
 const fetchPokemons = async () => {
     for (let i = 1; i <= pokemon_count; i++) {
         await getPokemon(i)
@@ -36,6 +38,13 @@ const createPokemonCard = (pokemon) => {
 
     const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
 
+    const pokeType = pokeName.types.map(type => type.type.name)
+    const type = main_types.find(type => pokeType.indexOf(type) > -1)
+    const colors = colors[type]
+    
+    pokemonEle.style.backgroundColor = colors
+
+
     const pokemonInnerHTML = `
             <div class="img-container">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="">
@@ -43,7 +52,7 @@ const createPokemonCard = (pokemon) => {
             <div class="info">
                 <span class="number">#${pokemon.id}</span>
                 <h3 class="name">${pokeName}</h3>
-                <small class="type">Type: <span></span></small>
+                <small class="type">Type: <span>${type}</span></small>
             </div> 
             `
 
