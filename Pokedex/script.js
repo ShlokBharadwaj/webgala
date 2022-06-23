@@ -34,13 +34,15 @@ const createPokemonCard = (pokemon) => {
     const pokemonEle = document.createElement('div')
     pokemonEle.classList.add('pokemon')
 
+    const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+
     const pokemonInnerHTML = `
             <div class="img-container">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="">
             </div>
             <div class="info">
                 <span class="number">#${pokemon.id}</span>
-                <h3 class="name">${pokemon.name}</h3>
+                <h3 class="name">${pokeName}</h3>
                 <small class="type">Type: <span></span></small>
             </div> 
             `
