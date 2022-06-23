@@ -40,9 +40,9 @@ const createPokemonCard = (pokemon) => {
 
     const pokeType = pokeName.types.map(type => type.type.name)
     const type = main_types.find(type => pokeType.indexOf(type) > -1)
-    const colors = colors[type]
+    const color = colors[type]
     
-    pokemonEle.style.backgroundColor = colors
+    pokemonEle.style.backgroundColor = color
 
 
     const pokemonInnerHTML = `
