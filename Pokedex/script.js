@@ -1,5 +1,5 @@
 const poke_container = document.getElementById('poke-container')
-const pokemon_count = 150
+const pokemon_count = 100
 const colors = {
     fire: '#FDDFDF',
     grass: '#DEFDE0',
@@ -38,7 +38,7 @@ const createPokemonCard = (pokemon) => {
 
     const pokeName = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
 
-    const pokeType = pokeName.types.map(type => type.type.name)
+    const pokeType = pokemon.types.map(type => type.type.name)
     const type = main_types.find(type => pokeType.indexOf(type) > -1)
     const color = colors[type]
     
