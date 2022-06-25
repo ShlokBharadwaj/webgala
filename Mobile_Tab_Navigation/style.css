@@ -13,3 +13,23 @@ body {
     height: 100vh;
     margin: 0;
 }
+
+.mobile {
+    position: relative;
+    overflow: hidden;
+    border: 3px solid #eee;
+    border-radius: 15px;
+    height: 600px;
+    width: 340px;
+}
+
+.mobile .content {
+    /* opacity: 0; */
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 60px);
+    width: 100%;
+    transition: opacity 0.4s ease;
+}
