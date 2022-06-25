@@ -67,3 +67,8 @@ body {
     font-size: 12px;
     margin: 2px 0;
 }
+
+.nav ul li:hover,
+.nav ul li:active {
+    color: indianred;
+}
