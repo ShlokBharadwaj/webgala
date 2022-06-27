@@ -5,6 +5,9 @@ listItems.forEach((item, idx) => {
     item.addEventListener('click', () => {
         hideAllContents()
         hideAllItems()
+
+        item.classList.add('active')
+        contents[idx].classList.add('show')
     })
 })
 
