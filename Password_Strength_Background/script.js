@@ -2,7 +2,7 @@ const password = document.getElementById('password')
 const background = document.getElementById('background')
 
 function SpclChar(str) {
-    var count = (str.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g)).length
+    var count = (str.match(/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g) || []).length
     return count
 }
 
