@@ -15,5 +15,10 @@ body {
 
 .background {
     background: url("https://source.unsplash.com/random/?landscape");
-    
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    z-index: -1;
 }
