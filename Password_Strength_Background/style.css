@@ -12,3 +12,8 @@ body {
     overflow: hidden;
     margin: 0;
 }
+
+.background {
+    background: url("https://source.unsplash.com/random/?landscape");
+    
+}
