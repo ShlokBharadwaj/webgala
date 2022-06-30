@@ -3,7 +3,7 @@ const background = document.getElementById('background')
 
 function SpclChar(str) {
     const specialChars = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/
-    
+    return specialChars.test(str)
 }
 
 password.addEventListener('input', (e) => {
