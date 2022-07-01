@@ -28,7 +28,8 @@ body {
     position: fixed;
     top: 20px;
     letter-spacing: 1px;
-    box-shadow: 3px 3px #adb5bd;
+    box-shadow: 3px 3px #adb5bd;  
+    z-index: 1;
 }
 
 .magic:focus {
