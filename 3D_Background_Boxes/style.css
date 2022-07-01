@@ -48,7 +48,7 @@ body {
     justify-content: space-around;
     height: 500px;
     width: 500px;
-    transition: 2s ease-in-out;
+    transition: 0.8s ease-in-out;
 }
 
 .boxes.activez {
