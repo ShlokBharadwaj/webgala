@@ -48,6 +48,7 @@ body {
     justify-content: space-around;
     height: 500px;
     width: 500px;
+    transition: 2s ease-in-out;
 }
 
 .boxes.activez {
@@ -55,8 +56,16 @@ body {
     height: 600px;
 }
 
+.boxes.activez .box {
+    transform: rotateZ(360deg);
+}
+
 .box {
-    background: yellow;
+    background: url('https://media.giphy.com/media/xUPGcIoJzFnYqVIyxa/giphy.gif');
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
+    position: relative;
     height: 125px;
     width: 125px;
+    transition: 0.4s ease;
 }
