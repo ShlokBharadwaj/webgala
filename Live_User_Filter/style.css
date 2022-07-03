@@ -1,14 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-/*This is done so that if I add padding or border to an element
- it doesnt affect the width of it.*/
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica+SC&display=swap');
 
 * {
     box-sizing: border-box ;
-
 }
+
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IM Fell DW Pica SC', serif;
     display: flex;
     flex-direction: column;
     align-items: center;
