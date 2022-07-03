@@ -1,5 +1,5 @@
-const result = document.querySelector('result')
-const filter = document.querySelector('filter')
+const result = document.getElementById('result')
+const filter = document.getElementById('filter')
 const listItems = []
 
 async function getData() {
@@ -7,7 +7,7 @@ async function getData() {
 
     const {results} = await res.json()
 
-    results.innerHTML = ''
+    result.innerHTML = ''
 
     results.forEach(user => {
       const li = document.createElement('li')
@@ -18,13 +18,16 @@ async function getData() {
       <img src="${user.picture.large}" alt="${user.name}">
       <div class="user-info">
         <h4>${user.name.title} ${user.name.first} ${user.name.last}</h4>
-        <p>${user.dob.age}</p>
-        <p>${user.email}</p>
-        <p>${user.location.city} ${user.location.country} ${user.location.postcode}</p>
-        <p>${user.phone}</p>
-        <p>${user.login.username} ${user.login.password}</p>
+        <p><strong>Age:</strong> ${user.dob.age}</p>
+        <p><strong>Email:</strong> ${user.email}</p>
+        <p><strong>Location:</strong> ${user.location.city}, ${user.location.country} - ${user.location.postcode}</p>
+        <p><strong>Phone No.:</strong> ${user.phone}</p>
+        <p><strong>Username:</strong> ${user.login.username}</p>
+        <p><strong>Password:</strong> ${user.login.password}</p>
       <div>
       `
+
+      result.appendChild(li)
     })
 }
 
