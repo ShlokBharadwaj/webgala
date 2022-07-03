@@ -29,6 +29,16 @@ body {
     max-width: 400px;
     /* height: 90vh; */
 }
+
+.panel-container strong {
+    line-height: 20px;
+}
+
+.ratings-container {
+    display: flex;
+    margin: 20px 0;
+}
+
 .rating img {
     display: flex;
     max-width: 60px;
