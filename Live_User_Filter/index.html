@@ -9,13 +9,39 @@
     <title>Live User Filter</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container flex items-center">
         <header class="header">
             <h4 class="title">Live User Filter</h4>
             <small class="subtitle">Search by name or location</small>
                 <input type="text" name="name" placeholder="Search..."
                     class="w-1/3 py border-b-2 border-red-600 outline-none focus:border-blue-400">
         <header/>
+        <ul id="result" class="user-list">
+            <li>
+                <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="James">
+                <div class="user-info">
+                    <h4>James Smith</h4>
+                    <p>Melbourne, Australia</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="James">
+                <div class="user-info">
+                    <h4>James Smith</h4>
+                    <p>Melbourne, Australia</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://randomuser.me/api/portraits/men/28.jpg" alt="James">
+                <div class="user-info">
+                    <h4>James Smith</h4>
+                    <p>Melbourne, Australia</p>
+                </div>
+            </li>
+            <li>
+                <h3>Loading...</h3>
+            </li>
+        </ul>
     </div>
     <script src="script.js"></script>
 </body>
