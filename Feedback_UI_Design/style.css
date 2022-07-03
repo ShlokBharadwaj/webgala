@@ -87,3 +87,9 @@ body {
     transform: scale(0.95);
     color: #00f5d4;
 }
+
+.fa-heart {
+    color: red;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
