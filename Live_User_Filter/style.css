@@ -5,6 +5,7 @@
 }
 
 body {
+    background-color: #f1faee;
     font-family: 'IM Fell DW Pica SC', serif;
     display: flex;
     flex-direction: column;
@@ -13,4 +14,11 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+}
+
+.container {
+    border-radius: 5px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+    width: 300px;
 }
