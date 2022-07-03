@@ -62,7 +62,7 @@ body {
 }
 
 .user-list li {
-    display: flexbox;
+    display: flex;
     padding: 20px;
 }
 
