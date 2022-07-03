@@ -22,3 +22,27 @@ body {
     overflow: hidden;
     width: 300px;
 }
+
+.title {
+    margin: 0;
+}
+
+.subtitle {
+    display: inline-block;
+    margin: 5px 0 20px;
+    opacity: 0.8;
+}
+
+.header {
+    background-color: #c4e3b9;
+    color: #000;
+    padding: 30px 20px;
+}
+
+.header input {
+    background-color: #a7cc99;
+    outline: none;
+    border-radius: 5px;
+    padding: 2px 7px;
+    width: 100%;
+}
