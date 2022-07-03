@@ -43,6 +43,44 @@ body {
     background-color: #a7cc99;
     outline: none;
     border-radius: 5px;
-    padding: 2px 7px;
+    padding: 4px 7px;
     width: 100%;
+    font-size: 14px;
+}
+
+.header input:focus {
+    outline: none;
+}
+
+.user-list {
+    background-color: #f5f3f4;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.user-list li {
+    display: flexbox;
+    padding: 20px;
+}
+
+.user-list img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.user-list .user-info {
+    margin-left: 10px;
+}
+
+.user-list .user-info h4 {
+    margin: 0 0 10px;
+}
+
+.user-list .user-info p {
+    font-size: 12px;
 }
