@@ -19,7 +19,6 @@ function removeActive() {
 }
 
 sendBtn.addEventListener('click', (e) => {
-    console.log(myRating)
     if(myRating === 'Happy') {
         panel.innerHTML = `
         <i class="fa-solid fa-heart-circle-check"></i>
