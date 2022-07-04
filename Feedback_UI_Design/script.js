@@ -9,7 +9,6 @@ ratingsCont.addEventListener('click', (e) => {
         removeActive()
         e.target.parentNode.classList.add('active')
         myRating = e.target.nextElementSibling.innerHTML
-        // removeActive()
     }
 })
 
