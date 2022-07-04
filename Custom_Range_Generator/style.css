@@ -31,3 +31,15 @@ input[type='range'] {
     margin: 18px 0;
     -webkit-appearance: none;
 }
+
+input[type='range'] + label {
+    position: absolute;
+    background-color: #fff;
+    top: -25px;
+    left: 110px;
+    width: 55px;
+    padding: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px #8da9c4;
+}
