@@ -5,6 +5,7 @@
 }
 
 body {
+    background-image: linear-gradient(to bottom right, #caf0f8 33%, #90e0ef 100%);
     font-family: 'Raleway', sans-serif;
     display: flex;
     flex-direction: column;
