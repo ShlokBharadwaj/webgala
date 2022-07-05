@@ -17,6 +17,11 @@ body {
     width: 300px;
 }
 
+.logo.main {
+    width: fit-content;
+    height: fit-content;
+}
+
 .text {
     text-transform: uppercase;
 }
