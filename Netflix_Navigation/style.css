@@ -52,6 +52,11 @@ body {
     width: 60%;
     max-width: 480px;
     min-width: 320px;
+    transition-delay: 0.4s;
+}
+
+.nav-black.visible {
+    transition-delay: .1s;
 }
 
 .nav-red {
@@ -59,6 +64,11 @@ body {
     width: 95%;
     max-width: 480px;
     min-width: 320px;
+    transition-delay: .2s;
+}
+
+.nav-red.visible {
+    transition-delay: .3s;
 }
 
 .nav-white {
@@ -68,6 +78,11 @@ body {
     min-width: 320px;
     padding: 40px;
     position: relative;
+    transition-delay: 0;
+}
+
+.nav-white.visible {
+    transition-delay: 0.4s;
 }
 
 .close-btn {
