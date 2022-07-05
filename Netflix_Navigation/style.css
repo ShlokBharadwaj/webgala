@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
-*{
-    box-sizing: border-box ;
+* {
+    box-sizing: border-box;
 }
 
 body {
@@ -11,15 +11,15 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden;
+    background-image: url('https://images.unsplash.com/photo-1637363990764-de84fd247b7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .logo {
     width: 300px;
-}
-
-.logo.main {
-    width: fit-content;
-    height: fit-content;
 }
 
 .text {
@@ -104,7 +104,7 @@ body {
 
 .list li {
     margin: 20px 0;
-} 
+}
 
 .list li a {
     color: #000;
