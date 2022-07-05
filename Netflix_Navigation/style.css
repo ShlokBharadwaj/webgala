@@ -14,7 +14,7 @@ body {
 }
 
 .logo {
-    width: 350px;
+    width: 300px;
 }
 
 .text {
@@ -91,4 +91,9 @@ body {
     font-size: 14px;
     text-decoration: none;
     letter-spacing: 1px;
+}
+
+.list ul {
+    list-style-type: none;
+    padding-left: 20px;
 }
