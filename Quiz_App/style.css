@@ -5,9 +5,10 @@
 }
 
 body {
+    background-color: #fefae0;
+    background-image: linear-gradient(135deg, #99d98c 0%, #d9ed92 100%);
     font-family: 'Literata', serif;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
