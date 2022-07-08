@@ -52,6 +52,7 @@ ul li label {
 ul li:hover {
     border-bottom: 1px solid #ff595e;
 }
+
 ul li.active {
     border-bottom: 1px solid #52b69a;
 }
