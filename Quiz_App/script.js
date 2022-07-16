@@ -11,6 +11,11 @@ let currenQuiz = 0
 let right = 0
 let wrong = 0
 
+let correctAns;
+let incorrectAns;
+let options;
+const quizData = 0;
+
 loadQuiz()
 
 function loadQuiz() {
@@ -20,9 +25,10 @@ function loadQuiz() {
         console.log(result)
         const quizData = result.results
 
-        let correctAns = quizData[currenQuiz].correct_answer
-        let incorrectAns = quizData[currenQuiz].incorrect_answers
-        let options = incorrectAns
+        correctAns = quizData[currenQuiz].correct_answer
+        console.log(correctAns)
+        incorrectAns = quizData[currenQuiz].incorrect_answers
+        options = incorrectAns
         options.splice(Math.floor(Math.random() * (incorrectAns.length * 1)), 0, correctAns)
         console.log(options)
 
@@ -38,8 +44,21 @@ function clrAns() {
     answerEle.forEach(answerEle => answerEle.checked = false)
 }
 
+function getSelected() {
+    let answer
+
+    answerEle.forEach(answerEle => {
+        if(answerEle.checked) {
+            answer = answerEle.id
+        }
+    })
+
+    return answer
+}
+
 submitBtn.addEventListener('click', () => {
     const SelectedAns = getSelected()
+    console.log(SelectedAns)
     if(SelectedAns) {
         if(SelectedAns === correctAns) {
             right++
@@ -52,7 +71,9 @@ submitBtn.addEventListener('click', () => {
         }
         else {
             quiz.innerHTML = `
-                <h2>Your Final Score is: ${right}/${quizData.length}
+                <h2>Your Final Score is: ${right}/${right+wrong}
+
+                <button onclick="location.relaod()">Try Again</button>
             `
         }
     }
