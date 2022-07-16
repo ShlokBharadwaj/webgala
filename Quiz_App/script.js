@@ -39,5 +39,21 @@ function clrAns() {
 }
 
 submitBtn.addEventListener('click', () => {
-
+    const SelectedAns = getSelected()
+    if(SelectedAns) {
+        if(SelectedAns === correctAns) {
+            right++
+        }
+        else if(SelectedAns !== incorrectAns) {
+            wrong++
+        }
+        if(currenQuiz < quizData.length) {
+            loadQuiz()
+        }
+        else {
+            quiz.innerHTML = `
+                <h2>Your Final Score is: ${right}/${quizData.length}
+            `
+        }
+    }
 })
