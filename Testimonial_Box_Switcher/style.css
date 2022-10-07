@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 * {
     box-sizing: border-box;
-
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inconsolata', monospace;
+    background-color: #ccccc5;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,4 +14,5 @@ body {
     height: 100vh;
     overflow: hidden;
     margin: 0;
+    padding: 10px;
 }
