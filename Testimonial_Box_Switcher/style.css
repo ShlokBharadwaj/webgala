@@ -9,7 +9,7 @@ body {
 }
 
 .progress-bar {
-    animation: grow 10s linear infinite;
+    animation: grow 7s linear infinite;
 }
 
 @keyframes grow {
