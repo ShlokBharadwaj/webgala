@@ -1,55 +1,74 @@
+const quizData = [
+    {
+        question: "The Maxim 'Actus non facit reanisi mens sit rea' means?",
+        a: "Crime has to be coupled with gilty mind",
+        b: "There can be no crime without a gilty mind",
+        c: "Crime is the result of a gilty mind",
+        d: "Criminal mind leads to crime",
+        correct: "d",
+    },
+    {
+        question: "Section 84 of IPC provides for",
+        a: "Legal insanity",
+        b: "Medical insanity",
+        c: "Moral insanity",
+        d: "Unsound insanity",
+        correct: "a",
+    },
+    {
+        question: "Laying a trap is a part of",
+        a: "Preliminary inquiry",
+        b: "Trial",
+        c: "Investigation",
+        d: "Inquiry",
+        correct: "c",
+    },
+    {
+        question: "IPC is divided into how many sections?",
+        a: "511 sections",
+        b: "512 sections",
+        c: "515 sections",
+        d: "520 sections",
+        correct: "a",
+    },
+];
+
 const quiz = document.getElementById('quiz')
-const answerEle = document.querySelectorAll('answer')
-const questionsEle = document.getElementById('question')
+const answerEls = document.querySelectorAll('.answer')
+const questionEl = document.getElementById('question')
 const a_text = document.getElementById('a_text')
 const b_text = document.getElementById('b_text')
 const c_text = document.getElementById('c_text')
 const d_text = document.getElementById('d_text')
 const submitBtn = document.getElementById('submit')
 
-let currenQuiz = 0
-let right = 0
-let wrong = 0
-
-let correctAns;
-let incorrectAns;
-let options;
-const quizData = 0;
+let currentQuiz = 0
+let score = 0
 
 loadQuiz()
 
 function loadQuiz() {
-    clrAns()
-    const url = 'https://opentdb.com/api.php?amount=10&category=18&difficulty=easy&type=multiple' 
-    fetch(url).then(data=>data.json()).then(result=>{
-        console.log(result)
-        const quizData = result.results
+    deselectAnswers()
 
-        correctAns = quizData[currenQuiz].correct_answer
-        console.log(correctAns)
-        incorrectAns = quizData[currenQuiz].incorrect_answers
-        options = incorrectAns
-        options.splice(Math.floor(Math.random() * (incorrectAns.length * 1)), 0, correctAns)
-        console.log(options)
+    const currentQuizData = quizData[currentQuiz]
 
-        questionsEle.innerHTML = quizData[currenQuiz].question
-        a_text.innerHTML = options[0]
-        b_text.innerHTML = options[1]
-        c_text.innerHTML = options[2]
-        d_text.innerHTML = options[3]
-    })
+    questionEl.innerText = currentQuizData.question
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
 }
 
-function clrAns() {
-    answerEle.forEach(answerEle => answerEle.checked = false)
+function deselectAnswers() {
+    answerEls.forEach(answerEl => answerEl.checked = false)
 }
 
 function getSelected() {
     let answer
 
-    answerEle.forEach(answerEle => {
-        if(answerEle.checked) {
-            answer = answerEle.id
+    answerEls.forEach(answerEl => {
+        if(answerEl.checked) {
+            answer = answerEl.id
         }
     })
 
@@ -57,23 +76,22 @@ function getSelected() {
 }
 
 submitBtn.addEventListener('click', () => {
-    const SelectedAns = getSelected()
-    console.log(SelectedAns)
-    if(SelectedAns) {
-        if(SelectedAns === correctAns) {
-            right++
+    const answer = getSelected()
+    
+    if(answer) {
+        if(answer === quizData[currentQuiz].correct) {
+            score++
         }
-        else if(SelectedAns !== incorrectAns) {
-            wrong++
-        }
-        if(currenQuiz < quizData.length) {
-            loadQuiz()
-        }
-        else {
-            quiz.innerHTML = `
-                <h2>Your Final Score is: ${right}/${right+wrong}
 
-                <button onclick="location.relaod()">Try Again</button>
+        currentQuiz++
+
+        if(currentQuiz < quizData.length) {
+            loadQuiz()
+        } else {
+            quiz.innerHTML = `
+                <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+
+                <button onclick="location.reload()">Reload</button>
             `
         }
     }
