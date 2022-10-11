@@ -22,26 +22,27 @@ function addTodo(todo) {
     }
 
     if (todoText) {
-        const todoEl = document.createElement('li')
+        const todoEle = document.createElement('li')
+        todoEle.classList.add('border-t', 'border-solid', 'border-slate-300', 'cursor-pointer', 'text-[1.5rem]', 'pt-4', 'pb-4', 'pl-4', 'pr-4')
         if (todo && todo.completed) {
-            todoEl.classList.add('completed')
+            todoEle.classList.add('completed')
         }
 
-        todoEl.innerText = todoText
+        todoEle.innerText = todoText
 
-        todoEl.addEventListener('click', () => {
-            todoEl.classList.toggle('completed')
+        todoEle.addEventListener('click', () => {
+            todoEle.classList.toggle('completed')
             updateLS()
         })
 
-        todoEl.addEventListener('contextmenu', (e) => {
+        todoEle.addEventListener('contextmenu', (e) => {
             e.preventDefault()
 
-            todoEl.remove()
+            todoEle.remove()
             updateLS()
         })
 
-        todosUL.appendChild(todoEl)
+        todosUL.appendChild(todoEle)
 
         input.value = ''
 
@@ -54,10 +55,10 @@ function updateLS() {
 
     const todos = []
 
-    todosEl.forEach(todoEl => {
+    todosEl.forEach(todoEle => {
         todos.push({
-            text: todoEl.innerText,
-            completed: todoEl.classList.contains('completed')
+            text: todoEle.innerText,
+            completed: todoEle.classList.contains('completed')
         })
     })
 
