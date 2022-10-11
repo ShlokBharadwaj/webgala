@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Todo List</title>
 </head>
+
 <body class="bg-[#f8f9fa] text-[#1a1a1a] flex flex-col items-center justify-center h-[100vh] m-0 box-border">
     <h1 class="text-[10rem] text-[#0077b6] text-center opacity-40">todos</h1>
-    <form id="form">
-        <input type="text" class="input" id="input" placeholder="Enter your todos" autocomplete="off">
-        <ul class="todos list-disc" id="todos">
-            <li>My 1st todo</li>
-            <li>My 2nd todo</li>
+    <form id="form" class="shadow-xl max-w-full w-[400px]">
+        <input type="text" class="input border-none text-[#444] text-[2rem] pt-4 pb-4 pl-8 pr-8 block w-full" id="input"
+            placeholder="Enter your todos" autocomplete="off">
+        <ul class="todos bg-white p-0 m-0" id="todos">
+            <li class="border-t border-solid border-slate-300 cursor-pointer text-[1.5rem] pt-4 pb-4 pl-4 pr-4">My 1st
+                todo</li>
+            <li class="border-t border-solid border-slate-300 cursor-pointer text-[1.5rem] pt-4 pb-4 pl-4 pr-4">My 2nd
+                todo</li>
         </ul>
     </form>
     <script src="script.js"></script>
 </body>
+
 </html>
