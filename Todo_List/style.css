@@ -3,3 +3,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
 }
+
+.todos li.completed {
+    color: #b6b6b6;
+    text-decoration: line-through;
+}
