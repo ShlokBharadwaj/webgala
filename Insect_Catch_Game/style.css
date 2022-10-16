@@ -3,3 +3,7 @@
 body {
     font-family: 'Press Start 2P', cursive;
 }
+
+.screen.up {
+    margin-top: -100vh;
+}
