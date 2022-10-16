@@ -6,34 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Insect Catch Game</title>
 </head>
 
-<body>
-    <div class="screen">
+<body class="h-[100vh] overflow-hidden m-0 box-border text-center">
+    <div class="screen flex flex-col items-center justify-center h-[100vh] w-[100vw]">
         <h1>Catch the Insect</h1>
         <button class="btn" id="start-button">Play Game</button>
     </div>
 
-    <div class="screen">
+    <div class="screen flex flex-col items-center justify-center h-[100vh] w-[100vw]">
         <h1>What is your favourite insect?</h1>
         <ul class="insect-list">
             <li>
-                <button class="choose-insect-btn">
+                <button class="choose-insect-btn w-[100px] h-[100px] object-contain">
                     <p>Fly</p>
                     <img src="https://images.unsplash.com/photo-1630942592547-d7d223e15dc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
                         alt="Mantis">
                 </button>
             </li>
             <li>
-                <button class="choose-insect-btn">
+                <button class="choose-insect-btn w-[100px] h-[100px] object-contain">
                     <p>Fly</p>
                     <img src="https://images.unsplash.com/photo-1579776711405-534256abcbb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=471&q=80"
                         alt="Spider">
                 </button>
             </li>
             <li>
-                <button class="choose-insect-btn">
+                <button class="choose-insect-btn w-[100px] h-[100px] object-contain">
                     <p>Fly</p>
                     <img src="https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
                         alt="Cockroach">
@@ -41,7 +42,7 @@
             </li>
         </ul>
     </div>
-    <div class="scree game-container">
+    <div class="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw]">
         <h3 id="time">Time: 00:00</h3>
         <h3 id="score">Score: 0</h3>
         <h5 id="message">
