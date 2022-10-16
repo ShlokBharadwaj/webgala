@@ -7,3 +7,8 @@ body {
 .screen.up {
     margin-top: -200vh;
 }
+
+.message.visible {
+    opacity: 1;
+    transform: translate(-50%, 150%);
+}
