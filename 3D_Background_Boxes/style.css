@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-    box-sizing: border-box ;
+    box-sizing: border-box;
 }
 
 body {
@@ -28,7 +28,7 @@ body {
     position: fixed;
     top: 20px;
     letter-spacing: 1px;
-    box-shadow: 3px 3px #adb5bd;  
+    box-shadow: 3px 3px #adb5bd;
     z-index: 1;
 }
 
@@ -41,7 +41,7 @@ body {
     box-shadow: none;
 }
 
-.boxes { 
+.boxes {
     position: relative;
     display: flex;
     flex-wrap: wrap;
