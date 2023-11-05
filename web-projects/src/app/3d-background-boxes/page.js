@@ -1,1 +1,1 @@
-export { default } from './3DBackgroundBoxes';
+export { default } from './ThreeDBackgroundBoxes';
