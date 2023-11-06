@@ -4,6 +4,50 @@ import React, { useEffect } from 'react';
 import styles from './AnimatedCountdowns.module.css';
 
 const AnimatedCountdowns = () => {
+
+    useEffect(() => {
+        const nums = document.querySelectorAll(`.${styles.nums} span`);
+        const counter = document.querySelector(`.${styles.counter}`);
+        const finalMessage = document.querySelector(`.${styles.final}`);
+        const replay = document.querySelector(`#${styles.replay}`);
+
+        runAnimation();
+
+        function resetDOM() {
+            counter.classList.remove(styles.hide);
+            finalMessage.classList.remove(styles.show);
+
+            nums.forEach((num) => {
+                num.classList.value = '';
+            });
+
+            nums[0].classList.add(styles.in);
+        }
+
+        function runAnimation() {
+            nums.forEach((num, idx) => {
+                const nextToLast = nums.length - 1;
+
+                num.addEventListener('animationend', (e) => {
+                    if (e.animationName === styles.goIn && idx !== nextToLast) {
+                        num.classList.remove(styles.in);
+                        num.classList.add(styles.out);
+                    } else if (e.animationName === styles.goOut && num.nextElementSibling) {
+                        num.nextElementSibling.classList.add(styles.in);
+                    } else {
+                        counter.classList.add(styles.hide);
+                        finalMessage.classList.add(styles.show);
+                    }
+                });
+            });
+        }
+
+        replay.addEventListener('click', () => {
+            resetDOM();
+            runAnimation();
+        });
+    }, []);
+
     return (
         <div className={styles.main}>
             <div className={styles.counter}>
