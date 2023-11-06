@@ -9,6 +9,9 @@ const ThreeDBackgroundBoxes = () => {
     const btn = document.getElementById('btn');
 
     const createBoxes = () => {
+
+      boxesCont.innerHTML = '';
+
       for (let i = 0; i < 4; i++) {
         for (let j = 0; j < 4; j++) {
           const box = document.createElement('div');
@@ -32,7 +35,6 @@ const ThreeDBackgroundBoxes = () => {
 
     createBoxes();
 
-    // Cleanup function
     return () => {
       btn.removeEventListener('click', handleButtonClick);
     };
