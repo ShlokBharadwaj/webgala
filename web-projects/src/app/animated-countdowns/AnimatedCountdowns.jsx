@@ -11,7 +11,11 @@ const AnimatedCountdowns = () => {
         const finalMessage = document.querySelector(`.${styles.final}`);
         const replay = document.querySelector(`#${styles.replay}`);
 
-        runAnimation();
+        const animationCompleted = localStorage.getItem('animationCompleted');
+
+        if (!animationCompleted) {
+            runAnimation();
+        }
 
         function resetDOM() {
             counter.classList.remove(styles.hide);
@@ -35,6 +39,7 @@ const AnimatedCountdowns = () => {
                     } else if (e.animationName === styles.goOut && num.nextElementSibling) {
                         num.nextElementSibling.classList.add(styles.in);
                     } else {
+                        localStorage.setItem('animationCompleted', 'true');
                         counter.classList.add(styles.hide);
                         finalMessage.classList.add(styles.show);
                     }
@@ -43,6 +48,7 @@ const AnimatedCountdowns = () => {
         }
 
         replay.addEventListener('click', () => {
+            localStorage.removeItem('animationCompleted');
             resetDOM();
             runAnimation();
         });
@@ -70,4 +76,4 @@ const AnimatedCountdowns = () => {
     )
 }
 
-export default AnimatedCountdowns
+export default AnimatedCountdowns;
