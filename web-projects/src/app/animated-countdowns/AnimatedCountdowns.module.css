@@ -2,6 +2,7 @@
 
 .main {
     box-sizing: border-box;
+    background-color: pink;
     font-family: 'Delius', cursive;
     margin: 0;
     overflow: hidden;
@@ -78,6 +79,7 @@
     left: 50%;
     transform: translate(-50%, -50%) rotate(120deg);
     transform-origin: bottom center;
+    animation-play-state: running;
 }
 
 .nums span.in {
