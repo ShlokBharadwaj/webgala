@@ -1,17 +1,17 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './AnimatedCountdowns.module.css';
 
 const AnimatedCountdowns = () => {
+
+    const [animationCompleted, setAnimationCompleted] = useState(false);
 
     useEffect(() => {
         const nums = document.querySelectorAll(`.${styles.nums} span`);
         const counter = document.querySelector(`.${styles.counter}`);
         const finalMessage = document.querySelector(`.${styles.final}`);
         const replay = document.querySelector(`#${styles.replay}`);
-
-        const animationCompleted = localStorage.getItem('animationCompleted');
 
         if (!animationCompleted) {
             runAnimation();
@@ -39,7 +39,7 @@ const AnimatedCountdowns = () => {
                     } else if (e.animationName === styles.goOut && num.nextElementSibling) {
                         num.nextElementSibling.classList.add(styles.in);
                     } else {
-                        localStorage.setItem('animationCompleted', 'true');
+                        setAnimationCompleted(true);
                         counter.classList.add(styles.hide);
                         finalMessage.classList.add(styles.show);
                     }
@@ -48,11 +48,11 @@ const AnimatedCountdowns = () => {
         }
 
         replay.addEventListener('click', () => {
-            localStorage.removeItem('animationCompleted');
+            setAnimationCompleted(false);
             resetDOM();
             runAnimation();
         });
-    }, []);
+    }, [animationCompleted]);
 
     return (
         <div className={styles.main}>
@@ -67,7 +67,7 @@ const AnimatedCountdowns = () => {
             </div>
 
             <div className={styles.final}>
-                <h1>GO</h1>
+                <h1 className={styles.h1}>GO</h1>
                 <button id={styles.replay}>
                     <span>Replay</span>
                 </button>
