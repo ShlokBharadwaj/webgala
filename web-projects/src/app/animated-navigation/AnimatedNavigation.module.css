@@ -92,3 +92,11 @@
     top: auto;
     bottom: 10px;
 }
+
+.nav.active .icon .line1 {
+    transform: rotate(-765deg) translateY(5.5px);
+}
+
+.nav.active .icon .line2 {
+    transform: rotate(765deg) translateY(-5.5px);
+}
