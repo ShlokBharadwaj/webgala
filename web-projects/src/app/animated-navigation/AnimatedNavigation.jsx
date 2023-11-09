@@ -6,7 +6,7 @@ import styles from './AnimatedNavigation.module.css'
 const AnimatedNavigation = () => {
     return (
         <div className={styles.main}>
-            <nav className={styles.active} id='nav'>
+            <nav className={`${styles.active} ${styles.nav}`} id='nav'>
                 <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Works</a></li>
