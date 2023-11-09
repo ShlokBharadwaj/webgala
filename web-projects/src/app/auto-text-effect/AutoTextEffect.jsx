@@ -9,7 +9,7 @@ const AutoTextEffect = () => {
             <h1 className={styles.h1} id='text'></h1>
             <div className={styles.speedCont}>
                 <label htmlFor='speed'>Speed:</label>
-                <input type="number" name='speed' id='speed' value={1} min={1} max={5} step={1} />
+                <input className={styles.inputCont}  type="number" name='speed' id='speed' value={1} min={1} max={5} step={1} />
             </div>
         </div>
     )
