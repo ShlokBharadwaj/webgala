@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Red+Hat+Mono:wght@300&display=swap');
+
+.main {
+    box-sizing: border-box;
+    background-color: rgb(255, 226, 172);
+    background-image: linear-gradient(to bottom,
+            #ffa600a8 0%,
+            #ffa600a8 50%,
+            #4084f8 50%,
+            #4084f8 50%);
+    font-family: 'Inconsolata', monospace, 'Red Hat Mono', monospace;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
