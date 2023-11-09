@@ -1,48 +1,60 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ThreeDBackgroundBoxes.module.css';
 
 const ThreeDBackgroundBoxes = () => {
+  const [isActive, setIsActive] = useState(false);
+
   useEffect(() => {
-    const boxesCont = document.getElementById('boxes');
-    const btn = document.getElementById('btn');
-
     const createBoxes = () => {
-
-      boxesCont.innerHTML = '';
-
-      for (let i = 0; i < 4; i++) {
-        for (let j = 0; j < 4; j++) {
-          const box = document.createElement('div');
-          box.classList.add(styles.box);
-          box.style.backgroundPosition = `${-j * 125}px ${-i * 125}px`;
-          boxesCont.appendChild(box);
+      const boxesCont = document.getElementById('boxes');
+      if (boxesCont) {
+        boxesCont.innerHTML = '';
+        for (let i = 0; i < 4; i++) {
+          for (let j = 0; j < 4; j++) {
+            const box = document.createElement('div');
+            box.classList.add(styles.box);
+            box.style.backgroundPosition = `${-j * 125}px ${-i * 125}px`;
+            boxesCont.appendChild(box);
+          }
         }
       }
     };
 
     const handleButtonClick = () => {
-      boxesCont.classList.toggle(styles.activez);
-      boxesCont.querySelectorAll(`.${styles.box}`).forEach((box) => {
-        box.style.transform = boxesCont.classList.contains(styles.activez)
-          ? 'rotateZ(360deg)'
-          : 'rotateZ(0)';
-      });
+      setIsActive((prev) => !prev);
     };
 
-    btn.addEventListener('click', handleButtonClick);
+    const boxesCont = document.getElementById('boxes');
+    if (boxesCont) {
+      boxesCont.addEventListener('transitionend', () => {
+        setIsActive(false);
+      });
+    }
 
     createBoxes();
 
     return () => {
-      btn.removeEventListener('click', handleButtonClick);
+      const btn = document.getElementById('btn');
+      if (btn) {
+        btn.removeEventListener('click', handleButtonClick);
+      }
     };
   }, []);
 
+  useEffect(() => {
+    const boxesCont = document.getElementById('boxes');
+    if (boxesCont) {
+      const rotation = isActive ? '360deg' : '0';
+      boxesCont.style.transition = 'transform 2s';
+      boxesCont.style.transform = `rotateZ(${rotation})`;
+    }
+  }, [isActive]);
+
   return (
     <div className={styles.main}>
-      <button id="btn" className={styles.magic}>
+      <button id="btn" className={styles.magic} onClick={() => setIsActive((prev) => !prev)}>
         🎇Magic🎆
       </button>
       <div className={`${styles.boxes}`} id="boxes"></div>
@@ -51,3 +63,4 @@ const ThreeDBackgroundBoxes = () => {
 };
 
 export default ThreeDBackgroundBoxes;
+
