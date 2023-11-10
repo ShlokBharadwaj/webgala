@@ -37,3 +37,12 @@
 .inputCont:focus {
     outline: none;
 }
+
+.h1 {
+    font-size: 50px;
+    color: #111;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 1.5;
+}
