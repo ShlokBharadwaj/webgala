@@ -4,31 +4,28 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './AutoTextEffect.module.css';
 
 const AutoTextEffect = () => {
-
     const textRef = useRef(null);
     const speedInputRef = useRef(null);
 
-    const [text, setText] = useState("Shlok Bharadwaj")
+    const [text, setText] = useState("Shlok Bharadwaj");
     const [idx, setIdx] = useState(1);
-    const [speed, setSpeed] = useState(300);
+    const [speed, setSpeed] = useState(1);
 
     useEffect(() => {
-        writeText();
-
-        function writeText() {
+        const writeText = () => {
             textRef.current.innerText = text.slice(0, idx);
             setIdx((prevIdx) => (prevIdx % text.length) + 1);
-            setTimeout(writeText, speed);
-        }
-
-        const handleSpeedChange = (e) => setSpeed(300 / e.target.value);
-
-        speedInputRef.current.addEventListener('input', handleSpeedChange);
-
-        return () => {
-            speedInputRef.current.removeEventListener('input', handleSpeedChange);
         };
+
+        const interval = setInterval(writeText, 300 / speed);
+
+        return () => clearInterval(interval);
     }, [idx, speed, text]);
+
+    const handleSpeedChange = (e) => {
+        const newSpeed = parseInt(e.target.value, 10);
+        setSpeed(newSpeed);
+    };
 
     return (
         <div className={styles.main}>
@@ -37,17 +34,19 @@ const AutoTextEffect = () => {
                 <label htmlFor='speed'>Speed:</label>
                 <input
                     className={styles.inputCont}
-                    type="number"
+                    type='number'
                     name='speed'
                     id='speed'
-                    value={1}
+                    value={speed}
                     min={1}
                     max={5}
                     step={1}
-                    ref={speedInputRef} />
+                    onChange={handleSpeedChange}
+                    ref={speedInputRef}
+                />
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default AutoTextEffect;
