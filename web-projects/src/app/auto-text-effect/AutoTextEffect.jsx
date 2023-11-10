@@ -24,7 +24,8 @@ const AutoTextEffect = () => {
 
     const handleSpeedChange = (e) => {
         const newSpeed = parseInt(e.target.value, 10);
-        setSpeed(newSpeed);
+        const clampedSpeed = Math.min(Math.max(newSpeed, 1), 5);
+        setSpeed(clampedSpeed);
     };
 
     return (
