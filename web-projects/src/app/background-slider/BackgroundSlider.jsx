@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from './BackgroundSlider.module.css';
 
 const BackgroundSlider = () => {
   return (
@@ -6,4 +7,4 @@ const BackgroundSlider = () => {
   )
 }
 
-export default BackgroundSlider
+export default BackgroundSlider;
