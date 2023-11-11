@@ -7,8 +7,6 @@ import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const BackgroundSlider = () => {
 
-    const [activeSlide, setActiveSlide] = useState(0);
-
     const slides = [
         'https://source.unsplash.com/random/415/?cars',
         'https://source.unsplash.com/random/415/?nature',
@@ -16,16 +14,23 @@ const BackgroundSlider = () => {
         'https://source.unsplash.com/random/415/?travel'
     ];
 
+    const [activeSlide, setActiveSlide] = useState(0);
+    const [backgroundImage, setBackgroundImage] = useState(slides[activeSlide]);
+
     const handleLeftClick = () => {
-        setActiveSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length)
+        const newActiveSlide = (activeSlide - 1 + slides.length) % slides.length;
+        setActiveSlide(newActiveSlide);
+        setBackgroundImage(slides[newActiveSlide]);
     };
 
     const handleRightClick = () => {
-        setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length)
+        const newActiveSlide = (activeSlide + 1) % slides.length;
+        setActiveSlide(newActiveSlide);
+        setBackgroundImage(slides[newActiveSlide]);
     };
 
     return (
-        <div className={styles.main}>
+        <div className={styles.main} style={{ backgroundImage: `url('${backgroundImage}')` }}>
             <div className={styles.sliderContainer}>
                 {slides.map((slide, index) => (
                     <div
