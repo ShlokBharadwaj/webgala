@@ -18,10 +18,10 @@
     -o-background-size: cover;
     background-color: teal;
     position: absolute;
-    top: -60px;
-    left: -60px;
-    height: calc(100vh + 60px);
-    width: calc(100vw + 120px);
+    top: -200px;
+    left: -40px;
+    height: calc(100vh + 200px);
+    width: calc(100vw + 40px);
     z-index: 1;
     filter: blur(0px);
 }
