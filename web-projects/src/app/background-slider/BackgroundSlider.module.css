@@ -14,14 +14,14 @@
 }
 
 .main::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.7);
-    z-index: -1;
+    z-index: 1;
 }
 
 .sliderContainer {
@@ -61,6 +61,7 @@
     transform: translateY(-50%);
     cursor: pointer;
     border-radius: 5px;
+    z-index: 1;
 }
 
 .arrow:focus {
@@ -68,9 +69,9 @@
 }
 
 .leftArrow {
-    left: calc(15vw - 65px);
+    left: calc(15vw - 69px);
 }
 
 .rightArrow {
-    right: calc(15vw - 65px);
+    right: calc(15vw - 69px);
 }
