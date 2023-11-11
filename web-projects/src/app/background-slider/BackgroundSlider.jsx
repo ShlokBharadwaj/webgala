@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react';
 import styles from './BackgroundSlider.module.css';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
