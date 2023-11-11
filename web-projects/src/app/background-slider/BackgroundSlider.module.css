@@ -28,9 +28,12 @@
 .sliderContainer {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     height: 70vh;
-    width: 70vw;
+    width: 68vw;
     position: relative;
     overflow: hidden;
+    top: 15vh;
+    left: 16vw;
+    border-radius: 5px;
 }
 
 .slide {
@@ -40,7 +43,7 @@
     background-position: center center;
     background-size: cover;
     position: absolute;
-    top: -15vh;
+    top: -20vh;
     left: -15vw;
     transition: 0.4s ease;
     z-index: 1;
@@ -61,6 +64,7 @@
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 1;
+    border-radius: 5px;
 }
 
 .arrow:focus {
