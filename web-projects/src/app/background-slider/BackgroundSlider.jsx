@@ -25,43 +25,24 @@ const BackgroundSlider = () => {
     };
 
     return (
-        <div className={`${styles.main}`}>
-            <div className={`${styles.sliderCont}`}>
-                <div className={`${styles.slide} ${styles.active}`}
-                    style={{
-                        backgroundImage: "url('https://source.unsplash.com/random/415/?cars')",
-                    }}
-                >
-                </div>
-                <div className={`${styles.slide}`}
-                    style={{
-                        backgroundImage: "url('https://source.unsplash.com/random/415/?nature')"
-                    }}
-                >
-                </div>
-                <div className={`${styles.slide}`}
-                    style={{
-                        backgroundImage: "url('https://source.unsplash.com/random/415/?food')"
-                    }}
-                >
-                </div>
-                <div className={`${styles.slide}`}
-                    style={{
-                        backgroundImage: "url('https://source.unsplash.com/random/415/?travel')"
-                    }}
-                >
-                </div>
-
-                <button className={`${styles.arrow} ${styles.leftArrow}`}>
+        <div className={styles.main}>
+            <div className={styles.sliderContainer}>
+                {slides.map((slide, index) => (
+                    <div
+                        key={index}
+                        className={`${styles.slide} ${activeSlide === index ? styles.active : ''}`}
+                        style={{ backgroundImage: `url('${slide}')` }}
+                    ></div>
+                ))}
+                <button className={`${styles.arrow} ${styles.leftArrow}`} onClick={handleLeftClick}>
                     <FontAwesomeIcon icon={faArrowLeft} />
                 </button>
-
-                <button className={`${styles.arrow} ${styles.rightArrow}`}>
+                <button className={`${styles.arrow} ${styles.rightArrow}`} onClick={handleRightClick}>
                     <FontAwesomeIcon icon={faArrowRight} />
                 </button>
             </div>
         </div>
-    )
+    );
 }
 
 export default BackgroundSlider;
