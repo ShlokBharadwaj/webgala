@@ -10,3 +10,18 @@
     overflow: hidden;
     margin: 0;
 }
+
+.bg {
+    background: url('https://source.unsplash.com/random/?wallpaper') no-repeat center center fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-color: teal;
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    height: calc(100vh + 60px);
+    width: calc(100vw + 120px);
+    z-index: 1;
+    filter: blur(0px);
+}
