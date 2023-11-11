@@ -25,3 +25,9 @@
     z-index: 1;
     filter: blur(0px);
 }
+
+.loadingText {
+    font-size: 50px;
+    color: #fff;
+    z-index: 999;
+}
