@@ -24,6 +24,13 @@ const ContentPlaceholder = () => {
             const date = 'May 19, 2022';
 
             setDataLoaded(true);
+
+            headerRef.current.innerHTML = header;
+            titleRef.current.innerHTML = title;
+            excerptRef.current.innerHTML = excerpt;
+            profileImgRef.current.innerHTML = profileImg;
+            nameRef.current.innerHTML = name;
+            dateRef.current.innerHTML = date;
         };
 
         fetchData();
