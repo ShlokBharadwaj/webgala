@@ -38,6 +38,10 @@
     animation: scale 0.7s ease-out;
 }
 
+.button:focus {
+    outline: none;
+}
+
 @keyframes scale {
     to {
         transform: translate(-50%, -50%) scale(3);
