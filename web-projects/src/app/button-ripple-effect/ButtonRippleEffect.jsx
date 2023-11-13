@@ -1,38 +1,48 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import styles from './ButtonRippleEffect.module.css';
 
 const ButtonRippleEffect = () => {
-    const buttonRef = useRef(null);
+  const [ripples, setRipples] = useState([]);
 
-    const handleClick = (e) => {
-        const x = e.clientX;
-        const y = e.clientY;
+  const handleClick = (e) => {
+    const x = e.clientX;
+    const y = e.clientY;
 
-        const buttonTop = buttonRef.current.offsetTop;
-        const buttonLeft = buttonRef.current.offsetLeft;
+    const buttonTop = e.currentTarget.offsetTop;
+    const buttonLeft = e.currentTarget.offsetLeft;
 
-        const xInside = x - buttonLeft;
-        const yInside = y - buttonTop;
+    const xInside = x - buttonLeft;
+    const yInside = y - buttonTop;
 
-        const circle = document.createElement('span');
-        circle.classList.add('circle');
-        circle.style.top = `${yInside}px`;
-        circle.style.left = `${xInside}px`;
+    setRipples((prevRipples) => [
+      ...prevRipples,
+      { x: xInside, y: yInside, id: Date.now() },
+    ]);
 
-        buttonRef.current.appendChild(circle);
+    setTimeout(() => {
+      setRipples((prevRipples) => prevRipples.slice(1));
+    }, 500);
+  };
 
-        setTimeout(() => circle.remove(), 500);
-    };
-
-    return (
-        <div className={styles.main}>
-            <button className={`${styles.ripple} ${styles.button}`} ref={buttonRef} onClick={handleClick}>
-                Click Me
-            </button>
-        </div>
-    );
+  return (
+    <div className={styles.main}>
+      <button
+        className={`${styles.ripple} ${styles.button}`}
+        onClick={handleClick}
+      >
+        Click Me
+        {ripples.map((ripple) => (
+          <span
+            key={ripple.id}
+            className={styles.circle}
+            style={{ top: ripple.y, left: ripple.x }}
+          ></span>
+        ))}
+      </button>
+    </div>
+  );
 };
 
 export default ButtonRippleEffect;
