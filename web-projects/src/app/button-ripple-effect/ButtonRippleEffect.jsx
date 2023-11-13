@@ -1,4 +1,7 @@
-import React from 'react'
+'use client';
+
+import React from 'react';
+import styles from './ButtonRippleEffect.module.css';
 
 const ButtonRippleEffect = () => {
   return (
@@ -6,4 +9,4 @@ const ButtonRippleEffect = () => {
   )
 }
 
-export default ButtonRippleEffect
+export default ButtonRippleEffect;
