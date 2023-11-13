@@ -12,3 +12,19 @@
     overflow: hidden;
     margin: 0;
 }
+
+.button {
+    background-color: purple;
+    color: #fff;
+    border: 1px purple solid;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 20px 30px;
+    overflow: hidden;
+    margin: 10px 10px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border-radius: 5px;
+}
