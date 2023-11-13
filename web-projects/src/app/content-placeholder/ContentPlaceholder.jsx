@@ -12,6 +12,23 @@ const ContentPlaceholder = () => {
     const nameRef = useRef(null);
     const dateRef = useRef(null);
 
+    useEffect(() => {
+        const fetchData = async () => {
+            await new Promise((resolve) => setTimeout(resolve, 1500));
+
+            const header = '<img src="https://source.unsplash.com/random" alt="www.unsplash.com">';
+            const title = 'Lorem ipsum dolor sit amet';
+            const excerpt = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis';
+            const profileImg = '<img src="https://source.unsplash.com/random/250×250/?portrait" alt="" />';
+            const name = 'Derk Jaminson';
+            const date = 'May 19, 2022';
+
+            setDataLoaded(true);
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div className={`${styles.card} ${dataLoaded ? '' : styles.loading}`}>
         </div>
