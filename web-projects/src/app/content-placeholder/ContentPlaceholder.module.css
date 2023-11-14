@@ -67,3 +67,8 @@
     margin-left: 10px;
     width: 100px;
 }
+
+.authorInfo small {
+    color: #aaa;
+    margin-top: 5px;
+}
