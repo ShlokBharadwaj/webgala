@@ -2,7 +2,7 @@
 
 .main {
     box-sizing: border-box;
-    background-color: #f0f8ff;
+    background-color: #ecf0f1;
     font-family: 'Roboto', sans-serif;
     display: flex;
     align-items: center;
@@ -94,12 +94,16 @@
     width: 100%;
 } */
 
+.animatedBgLoaded {
+    animation: none;
+}
+
 @keyframes bgAnim {
     0% {
         background-position: 50% 0;
     }
 
     100% {
-        background-position: -150px 0;
+        background-position: -150% 0;
     }
 }

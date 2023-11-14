@@ -20,7 +20,7 @@ const ContentPlaceholder = () => {
             const title = 'Lorem ipsum dolor sit amet';
             const excerpt = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis';
             const profileImg = '<img src="https://source.unsplash.com/random/250×250/?portrait" alt="www.unsplash.com" classname={`${styles.img}`}/>';
-            const name = 'Derk Jaminson';
+            const name = 'Jon Doe';
             const date = 'Dec 08, 2023';
 
             setDataLoaded(true);
