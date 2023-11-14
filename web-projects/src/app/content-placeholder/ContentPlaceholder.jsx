@@ -51,8 +51,8 @@ const ContentPlaceholder = () => {
                     <div className={styles.author}>
                         <div className={`${styles.profileImg} ${styles.animatedBg}`} ref={profileImgRef}></div>
                         <div className={styles.authorInfo}>
-                            <strong className={`${styles.authorName} ${styles.animatedBg} ${styles.animatedBgText}`} ref={nameRef}></strong>
-                            <small className={`${styles.authorDate} ${styles.animatedBg} ${styles.animatedBgText}`} ref={dateRef}></small>
+                            <strong className={`${styles.animatedBg} ${styles.animatedBgText}`} ref={nameRef}>&nbsp;</strong>
+                            <small className={`${styles.animatedBg} ${styles.animatedBgText}`} ref={dateRef}>&nbsp;</small>
                         </div>
                     </div>
                 </div>
