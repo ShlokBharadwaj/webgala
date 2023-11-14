@@ -15,6 +15,7 @@
 
 .img {
     max-width: 100%;
+    height: auto;
 }
 
 .card {
@@ -26,12 +27,14 @@
 
 .cardHeader {
     height: 200px;
+    overflow: hidden;
 }
 
 .cardHeader .img {
     object-fit: cover;
     height: 100%;
     width: 100%;
+    object-position: center;
 }
 
 .cardContent {
@@ -75,13 +78,12 @@
 }
 
 .animatedBg {
-    background-image: linear-gradient(
-        to right,
-        #f6f7f8 0%,
-        #edeef1 10%,
-        #f6f7f8 20%,
-        #f6f7f8 100%
-    );
+    background-image:
+        linear-gradient(to right,
+            #f6f7f8 0%,
+            #edeef1 10%,
+            #f6f7f8 20%,
+            #f6f7f8 100%);
     background-size: 200% 100%;
     animation: bgAnim 1s linear infinite;
 }
