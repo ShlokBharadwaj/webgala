@@ -38,3 +38,17 @@
     background-color: #fff;
     padding: 30px;
 }
+
+.cardTitle {
+    height: 20px;
+    margin: 0;
+}
+
+.cardExcerpt {
+    color: #777;
+    margin: 10px 0 20px;
+}
+
+.author {
+    display: flex;
+}
