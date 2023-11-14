@@ -39,9 +39,9 @@ const ContentPlaceholder = () => {
     return (
         <div className={styles.main}>
             <div className={`${styles.card} ${dataLoaded ? '' : styles.loading}`}>
-                <div className={`${styles.cardHeader} ${styles.animatedBg}`} ref={headerRef}></div>
+                <div className={`${styles.cardHeader} ${styles.animatedBg}`} ref={headerRef}>&nbsp;</div>
                 <div className={styles.cardContent}>
-                    <h3 className={`${styles.cardTitle} ${styles.animatedBg} ${styles.animatedBgText}`} ref={titleRef}></h3>
+                    <h3 className={`${styles.cardTitle} ${styles.animatedBg} ${styles.animatedBgText}`} ref={titleRef}>&nbsp;</h3>
                     <p className={styles.cardExcerpt} ref={excerptRef}>
                         &nbsp;
                         <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
@@ -49,7 +49,7 @@ const ContentPlaceholder = () => {
                         <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
                     </p>
                     <div className={styles.author}>
-                        <div className={`${styles.profileImg} ${styles.animatedBg}`} ref={profileImgRef}></div>
+                        <div className={`${styles.profileImg} ${styles.animatedBg}`} ref={profileImgRef}>&nbsp;</div>
                         <div className={styles.authorInfo}>
                             <strong className={`${styles.animatedBg} ${styles.animatedBgText}`} ref={nameRef}>&nbsp;</strong>
                             <small className={`${styles.animatedBg} ${styles.animatedBgText}`} ref={dateRef}>&nbsp;</small>
