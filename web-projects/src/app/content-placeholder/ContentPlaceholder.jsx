@@ -37,21 +37,23 @@ const ContentPlaceholder = () => {
     }, []);
 
     return (
-        <div className={`${styles.card} ${dataLoaded ? '' : styles.loading}`}>
-            <div className={`${styles.cardHeader} ${styles.animatedBg}`} ref={headerRef}></div>
-            <div className={styles.cardContent}>
-                <h3 className={`${styles.cardTitle} ${styles.animatedBg} ${styles.animatedBgText}`} ref={titleRef}></h3>
-                <p className={styles.cardExcerpt} ref={excerptRef}>
-                    &nbsp;
-                    <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
-                    <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
-                    <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
-                </p>
-                <div className={styles.author}>
-                    <div className={`${styles.profileImg} ${styles.animatedBg}`} ref={profileImgRef}></div>
-                    <div className={styles.authorInfo}>
-                        <strong className={`${styles.authorName} ${styles.animatedBg} ${styles.animatedBgText}`} ref={nameRef}></strong>
-                        <small className={`${styles.authorDate} ${styles.animatedBg} ${styles.animatedBgText}`} ref={dateRef}></small>
+        <div className={styles.main}>
+            <div className={`${styles.card} ${dataLoaded ? '' : styles.loading}`}>
+                <div className={`${styles.cardHeader} ${styles.animatedBg}`} ref={headerRef}></div>
+                <div className={styles.cardContent}>
+                    <h3 className={`${styles.cardTitle} ${styles.animatedBg} ${styles.animatedBgText}`} ref={titleRef}></h3>
+                    <p className={styles.cardExcerpt} ref={excerptRef}>
+                        &nbsp;
+                        <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
+                        <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
+                        <span className={`${styles.animatedBg} ${styles.animatedBgText}`}>&nbsp;</span>
+                    </p>
+                    <div className={styles.author}>
+                        <div className={`${styles.profileImg} ${styles.animatedBg}`} ref={profileImgRef}></div>
+                        <div className={styles.authorInfo}>
+                            <strong className={`${styles.authorName} ${styles.animatedBg} ${styles.animatedBgText}`} ref={nameRef}></strong>
+                            <small className={`${styles.authorDate} ${styles.animatedBg} ${styles.animatedBgText}`} ref={dateRef}></small>
+                        </div>
                     </div>
                 </div>
             </div>
