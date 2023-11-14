@@ -31,19 +31,14 @@ const ContentPlaceholder = () => {
             profileImgRef.current.innerHTML = profileImg;
             nameRef.current.innerHTML = name;
             dateRef.current.innerHTML = date;
+
+            document.querySelectorAll(`.${styles.animatedBg}`).forEach((bg) => bg.classList.remove(styles.animatedBg));
+
+            document.querySelectorAll(`.${styles.animatedBgText}`).forEach((bg) => bg.classList.remove(styles.animatedBgText));
         };
 
         fetchData();
     }, []);
-
-    useEffect(() => {
-        if (dataLoaded) {
-           
-            document.querySelectorAll(`.${styles.animatedBg}`).forEach((bg) => bg.classList.remove(styles.animatedBg));
-
-            document.querySelectorAll(`.${styles.animatedBgText}`).forEach((bg) => bg.classList.remove(styles.animatedBgText));
-        }
-    }, [dataLoaded]);
 
     return (
         <div className={styles.main}>
