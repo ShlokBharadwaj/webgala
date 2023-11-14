@@ -86,16 +86,12 @@
     animation: bgAnim 1s linear infinite;
 }
 
-/* .animatedBgText {
+.animatedBgText {
     border-radius: 50px;
     display: inline-block;
     margin: 0;
     height: 10px;
     width: 100%;
-} */
-
-.animatedBgLoaded {
-    animation: none;
 }
 
 @keyframes bgAnim {
