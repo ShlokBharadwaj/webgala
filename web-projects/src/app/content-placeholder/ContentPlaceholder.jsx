@@ -16,12 +16,12 @@ const ContentPlaceholder = () => {
         const fetchData = async () => {
             await new Promise((resolve) => setTimeout(resolve, 1500));
 
-            const header = '<img src="https://source.unsplash.com/random" alt="www.unsplash.com">';
+            const header = '<img src="https://source.unsplash.com/random" alt="www.unsplash.com" classname={`${styles.img}`}>';
             const title = 'Lorem ipsum dolor sit amet';
             const excerpt = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore perferendis';
-            const profileImg = '<img src="https://source.unsplash.com/random/250×250/?portrait" alt="" />';
+            const profileImg = '<img src="https://source.unsplash.com/random/250×250/?portrait" alt="www.unsplash.com" classname={`${styles.img}`}/>';
             const name = 'Derk Jaminson';
-            const date = 'May 19, 2022';
+            const date = 'Dec 08, 2023';
 
             setDataLoaded(true);
 
