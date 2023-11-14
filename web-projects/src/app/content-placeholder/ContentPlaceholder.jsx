@@ -36,6 +36,15 @@ const ContentPlaceholder = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        if (dataLoaded) {
+           
+            document.querySelectorAll(`.${styles.animatedBg}`).forEach((bg) => bg.classList.remove(styles.animatedBg));
+
+            document.querySelectorAll(`.${styles.animatedBgText}`).forEach((bg) => bg.classList.remove(styles.animatedBgText));
+        }
+    }, [dataLoaded]);
+
     return (
         <div className={styles.main}>
             <div className={`${styles.card} ${dataLoaded ? '' : styles.loading}`}>
