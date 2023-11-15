@@ -35,8 +35,8 @@ const CustomRangeGenerator = () => {
         <div className={`${styles.main}`}>
             <h2 className={`${styles.h2}`}>Slide for Custom Range:</h2>
             <div className={`${styles.rangeContainer}`}>
-                <input type="range" min={0} max={100} value={rangeValue} onChange={handleRangeChange} />
-                <label htmlFor="range" style={{ left: `${labelPosition}px` }} ref={labelRef}>
+                <input type="range" min={0} max={100} value={rangeValue} onChange={handleRangeChange} className={`${styles.range}`}/>
+                <label htmlFor="range" style={{ left: `${labelPosition}px` }} ref={labelRef} className={`${styles.label}`}>
                     {rangeValue}
                 </label>
             </div>
