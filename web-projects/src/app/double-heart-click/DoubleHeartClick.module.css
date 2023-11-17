@@ -6,6 +6,7 @@
     text-align: center;
     overflow: hidden;
     margin: 0;
+    background-color: aliceblue;
 }
 
 .h3 {
@@ -21,4 +22,28 @@
 
 .faHeart {
     color: red;
+}
+
+.loveMe {
+    height: 440px;
+    width: 300px;
+    background: url('https://source.unsplash.com/random') no-repeat center center/cover;
+    margin: auto;
+    cursor: pointer;
+    max-width: 100%;
+    position: relative;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.25), 0 14px 14px rgba(0, 0, 0, 0.25);
+}
+
+.loveMe .faHeart {
+    position: absolute;
+    animation: heart 0.6s linear;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+@keyframes heart {
+    to {
+        transform: translate(-50%, -50%) scale(10);
+        opacity: 0;
+    }
 }
