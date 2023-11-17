@@ -20,15 +20,19 @@ const DadJokes = () => {
   };
 
   useEffect(() => {
-
     getJokes();
-    jokesBtnRef.current.addEventListener('click', getJokes);
+    const jokesBtn = jokesBtnRef.current;
+
+    if (jokesBtn) {
+      jokesBtn.addEventListener('click', getJokes);
+    }
 
     return () => {
-      jokesBtnRef.current.removeEventListener('click', getJokes);
+      if (jokesBtn) {
+        jokesBtn.removeEventListener('click', getJokes);
+      }
     };
   }, []);
-
 
   return (
     <div className={styles.main}>
