@@ -58,6 +58,20 @@ const DoubleVerticalSlider = () => {
                     <p>Wandering through a magical woodland of wonders</p>
                 </div>
             </div>
+            <div className={styles.rightSide}>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652640988475-ff9ecb45662f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652979060932-73bb144525dc?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=429)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1653013351295-1a4fc7c2d38c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652903673810-07617dd01e1b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652640988475-ff9ecb45662f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652979060932-73bb144525dc?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=429)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1653013351295-1a4fc7c2d38c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652903673810-07617dd01e1b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652640988475-ff9ecb45662f?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652979060932-73bb144525dc?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=429)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1653013351295-1a4fc7c2d38c?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464)' }}></div>
+                <div style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1652903673810-07617dd01e1b?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387)' }}></div>
+            </div>
 
             <div className={styles.actionButtons}>
                 <button className={styles.downButton}>
