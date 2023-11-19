@@ -5,15 +5,6 @@ import styles from './DoubleVerticalSlider.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
-const SlideContent = ({ title, description, color }) => {
-    return (
-        <div style={{ backgroundColor: color }} className={styles.slideContent}>
-            <h1 className={styles.h1}>{title}</h1>
-            <p className={styles.p}>{description}</p>
-        </div>
-    );
-};
-
 const DoubleVerticalSlider = () => {
     const slideContent = [
         { title: 'Infinite Sea', description: 'with its endless possibilities', color: '#905a02e2' },
@@ -31,6 +22,8 @@ const DoubleVerticalSlider = () => {
 
     const [activeSlideIndex, setActiveSlideIndex] = React.useState(0);
     const sliderContainerRef = useRef(null);
+    const slideRightRef = useRef(null);
+    const slideLeftRef = useRef(null);
 
     const changeSlide = (direction) => {
         const slidesLength = imageUrls.length;
@@ -44,22 +37,27 @@ const DoubleVerticalSlider = () => {
     useEffect(() => {
         const sliderContainer = sliderContainerRef.current;
         const sliderHeight = sliderContainer.clientHeight;
-        const slideRight = sliderContainer.querySelector(`.${styles.rightSide}`);
-        const slideLeft = sliderContainer.querySelector(`.${styles.leftSide}`);
 
-        slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
-        slideLeft.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+        slideRightRef.current.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+        slideLeftRef.current.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
     }, [activeSlideIndex]);
 
     return (
         <div className={styles.container}>
             <div ref={sliderContainerRef} className={styles.sliderContainer}>
-                <div className={styles.leftSide}>
+                <div ref={slideLeftRef} className={styles.leftSide}>
                     {slideContent.map((slide, index) => (
-                        <SlideContent key={index} {...slide} />
+                        <div
+                            key={index}
+                            className={styles.slideContent}
+                            style={{ backgroundColor: `${slide.color}` }}
+                        >
+                            <h1 className={styles.h1}>{slide.title}</h1>
+                            <p className={styles.p}>{slide.description}</p>
+                        </div>
                     ))}
                 </div>
-                <div className={styles.rightSide}>
+                <div ref={slideRightRef} className={styles.rightSide}>
                     {imageUrls.map((url, index) => (
                         <div key={index} style={{ backgroundImage: `url(${url})` }}></div>
                     ))}
