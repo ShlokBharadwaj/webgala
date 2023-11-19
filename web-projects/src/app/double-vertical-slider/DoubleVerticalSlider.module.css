@@ -24,7 +24,7 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.leftSide > div {
+.leftSide>div {
     height: 100%;
     width: 100%;
     display: flex;
@@ -49,7 +49,7 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.rightSide > div {
+.rightSide>div {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -75,4 +75,21 @@
     outline: none;
 }
 
+.sliderContainer .actionButtons .button {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+}
 
+.sliderContainer .actionButtons .downButton {
+    transform: translateX(-100%);
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.sliderContainer .actionButtons .upButton {
+    transform: translateY(-100%);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
