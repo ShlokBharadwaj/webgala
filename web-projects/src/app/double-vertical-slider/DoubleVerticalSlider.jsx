@@ -1,16 +1,25 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './DoubleVerticalSlider.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
+const SlideContent = ({ title, description, color }) => {
+    return (
+        <div style={{ backgroundColor: color }} className={styles.slideContent}>
+            <h1 className={styles.h1}>{title}</h1>
+            <p className={styles.p}>{description}</p>
+        </div>
+    );
+};
+
 const DoubleVerticalSlider = () => {
     const slideContent = [
-        { title: 'Dawn', description: 'in all of its shades', color: '#c08009' },
         { title: 'Infinite Sea', description: 'with its endless possibilities', color: '#905a02e2' },
-        { title: 'Shutter Island', description: 'with its mysteries', color: '#c08009' },
         { title: 'Alone', description: 'in the wilderness', color: '#046c009d' },
+        { title: 'Dawn', description: 'in all of its shades', color: '#c08009' },
+        { title: 'Shutter Island', description: 'with its mysteries', color: '#c08009' },
     ];
 
     const imageUrls = [
@@ -21,6 +30,7 @@ const DoubleVerticalSlider = () => {
     ];
 
     const [activeSlideIndex, setActiveSlideIndex] = React.useState(0);
+    const sliderContainerRef = useRef(null);
 
     const changeSlide = (direction) => {
         const slidesLength = imageUrls.length;
@@ -32,27 +42,21 @@ const DoubleVerticalSlider = () => {
     };
 
     useEffect(() => {
-        const sliderContainer = document.querySelector(`.${styles.sliderContainer}`);
-        const slideRight = document.querySelector(`.${styles.rightSide}`);
-        const slideLeft = document.querySelector(`.${styles.leftSide}`);
+        const sliderContainer = sliderContainerRef.current;
         const sliderHeight = sliderContainer.clientHeight;
+        const slideRight = sliderContainer.querySelector(`.${styles.rightSide}`);
+        const slideLeft = sliderContainer.querySelector(`.${styles.leftSide}`);
 
         slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
-        slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+        slideLeft.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
     }, [activeSlideIndex]);
 
     return (
         <div className={styles.container}>
-            <div className={styles.sliderContainer}>
+            <div ref={sliderContainerRef} className={styles.sliderContainer}>
                 <div className={styles.leftSide}>
                     {slideContent.map((slide, index) => (
-                        <div
-                            key={index}
-                            className={`${styles.slide} ${styles.bgCustomColor} ${styles.bgCustomColor}-${index}`}
-                        >
-                            <h1 className={styles.h1}>{slide.title}</h1>
-                            <p className={styles.p}>{slide.description}</p>
-                        </div>
+                        <SlideContent key={index} {...slide} />
                     ))}
                 </div>
                 <div className={styles.rightSide}>
