@@ -37,7 +37,10 @@ const DoubleVerticalSlider = () => {
             <div className={styles.sliderContainer}>
                 <div className={styles.leftSide}>
                     {slideContent.map((slide, index) => (
-                        <div key={index} className={`bg-[${slide.color}]`}>
+                        <div
+                            key={index}
+                            className={`${styles.bgCustomColor} ${styles.bgCustomColor}-${index}`}
+                        >
                             <h1 className={styles.h1}>{slide.title}</h1>
                             <p className={styles.p}>{slide.description}</p>
                         </div>
