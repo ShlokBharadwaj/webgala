@@ -1,12 +1,11 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './DoubleVerticalSlider.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const DoubleVerticalSlider = () => {
-
     const slideContent = [
         { title: 'Dawn', description: 'in all of its shades', color: '#c08009' },
         { title: 'Infinite Sea', description: 'with its endless possibilities', color: '#905a02e2' },
@@ -32,6 +31,16 @@ const DoubleVerticalSlider = () => {
         }
     };
 
+    useEffect(() => {
+        const sliderContainer = document.querySelector(`.${styles.sliderContainer}`);
+        const slideRight = document.querySelector(`.${styles.rightSide}`);
+        const slideLeft = document.querySelector(`.${styles.leftSide}`);
+        const sliderHeight = sliderContainer.clientHeight;
+
+        slideRight.style.transform = `translateY(-${activeSlideIndex * sliderHeight}px)`;
+        slideLeft.style.transform = `translateY(${activeSlideIndex * sliderHeight}px)`;
+    }, [activeSlideIndex]);
+
     return (
         <div className={styles.container}>
             <div className={styles.sliderContainer}>
@@ -39,7 +48,7 @@ const DoubleVerticalSlider = () => {
                     {slideContent.map((slide, index) => (
                         <div
                             key={index}
-                            className={`${styles.bgCustomColor} ${styles.bgCustomColor}-${index}`}
+                            className={`${styles.slide} ${styles.bgCustomColor} ${styles.bgCustomColor}-${index}`}
                         >
                             <h1 className={styles.h1}>{slide.title}</h1>
                             <p className={styles.p}>{slide.description}</p>
@@ -52,7 +61,7 @@ const DoubleVerticalSlider = () => {
                     ))}
                 </div>
                 <div className={styles.actionButtons}>
-                    <button className={`${styles.downButton} ${styles.button} `} onClick={() => changeSlide('down')}>
+                    <button className={`${styles.downButton} ${styles.button}`} onClick={() => changeSlide('down')}>
                         <FontAwesomeIcon icon={faArrowDown} />
                     </button>
                     <button className={`${styles.upButton} ${styles.button}`} onClick={() => changeSlide('up')}>
@@ -61,7 +70,7 @@ const DoubleVerticalSlider = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default DoubleVerticalSlider;
