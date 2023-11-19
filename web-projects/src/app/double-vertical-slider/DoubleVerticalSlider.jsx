@@ -49,10 +49,10 @@ const DoubleVerticalSlider = () => {
                     ))}
                 </div>
                 <div className={styles.actionButtons}>
-                    <button className={styles.downButton} onClick={() => changeSlide('down')}>
+                    <button className={`${styles.downButton} ${styles.button} `} onClick={() => changeSlide('down')}>
                         <FontAwesomeIcon icon={faArrowDown} />
                     </button>
-                    <button className={styles.upButton} onClick={() => changeSlide('up')}>
+                    <button className={`${styles.upButton} ${styles.button}`} onClick={() => changeSlide('up')}>
                         <FontAwesomeIcon icon={faArrowUp} />
                     </button>
                 </div>
