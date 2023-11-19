@@ -2,6 +2,8 @@
 
 import React from 'react';
 import styles from './DoubleVerticalSlider.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 
 const DoubleVerticalSlider = () => {
     return (
@@ -55,6 +57,15 @@ const DoubleVerticalSlider = () => {
                     <h1>Enchanted Forest</h1>
                     <p>Wandering through a magical woodland of wonders</p>
                 </div>
+            </div>
+
+            <div className={styles.actionButtons}>
+                <button className={styles.downButton}>
+                    <FontAwesomeIcon icon={faArrowDown} />
+                </button>
+                <button className={styles.upButton}>
+                    <FontAwesomeIcon icon={faArrowUp} />
+                </button>
             </div>
         </div>
     )
