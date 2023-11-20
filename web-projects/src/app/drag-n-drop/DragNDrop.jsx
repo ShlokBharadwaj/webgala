@@ -7,7 +7,8 @@ const DragNDrop = () => {
   const [parent, setParent] = useState(null);
   const fillRef = useRef(null);
 
-  const dragStart = () => {
+  const dragStart = (e) => {
+    e.dataTransfer.setData('text/plain', ''); // Necessary for Firefox to enable dragging
     fillRef.current.classList.add(styles.hold);
     setTimeout(() => (fillRef.current.className = 'invisible'), 0);
   };
@@ -21,16 +22,22 @@ const DragNDrop = () => {
   };
 
   const dragEnter = () => {
-    fillRef.current.classList.add(styles.hovered);
+    if (!parent) {
+      fillRef.current.classList.add(styles.hovered);
+    }
   };
 
   const dragLeave = () => {
-    fillRef.current.className = styles.empty;
+    if (!parent) {
+      fillRef.current.className = styles.empty;
+    }
   };
 
   const dragDrop = () => {
-    setParent(fillRef.current.parentNode);
-    fillRef.current.className = styles.empty;
+    if (!parent) {
+      setParent(fillRef.current.parentNode);
+      fillRef.current.className = styles.empty;
+    }
   };
 
   return (
