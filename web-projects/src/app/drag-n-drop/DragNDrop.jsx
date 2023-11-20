@@ -10,11 +10,11 @@ const DragNDrop = () => {
         <div className={styles.fill} draggable="true">
           Drag me!
         </div>
-        <div className={styles.empty}></div>
-        <div className={styles.empty}></div>
-        <div className={styles.empty}></div>
-        <div className={styles.empty}></div>
       </div>
+      <div className={styles.empty}></div>
+      <div className={styles.empty}></div>
+      <div className={styles.empty}></div>
+      <div className={styles.empty}></div>
     </div>
   )
 }
