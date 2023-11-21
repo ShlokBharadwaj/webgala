@@ -5,29 +5,36 @@ import styles from './DragNDrop.module.css';
 
 const DragNDrop = () => {
   const fillRef = useRef(null);
-  const emptiesRefs = Array.from({ length: 4 }, () => useRef(null));
+  const emptiesRefs = Array.from({ length: 5 }, () => useRef(null));
   const [currentDropTarget, setCurrentDropTarget] = useState(null);
 
   const handleDragStart = (e) => {
-    e.dataTransfer.setData('text/plain', '');
+    e.dataTransfer.setData('application/json', JSON.stringify({}));
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
   };
 
-  const handleDrop = (e) => {
+  const handleDrop = (e, index) => {
     e.preventDefault();
-    const empty = e.target;
+    const empty = emptiesRefs[index].current;
 
-    empty.classList.add(styles.fill);
+    if (empty.classList.contains(styles.fill)) {
+      return;
+    }
 
     if (currentDropTarget && currentDropTarget !== empty) {
       currentDropTarget.classList.remove(styles.fill);
+      currentDropTarget.style.backgroundImage = 'none'; 
     }
+
+    empty.classList.add(styles.fill);
+    empty.style.backgroundImage = 'url("https://source.unsplash.com/random/150x150")';
 
     setCurrentDropTarget(empty);
   };
+
 
   return (
     <div className={styles.container}>
@@ -37,17 +44,21 @@ const DragNDrop = () => {
           className={`${styles.empty} ${currentDropTarget === emptyRef.current ? styles.hovered : ''}`}
           ref={emptyRef}
           onDragOver={handleDragOver}
-          onDrop={handleDrop}
-        ></div>
+          onDrop={(e) => handleDrop(e, index)}
+        >
+          {index === 0 && (
+            <div
+              className={styles.fill}
+              draggable
+              onDragStart={handleDragStart}
+              ref={fillRef}
+            ></div>
+          )}
+        </div>
       ))}
-      <div
-        className={styles.fill}
-        draggable="true"
-        onDragStart={handleDragStart}
-        ref={fillRef}
-      ></div>
     </div>
   );
 };
 
 export default DragNDrop;
+
