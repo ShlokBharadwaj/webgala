@@ -9,9 +9,9 @@ const DragNDrop = () => {
   const [currentDropTarget, setCurrentDropTarget] = useState(null);
 
   const handleDragStart = (e) => {
+    fillRef.current.style.backgroundImage = 'none';
     e.dataTransfer.setData('application/json', JSON.stringify({}));
   };
-
   const handleDragOver = (e) => {
     e.preventDefault();
   };
@@ -26,7 +26,7 @@ const DragNDrop = () => {
 
     if (currentDropTarget && currentDropTarget !== empty) {
       currentDropTarget.classList.remove(styles.fill);
-      currentDropTarget.style.backgroundImage = 'none'; 
+      currentDropTarget.style.backgroundImage = 'none';
     }
 
     empty.classList.add(styles.fill);
