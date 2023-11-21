@@ -41,14 +41,14 @@ const DragNDrop = () => {
       {emptiesRefs.map((emptyRef, index) => (
         <div
           key={index}
-          className={`${styles.empty} ${currentDropTarget === emptyRef.current ? styles.hovered : ''} ${index === 0 && styles.fill}`}
+          className={`${styles.empty} ${currentDropTarget !== emptyRef.current ? styles.hovered : ''}`}
           ref={emptyRef}
           onDragOver={handleDragOver}
           onDrop={(e) => handleDrop(e, index)}
         >
           {index === 0 && (
             <div
-              className={styles.fill}
+              className={`${styles.fill} ${currentDropTarget === emptyRef.current ? styles.fill : ''}`}
               draggable
               onDragStart={handleDragStart}
               ref={fillRef}
