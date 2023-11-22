@@ -14,7 +14,29 @@ const DrinkWater = () => {
   const highlightCups = (idx) => {
     const newCups = cups.map((cup, cupIndex) => cupIndex <= idx);
     setCups(newCups);
-    updateBigCup();
+    updateBigCups();
+  };
+
+  const updateBigCups = () => {
+    const fullCups = cups.filter((cup) => cup).length;
+    const percentageHeight = (fullCups / totalCups) * 330;
+    const litersText = `${2 - (250 * fullCups) / 1000}L`;
+
+    percentageRef.current.style.height = `${percentageHeight}px`;
+    percentageRef.current.innerText = `${(fullCups / totalCups) * 100}%`
+
+    if (fullCups === 0) {
+      percentageRef.current.style.visibility = 'hidden';
+    } else {
+      percentageRef.current.style.visibility = 'visible';
+    }
+
+    if (fullCups === totalCups) {
+      remainedRef.current.style.visibility = 'hidden';
+    } else {
+      remainedRef.current.style.visibility = 'visible';
+      litersRef.current.innerText = litersText;
+    }
   };
 
   return (
@@ -23,8 +45,8 @@ const DrinkWater = () => {
       <h3 className={styles.h3}>Goal: 2 Liters</h3>
       <div className={`${styles.cup}`}>
         <div className={styles.remained} ref={remainedRef}>
-          <span ref={litersRef}>1.5L</span>
-          <small>Remained</small>
+          <span ref={litersRef}>{`2L Remains`}</span>
+          {/* <small>Remained</small> */}
         </div>
         <div className={styles.percentage} ref={percentageRef}></div>
       </div>
