@@ -13,7 +13,7 @@ const DrinkWater = () => {
     <div className={styles.container}>
       <h1 className={styles.h1}>Drink Water</h1>
       <h3 className={styles.h3}>Goal: 2 Liters</h3>
-      <div className={styles.cup}>
+      <div className={`${styles.cup}`}>
         <div className={styles.remained} ref={remainedRef}>
           <span ref={litersRef}>1.5L</span>
           <small>Remained</small>
@@ -24,7 +24,7 @@ const DrinkWater = () => {
       <p className={styles.text}>Select how many glassed you have drank:</p>
 
       <div className={styles.cups}>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall} ${styles.full}`}>250ml</div>
         <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
         <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
         <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
