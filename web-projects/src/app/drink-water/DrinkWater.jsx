@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './DrinkWater.module.css';
 
 const DrinkWater = () => {
@@ -8,7 +8,10 @@ const DrinkWater = () => {
   const remainedRef = useRef(null);
   const litersRef = useRef(null);
   const percentageRef = useRef(null);
-  const smallCupRefs = Array.from({ length: 8 }, () => useRef(null));
+  const [fullCups, setFullCups] = useState(0);
+  const totalCups = 8;
+
+  const highlightCups = (index) => {}
 
   return (
     <div className={styles.container}>
@@ -26,12 +29,15 @@ const DrinkWater = () => {
 
       <div className={styles.cups}>
         {
-          smallCupRefs.map((cupRef, index) => <div
-            key={index}
-            className={`${styles.cup} ${styles.cupSmall}`}
-            ref={cupRef}
-          >250ml</div>
-          )
+          [...Array(totalCups)].map((_cup, index) => (
+            <div
+              key={index}
+              className={`${styles.cup} ${styles.cupSmall} ${index < fullCups ? styles.full : ''} `}
+              onClick={() => highlightCups(index)}
+            >
+              250ml
+            </div>
+          ))
         }
       </div>
     </div>
