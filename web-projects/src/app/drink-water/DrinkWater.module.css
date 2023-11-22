@@ -73,3 +73,12 @@
     flex: 1;
     transition: 0.3s ease;
 }
+
+.remained span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.remained small {
+    font-size: 18px;
+}
