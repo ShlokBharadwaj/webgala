@@ -32,7 +32,7 @@
 .cup {
     background-color: #fff;
     border: 4px solid #48cae4;
-    color: #0096c7;
+    color: #48cae4;
     border-radius: 0 0 40px 40px;
     height: 300px;
     width: 125px;
@@ -58,7 +58,7 @@
 
 .cup.cupSmall.full {
     background-color: #0096c7;
-    color: #0096c7;
+    color: #111;
 }
 
 .cups {
