@@ -8,6 +8,7 @@ const DrinkWater = () => {
   const remainedRef = useRef(null);
   const litersRef = useRef(null);
   const percentageRef = useRef(null);
+  const smallCupRef = useRef(null);
 
   return (
     <div className={styles.container}>
