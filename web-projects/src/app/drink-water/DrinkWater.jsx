@@ -24,14 +24,14 @@ const DrinkWater = () => {
       <p className={styles.text}>Select how many glassed you have drank:</p>
 
       <div className={styles.cups}>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
-        <div className={`${styles.cup} ${styles.cupSmall}`}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
+        <div className={`${styles.cup} ${styles.cupSmall}`} ref={smallCupRef}>250ml</div>
       </div>
     </div>
   )
