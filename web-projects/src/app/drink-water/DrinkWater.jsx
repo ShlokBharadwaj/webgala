@@ -8,10 +8,14 @@ const DrinkWater = () => {
   const remainedRef = useRef(null);
   const litersRef = useRef(null);
   const percentageRef = useRef(null);
-  const [fullCups, setFullCups] = useState(0);
   const totalCups = 8;
+  const [cups, setCups] = useState(Array(totalCups).fill(false));
 
-  const highlightCups = (index) => {}
+  const highlightCups = (idx) => {
+    const newCups = cups.map((cup, cupIndex) => cupIndex <= idx);
+    setCups(newCups);
+    updateBigCup();
+  };
 
   return (
     <div className={styles.container}>
@@ -29,10 +33,10 @@ const DrinkWater = () => {
 
       <div className={styles.cups}>
         {
-          [...Array(totalCups)].map((_cup, index) => (
+          cups.map((cup, index) => (
             <div
               key={index}
-              className={`${styles.cup} ${styles.cupSmall} ${index < fullCups ? styles.full : ''} `}
+              className={`${styles.cup} ${styles.cupSmall} ${cup ? styles.full : ''}`}
               onClick={() => highlightCups(index)}
             >
               250ml
