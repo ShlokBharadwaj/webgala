@@ -35,3 +35,17 @@
     flex-direction: column;
     overflow: hidden;
 }
+
+.cup.cupSmall {
+    height: 90px;
+    width: 50px;
+    border-radius: 0 0 20px 20px;
+    background-color: rgba(255,255,255,0.9);
+    cursor: pointer;
+    font-size: 14px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 5px;
+    transition: 0.3s ease;
+}
