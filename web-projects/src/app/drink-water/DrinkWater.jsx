@@ -4,7 +4,6 @@ import React, { useRef, useState } from 'react';
 import styles from './DrinkWater.module.css';
 
 const DrinkWater = () => {
-
   const remainedRef = useRef(null);
   const litersRef = useRef(null);
   const percentageRef = useRef(null);
@@ -12,8 +11,7 @@ const DrinkWater = () => {
   const [cups, setCups] = useState(Array(totalCups).fill(false));
 
   const highlightCups = (idx) => {
-    const newCups = cups.map((cup, cupIndex) => cupIndex <= idx);
-    setCups(newCups);
+    setCups((prevCups) => prevCups.map((cup, cupIndex) => cupIndex <= idx));
     updateBigCups();
   };
 
@@ -23,7 +21,7 @@ const DrinkWater = () => {
     const litersText = `${2 - (250 * fullCups) / 1000}L`;
 
     percentageRef.current.style.height = `${percentageHeight}px`;
-    percentageRef.current.innerText = `${(fullCups / totalCups) * 100}%`
+    percentageRef.current.innerText = `${(fullCups / totalCups) * 100}%`;
 
     if (fullCups === 0) {
       percentageRef.current.style.visibility = 'hidden';
@@ -46,28 +44,25 @@ const DrinkWater = () => {
       <div className={`${styles.cup}`}>
         <div className={styles.remained} ref={remainedRef}>
           <span ref={litersRef}>{`2L Remains`}</span>
-          {/* <small>Remained</small> */}
         </div>
         <div className={styles.percentage} ref={percentageRef}></div>
       </div>
 
-      <p className={styles.text}>Select how many glassed you have drank:</p>
+      <p className={styles.text}>Select how many glasses you have drunk:</p>
 
       <div className={styles.cups}>
-        {
-          cups.map((cup, index) => (
-            <div
-              key={index}
-              className={`${styles.cup} ${styles.cupSmall} ${cup ? styles.full : ''}`}
-              onClick={() => highlightCups(index)}
-            >
-              250ml
-            </div>
-          ))
-        }
+        {cups.map((cup, index) => (
+          <div
+            key={index}
+            className={`${styles.cup} ${styles.cupSmall} ${cup ? styles.full : ''}`}
+            onClick={() => highlightCups(index)}
+          >
+            250ml
+          </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default DrinkWater;
