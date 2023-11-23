@@ -28,6 +28,7 @@
     cursor: pointer;
     font-family: inherit;
     min-width: 150px;
+    min-height: 77px;
     position: relative;
     border-radius: 3px;
 }
@@ -46,7 +47,7 @@
 
 .key small {
     position: absolute;
-    top: -32px;
+    top: -23px;
     left: 0;
     text-align: center;
     width: 100%;
