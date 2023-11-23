@@ -8,9 +8,11 @@ const EventKeyCodes = () => {
         keyCode: '',
         code: '',
     });
+    const [isKeyPressed, setIsKeyPressed] = useState(false);
 
     useEffect(() => {
         const handleKeyDown = (event) => {
+            setIsKeyPressed(!false);
             setKeyInfo({
                 key: event.key === ' ' ? 'Space' : event.key,
                 keyCode: event.keyCode,
@@ -27,22 +29,30 @@ const EventKeyCodes = () => {
 
     return (
         <div className={styles.container}>
-            <div ref={insertRef}>
+            {!isKeyPressed && (
                 <div className={styles.key}>
-                    {keyInfo.key}
-                    <small>event.key</small>
+                    Press any key to get the keyCode
                 </div>
+            )}
+            {isKeyPressed && (
+                <div ref={insertRef}>
+                    <p className={styles.p}>Press any key to get the keyCode</p>
+                    <div className={styles.key}>
+                        {keyInfo.key}
+                        <small>event.key</small>
+                    </div>
 
-                <div className={styles.key}>
-                    {keyInfo.keyCode}
-                    <small>event.keyCode</small>
-                </div>
+                    <div className={styles.key}>
+                        {keyInfo.keyCode}
+                        <small>event.keyCode</small>
+                    </div>
 
-                <div className={styles.key}>
-                    {keyInfo.code}
-                    <small>event.code</small>
+                    <div className={styles.key}>
+                        {keyInfo.code}
+                        <small>event.code</small>
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 };
