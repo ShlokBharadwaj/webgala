@@ -44,17 +44,17 @@ const EventKeyCodes = () => {
             {isKeyPressed ? (
                 <div ref={insertRef}>
                     <p className={styles.p}>Press any key to get the keyCode</p>
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key, 'Key')}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key, 'Key')} title='Click to copy to clipboard.'>
                         {keyInfo.key}
                         <small>event.key</small>
                     </div>
 
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.keyCode, 'Key Code')}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.keyCode, 'Key Code')} title='Click to copy to clipboard.'>
                         {keyInfo.keyCode}
                         <small>event.keyCode</small>
                     </div>
 
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.code, 'Code')}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.code, 'Code')} title='Click to copy to clipboard.'>
                         {keyInfo.code}
                         <small>event.code</small>
                     </div>
