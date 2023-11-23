@@ -43,3 +43,13 @@
 .key:active {
     transform: scale(0.90);
 }
+
+.key small {
+    position: absolute;
+    top: -32px;
+    left: 0;
+    text-align: center;
+    width: 100%;
+    color: #03045e;
+    font-size: 18px;
+}
