@@ -61,3 +61,11 @@
    font-weight: bolder;
    margin-bottom: 40px;
 }
+
+.copyStatus {
+    position: absolute;
+    bottom: 20px;
+    color: #03045e;
+    font-weight: bold;
+    font-size: 16px;
+}

@@ -9,6 +9,7 @@ const EventKeyCodes = () => {
         code: '',
     });
     const [isKeyPressed, setIsKeyPressed] = useState(false);
+    const [copyStatus, setCopyStatus] = useState('');
 
     useEffect(() => {
         const handleKeyDown = (event) => {
@@ -27,40 +28,44 @@ const EventKeyCodes = () => {
         };
     }, []);
 
-    const copyToClipboard = (content) => {
+    const copyToClipboard = (content, label) => {
         const textarea = document.createElement('textarea');
         textarea.value = content;
         document.body.appendChild(textarea);
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
+        setCopyStatus(`Copied '${label}: ${content}' to clipboard.`);
+        setTimeout(() => setCopyStatus(''), 2000);
     }
 
     return (
         <div className={styles.container}>
-            {!isKeyPressed && (
-                <div className={styles.key}>
-                    Press any key to get the keyCode
-                </div>
-            )}
-            {isKeyPressed && (
+            {isKeyPressed ? (
                 <div ref={insertRef}>
                     <p className={styles.p}>Press any key to get the keyCode</p>
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key)}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key, 'Key')}>
                         {keyInfo.key}
                         <small>event.key</small>
                     </div>
 
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.keyCode)}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.keyCode, 'Key Code')}>
                         {keyInfo.keyCode}
                         <small>event.keyCode</small>
                     </div>
 
-                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.code)}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.code, 'Code')}>
                         {keyInfo.code}
                         <small>event.code</small>
                     </div>
                 </div>
+            ) : (
+                <div className={styles.key}>
+                    Press any key to get the keyCode
+                </div>
+            )}
+            {copyStatus && (
+                <div className={styles.copyStatus}>{copyStatus}</div>
             )}
         </div>
     );
