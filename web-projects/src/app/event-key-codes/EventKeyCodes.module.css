@@ -31,3 +31,12 @@
     position: relative;
     border-radius: 3px;
 }
+
+.key:focus {
+    outline: none;
+}
+
+.key:hover {
+    opacity: 0.75;
+    transform: scale(0.99);
+}
