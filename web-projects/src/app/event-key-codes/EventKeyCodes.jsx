@@ -27,6 +27,15 @@ const EventKeyCodes = () => {
         };
     }, []);
 
+    const copyToClipboard = (content) => {
+        const textarea = document.createElement('textarea');
+        textarea.value = content;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+    }
+
     return (
         <div className={styles.container}>
             {!isKeyPressed && (
@@ -37,17 +46,17 @@ const EventKeyCodes = () => {
             {isKeyPressed && (
                 <div ref={insertRef}>
                     <p className={styles.p}>Press any key to get the keyCode</p>
-                    <div className={styles.key}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key)}>
                         {keyInfo.key}
                         <small>event.key</small>
                     </div>
 
-                    <div className={styles.key}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.keyCode)}>
                         {keyInfo.keyCode}
                         <small>event.keyCode</small>
                     </div>
 
-                    <div className={styles.key}>
+                    <div className={styles.key} onClick={() => copyToClipboard(keyInfo.code)}>
                         {keyInfo.code}
                         <small>event.code</small>
                     </div>
