@@ -2,17 +2,16 @@
 
 .container {
     box-sizing: border-box;
-    font-family: 'Hubballi', cursive,'Roboto Mono', monospace;
+    font-family: 'Hubballi', cursive, 'Roboto Mono', monospace;
     background-color: #b7e4c7;
-    height: 100vh;
-    margin: 0;
     color: #111;
+    height: 100%;
 }
 
 .h1 {
     font-weight: bolder;
-    margin: 0 0 50px;
-    padding-top: 20px;
+    /* margin: 0 0 50px; */
+    padding: 40px;
     text-align: center;
     font-size: xx-large;
 }
@@ -20,4 +19,16 @@
 .faqContainer {
     max-width: 600px;
     margin: 0 auto;
+}
+
+.faq {
+    background-color: transparent;
+    border: 1px solid #52b788;
+    border-radius: 20px;
+    /* margin: 20px; */
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    transform: 0.3s ease;
+    /* margin-bottom: 20px; */
 }
