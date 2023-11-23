@@ -24,7 +24,7 @@
     padding: 20px;
     font-weight: bolder;
     flex-direction: column;
-    margin: 10px;
+    margin: 15px;
     cursor: pointer;
     font-family: inherit;
     min-width: 150px;
@@ -47,10 +47,17 @@
 
 .key small {
     position: absolute;
-    top: -23px;
+    top: -26px;
     left: 0;
     text-align: center;
     width: 100%;
     color: #03045e;
     font-size: 18px;
+}
+
+.p {
+   color: #03045e;
+   font-size: 24px;
+   font-weight: bolder;
+   margin-bottom: 40px;
 }
