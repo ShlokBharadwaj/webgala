@@ -16,3 +16,8 @@
     text-align: center;
     font-size: xx-large;
 }
+
+.faqContainer {
+    max-width: 600px;
+    margin: 0 auto;
+}
