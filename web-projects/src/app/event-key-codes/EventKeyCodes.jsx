@@ -43,7 +43,10 @@ const EventKeyCodes = () => {
         <div className={styles.container}>
             {isKeyPressed ? (
                 <div ref={insertRef}>
-                    <p className={styles.p}>Press any key to get the keyCode</p>
+                    <div className={styles.insertContainer}>
+                        <p className={styles.p}>Press any key to get the keyCode</p>
+                        <small className={styles.smallCopy}>Click on a key to copy its value.</small>
+                    </div>
                     <div className={styles.key} onClick={() => copyToClipboard(keyInfo.key, 'Key')} title='Click to copy to clipboard.'>
                         {keyInfo.key}
                         <small>event.key</small>
