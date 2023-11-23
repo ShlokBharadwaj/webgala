@@ -1,0 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Roboto+Mono:wght@100&display=swap');
+
+.container {
+    box-sizing: border-box;
+    font-family: 'Hubballi', cursive,'Roboto Mono', monospace;
+}
