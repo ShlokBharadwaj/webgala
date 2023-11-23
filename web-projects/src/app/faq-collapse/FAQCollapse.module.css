@@ -89,3 +89,24 @@
     height: 30px;
     width: 30px;
 }
+
+.faqToggle:focus {
+    outline: none;
+}
+
+.faqToggle .faTimes {
+    display: none;
+}
+
+.faq.active .faqToggle .faTimes {
+    color: #111;
+    display: block;
+}
+
+.faq.active .faqToggle .faChevronDown {
+    display: none;
+}
+
+.faq.active .faqToggle {
+    background-color: #fff;
+}
