@@ -13,7 +13,7 @@ const FAQCollapse = () => {
 
     return (
         <div className={styles.container}>
-            <h1>Frequently asked Questions</h1>
+            <h1 className={styles.h1}>Frequently asked Questions</h1>
             <div className={styles.faqContainer}>
                 {[1, 2, 3, 4, 5].map((index) => (
                     <div key={index} className={`${styles.faq} ${activeIndex === index ? 'styles.active' : ''}`}>
