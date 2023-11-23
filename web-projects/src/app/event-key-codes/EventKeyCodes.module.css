@@ -38,5 +38,8 @@
 
 .key:hover {
     opacity: 0.75;
-    transform: scale(0.99);
+}
+
+.key:active {
+    transform: scale(0.90);
 }
