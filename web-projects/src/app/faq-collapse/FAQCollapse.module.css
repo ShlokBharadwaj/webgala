@@ -5,12 +5,14 @@
     font-family: 'Hubballi', cursive, 'Roboto Mono', monospace;
     background-color: #b7e4c7;
     color: #111;
-    height: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: auto;
 }
 
 .h1 {
     font-weight: bolder;
-    /* margin: 0 0 50px; */
     padding: 40px;
     text-align: center;
     font-size: xx-large;
@@ -25,17 +27,17 @@
     background-color: transparent;
     border: 1px solid #52b788;
     border-radius: 20px;
-    /* margin: 20px; */
+    margin: 20px;
     padding: 30px;
     position: relative;
     overflow: hidden;
     transform: 0.3s ease;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
 }
 
 .faq.active {
     background-color: #fff;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.1), 0 3px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .faq.active:before,
