@@ -25,9 +25,11 @@ const FAQCollapse = () => {
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure repellendus sed officia doloremque? Hic, eveniet doloribus natus ullam officia provident?
                         </p>
                         <button className={styles.faqToggle} onClick={() => handleToggleClick(index)}>
-                            <FontAwesomeIcon icon={faChevronDown} className={`${faChevronDown} ${activeIndex === index ? '' : styles.hidden}`} />
-                            <FontAwesomeIcon icon={faTimes} className={`${faTimes} ${activeIndex === index ? '' : styles.hidden}`} />
-                            <FontAwesomeIcon icon={faMessage} className={`${activeIndex === index ? '' : styles.hidden}`} />
+                            <FontAwesomeIcon
+                                icon={activeIndex === index ? faTimes : faChevronDown}
+                                className={styles.faqIcon}
+                            />
+                            <FontAwesomeIcon icon={faMessage} className={styles.hidden} />
                         </button>
                     </div>
                 ))}

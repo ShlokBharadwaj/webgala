@@ -84,10 +84,16 @@
     font-size: 16px;
     padding: 0;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 20px;
+    right: 20px;
     height: 30px;
     width: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.faqIcon {
+    font-size: 16px;
+    color: #555;
 }
 
 .faqToggle:focus {
@@ -109,4 +115,8 @@
 
 .faq.active .faqToggle {
     background-color: #fff;
+}
+
+.hidden {
+    display: none;
 }
