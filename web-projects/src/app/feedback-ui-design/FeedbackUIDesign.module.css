@@ -35,3 +35,10 @@
     display: flex;
     margin: 20px 0;
 }
+
+.rating {
+    flex: 1;
+    cursor: pointer;
+    padding: 5px;
+    margin: 10px 5px;
+}
