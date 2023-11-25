@@ -18,13 +18,13 @@ const FeedbackUIDesign = () => {
             const heartIcon = [faHeartCrack, faHeart, faHeartCircleCheck][selectedRating];
 
             setPanelContent(
-                <>
+                <div className={styles.panelContent}>
                     <FontAwesomeIcon icon={heartIcon} className={styles.icon} />
                     <strong>Thank You!</strong>
                     <br />
                     <strong>Feedback: {feedbackText}</strong>
                     <p>We appreciate your feedback and we'll try to improve our customer support!</p>
-                </>
+                </div>
             );
         }
     };
@@ -34,7 +34,8 @@ const FeedbackUIDesign = () => {
             <div className={styles.panelContainer}>
                 <strong>How would you rate your <br />experience with us?</strong>
                 {panelContent ? (
-                    <div className={styles.ratingsContainer}>{panelContent}</div>
+                    <div className={styles.ratingsContainer}>{panelContent}
+                    </div>
                 ) : (
                     <div className={styles.ratingsContainer}>
                         {[0, 1, 2].map((index) => (
