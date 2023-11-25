@@ -1,11 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './FeedbackUIDesign.module.css';
-import { faL } from '@fortawesome/free-solid-svg-icons';
 
 const FeedbackUIDesign = () => {
 
+    const [selectedRating, setSelectedRating] = useState(null);
     const panelRef = useRef(null);
-    const sendRef = useRef(false);
+
+    const handleRatingClick = (rating) => {
+        setSelectedRating(rating);
+    }
+
+    const handleSubmitResponse = () => {
+        console.log(`Submitted response: ${selectedRating}`)
+    };
 
     return (
         <div className={styles.container}>
