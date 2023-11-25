@@ -24,52 +24,18 @@ const FeedbackUIDesign = () => {
 
     const handleSubmitResponse = () => {
         if (selectedRating !== null) {
-            switch (selectedRating) {
-                case 'Happy':
-                    setPanelContent(
-                        <>
-                            <FontAwesomeIcon
-                                icon={faHeartCircleCheck}
-                                className={styles.happy}
-                            />
-                            <strong>Thank You!</strong>
-                            <br />
-                            <strong>Feedback: {selectedRating} </strong>
-                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
-                        </>
-                    );
-                    break;
-                case 'Neutral':
-                    setPanelContent(
-                        <>
-                            <FontAwesomeIcon
-                                icon={faHeart}
-                                className={styles.neutral}
-                            />
-                            <strong>Thank You!</strong>
-                            <br />
-                            <strong>Feedback: {selectedRating}</strong>
-                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
-                        </>
-                    );
-                    break;
-                case 'Unhappy':
-                    setPanelContent(
-                        <>
-                            <FontAwesomeIcon
-                                icon={faHeartCrack}
-                                className={styles.unhappy}
-                            />
-                            <strong>Thank You!</strong>
-                            <br />
-                            <strong>Feedback: {selectedRating}</strong>
-                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
-                        </>
-                    );
-                    break;
-                default:
-                    break;
-            }
+            const feedbackText = ['Unhappy', 'Neutral', 'Happy'][selectedRating];
+            const heartIcon = [faHeartCrack, faHeart, faHeartCircleCheck][selectedRating];
+
+            setPanelContent(
+                <>
+                    <FontAwesomeIcon icon={heartIcon} />
+                    <strong>Thank You!</strong>
+                    <br />
+                    <strong>Feedback: {feedbackText}</strong>
+                    <p>We appreciate your feedback and we'll try to improve our customer support!</p>
+                </>
+            );
         }
     };
 
