@@ -33,25 +33,30 @@ const FeedbackUIDesign = () => {
     <div className={styles.container}>
       <div className={styles.panelContainer}>
         <strong>How would you rate your <br />experience with us?</strong>
-        <div className={styles.ratingsContainer}>
-          {[0, 1, 2].map((index) => (
-            <div
-              key={index}
-              className={`${styles.rating} ${selectedRating === index ? styles.active : ''}`}
-              onClick={() => handleRatingClick(index)}
-            >
-              <img
-                src={`https://media${index}.giphy.com/media/${getImageUrl(index)}`}
-                alt={`Rating ${index}`}
-              />
-            </div>
-          ))}
-        </div>
-        <button className={styles.button} onClick={handleSubmitResponse} ref={sendBtnRef}>
-          Submit Response
-        </button>
+        {panelContent ? (
+          <div className={styles.ratingsContainer}>{panelContent}</div>
+        ) : (
+          <div className={styles.ratingsContainer}>
+            {[0, 1, 2].map((index) => (
+              <div
+                key={index}
+                className={`${styles.rating} ${selectedRating === index ? styles.active : ''}`}
+                onClick={() => handleRatingClick(index)}
+              >
+                <img
+                  src={`https://media${index}.giphy.com/media/${getImageUrl(index)}`}
+                  alt={`Rating ${index}`}
+                />
+              </div>
+            ))}
+          </div>
+        )}
+        {!panelContent && (
+          <button className={styles.button} onClick={handleSubmitResponse} ref={sendBtnRef}>
+            Submit Response
+          </button>
+        )}
       </div>
-      <div className={styles.panel}>{panelContent}</div>
     </div>
   );
 };
