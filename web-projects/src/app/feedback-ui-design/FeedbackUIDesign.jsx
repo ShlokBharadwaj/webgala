@@ -1,9 +1,12 @@
 import React, { useRef, useState } from 'react';
 import styles from './FeedbackUIDesign.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faHeartCircleCheck, faHeartCrack } from '@fortawesome/free-solid-svg-icons';
 
 const FeedbackUIDesign = () => {
 
     const [selectedRating, setSelectedRating] = useState(null);
+    const [panelContent, setPanelContent] = useState(null);
     const panelRef = useRef(null);
 
     const handleRatingClick = (rating) => {
@@ -11,7 +14,54 @@ const FeedbackUIDesign = () => {
     }
 
     const handleSubmitResponse = () => {
-        console.log(`Submitted response: ${selectedRating}`)
+        if (selectedRating !== null) {
+            switch (selectedRating) {
+                case 'Happy':
+                    setPanelContent(
+                        <>
+                            <FontAwesomeIcon
+                                icon={faHeartCircleCheck}
+                                className={styles.happy}
+                            />
+                            <strong>Thank You!</strong>
+                            <br />
+                            <strong>Feedback: {selectedRating} </strong>
+                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
+                        </>
+                    );
+                    break;
+                case 'Neutral':
+                    setPanelContent(
+                        <>
+                            <FontAwesomeIcon
+                                icon={faHeart}
+                                className={styles.neutral}
+                            />
+                            <strong>Thank You!</strong>
+                            <br />
+                            <strong>Feedback: {selectedRating}</strong>
+                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
+                        </>
+                    );
+                    break;
+                case 'Unhappy':
+                    setPanelContent(
+                        <>
+                            <FontAwesomeIcon
+                                icon={faHeartCrack}
+                                className={styles.unhappy}
+                            />
+                            <strong>Thank You!</strong>
+                            <br />
+                            <strong>Feedback: {selectedRating}</strong>
+                            <p>We appreciate your feedback and we'll try to improve our customer support!</p>
+                        </>
+                    );
+                    break;
+                default:
+                    break;
+            }
+        }
     };
 
     return (
