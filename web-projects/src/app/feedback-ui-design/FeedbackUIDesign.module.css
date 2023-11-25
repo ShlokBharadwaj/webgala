@@ -48,3 +48,15 @@
     max-width: 100px;
     max-height: 100px;
 }
+
+.rating:hover,
+.rating.active {
+    border-radius: 4px;
+    box-shadow: 0 0 15px #8da9c4;
+}
+
+.rating small {
+    color: #111;
+    display: inline-block;
+    margin: 10px 0 0;
+}
