@@ -6,6 +6,7 @@ import styles from './FeedbackUIDesign.module.css';
 const FeedbackUIDesign = () => {
     const [selectedRating, setSelectedRating] = useState(null);
     const [panelContent, setPanelContent] = useState(null);
+    const [buttonClicked, setButtonClicked] = useState(false);
     const sendBtnRef = useRef(null);
 
     const handleRatingClick = (rating) => {
@@ -26,16 +27,20 @@ const FeedbackUIDesign = () => {
                     <p>We appreciate your feedback and we'll try to improve our customer support!</p>
                 </div>
             );
+
+            // Set buttonClicked to true after submitting the response
+            setButtonClicked(true);
         }
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.panelContainer}>
-                <strong>How would you rate your <br />experience with us?</strong>
+                <strong>
+                    {!buttonClicked ? `How would you rate your experience with us?` : ''}
+                </strong>
                 {panelContent ? (
-                    <div className={styles.ratingsContainer}>{panelContent}
-                    </div>
+                    <div className={styles.ratingsContainer}>{panelContent}</div>
                 ) : (
                     <div className={styles.ratingsContainer}>
                         {[0, 1, 2].map((index) => (
