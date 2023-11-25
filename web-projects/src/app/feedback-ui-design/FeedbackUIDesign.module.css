@@ -65,3 +65,21 @@
 .rating.active small {
     color: #111;
 }
+
+.button {
+    background-color: transparent;
+    color: #111;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 20px;
+    cursor: pointer;
+    box-shadow: 0 0 7px #8da9c4;
+}
+
+.button:focus {
+    outline: none;
+}
+
+.button:hover {
+    transform: scale(0.95);
+}
