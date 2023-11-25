@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './FeedbackUIDesign.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faHeartCircleCheck, faHeartCrack } from '@fortawesome/free-solid-svg-icons';
@@ -7,11 +7,20 @@ const FeedbackUIDesign = () => {
 
     const [selectedRating, setSelectedRating] = useState(null);
     const [panelContent, setPanelContent] = useState(null);
-    const panelRef = useRef(null);
+    const ratingsRef = useRef([]);
+    const sendBtnRef = useRef(null);
 
-    const handleRatingClick = (rating) => {
-        setSelectedRating(rating);
-    }
+    const handleRatingClick = (rating, index) => {
+        setSelectedRating(index);
+        removeActive();
+        ratingsRef.current[index].classList.add(styles.active);
+    };
+
+    const removeActive = () => {
+        ratingsRef.current.forEach((element) => {
+            element.classList.remove(styles.active);
+        });
+    };
 
     const handleSubmitResponse = () => {
         if (selectedRating !== null) {
@@ -64,9 +73,12 @@ const FeedbackUIDesign = () => {
         }
     };
 
+    useEffect(() => {
+    }, [selectedRating]);
+
     return (
         <div className={styles.container}>
-            <div className={styles.panelContainer} ref={panelRef}>
+            <div className={styles.panelContainer}>
                 <strong>How would you rate your <br />experience with us?</strong>
                 <div className={styles.ratingsContainer}>
                     {['Unhappy', 'Neutral', 'Happy'].map((rating, index) => (
