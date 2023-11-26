@@ -56,3 +56,26 @@
     margin-top: 35px;
     text-align: center;
 }
+
+.formControl {
+    position: relative;
+    margin: 20px 0 35px;
+    width: 300px;
+}
+
+.formControl input {
+    background-color: transparent;
+    color: white;
+    border: 0;
+    border-bottom: 2px #111 solid;
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px;
+}
+
+.formControl input:focus,
+.formControl input:valid {
+    outline: none;
+    border-bottom-color: #99d98c;
+}
