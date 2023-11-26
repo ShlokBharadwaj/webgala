@@ -25,7 +25,9 @@ const FormWaveAnimation = () => {
           {labels.map((label, idx) => (
             <div key={idx} className={styles.formControl}>
               <input type={idx === 0 ? 'text' : 'password'} required />
-              <label>{label.spans}</label>
+              <label>
+                <div>{label.spans}</div>
+              </label>
             </div>
           ))}
           <button className={styles.btn}>Login</button>
