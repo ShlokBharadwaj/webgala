@@ -29,7 +29,7 @@ const FormWaveAnimation = () => {
             </div>
           ))}
           <button className={styles.btn}>Login</button>
-          <p className={styles.text}>
+          <p className={styles.registerContainer}>
             Don't have an account? <a href="#">Register</a>
           </p>
         </form>
