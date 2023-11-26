@@ -2,7 +2,7 @@
 
 .mainContainer {
     box-sizing: border-box;
-    background-color: #e85d04;
+    background-color: #dc2f02;
     color: #111;
     font-family: 'Allerta Stencil', sans-serif, 'Stick No Bills', sans-serif;
     display: flex;
@@ -12,4 +12,10 @@
     height: 100vh;
     overflow: hidden;
     margin: 0;
+}
+
+.container {
+    background-color: rgba(0,0,0,0.45);
+    padding: 20px 40px;
+    border-radius: 20px;
 }
