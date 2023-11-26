@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import styles from './FormWaveAnimation.module.css';
 
 const FormWaveAnimation = () => {
-  const [labels, setLabels] = useState(['Email', 'Password']);
+  const [labels, setLabels] = useState([]);
 
   useEffect(() => {
-    setLabels((prevLabels) =>
-      prevLabels.map((text) => ({
+    const initialLabels = ['Email', 'Password'];
+    setLabels(
+      initialLabels.map((text) => ({
         text,
         spans: Array.from(text).map((letter, subIdx) => (
           <span key={subIdx} style={{ transitionDelay: `${subIdx * 50}ms` }}>
@@ -26,7 +27,9 @@ const FormWaveAnimation = () => {
             <div key={idx} className={styles.formControl}>
               <input type={idx === 0 ? 'text' : 'password'} required />
               <label>
-                <div>{label.spans}</div>
+                {label.spans.map((span, subIdx) => (
+                  <div key={subIdx}>{span}</div>
+                ))}
               </label>
             </div>
           ))}
