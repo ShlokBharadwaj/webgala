@@ -155,7 +155,7 @@ const GitHubProfiles = () => {
     return (
         <div className={styles.container}>
             <form className={styles.userForm} onSubmit={handleSubmit}>
-                <input type="text" ref={searchRef} placeholder="Search a Github User" autoFocus />
+                <input type="text" ref={searchRef} placeholder="Search a Github User"/>
             </form>
             <main id="main">
                 {error ? createErrorCard() : userData.login && createUserCard()}
