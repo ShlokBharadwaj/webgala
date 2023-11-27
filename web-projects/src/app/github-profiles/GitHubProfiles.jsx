@@ -131,8 +131,13 @@ const GitHubProfiles = () => {
         <div>
             <form className={styles.userForm} onSubmit={handleSubmit}>
                 <input type="text" ref={searchRef} placeholder="Search a Github User" />
+                <button type="submit" disabled={loading}>
+                    {loading ? 'Loading...' : 'Search'}
+                </button>
             </form>
-            <main id="main">{error ? createErrorCard() : userData.login && createUserCard()}</main>
+            <main id="main">
+                {error ? createErrorCard() : userData.login && createUserCard()}
+            </main>
         </div>
     );
 };
