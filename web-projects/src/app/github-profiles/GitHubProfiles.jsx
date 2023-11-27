@@ -85,20 +85,20 @@ const GitHubProfiles = () => {
         );
     };
 
-    const StarredReposList = ({ starredRepos }) => {
+    const StarredReposList = ({ starredRepos }) => (
         <div>
             <h3>Starred Repositories:</h3>
             <ul>
                 {starredRepos.map((repo) => (
                     <li key={repo.id}>
-                        <a href={repo.html_url} target='_blank' rel='noopener noreferrer'>
+                        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                             {repo.name}
                         </a>
                     </li>
                 ))}
             </ul>
         </div>
-    };
+    );
 
     const createErrorCard = () => (
         <div className={styles.card}>
