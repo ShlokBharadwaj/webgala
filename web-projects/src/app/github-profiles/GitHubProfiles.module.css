@@ -1,21 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@200;400&family=Mukta:wght@200;400&display=swap');
 
 .container {
+    margin: 0;
+    font-family: 'Barlow', sans-serif, 'Mukta', sans-serif;
     box-sizing: border-box;
     background-color: #e9ecef;
     color: #000;
-    font-family: 'Barlow', sans-serif, 'Mukta', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    margin: 0;
+    min-height: 100vh;
 }
 
 .userForm {
     width: 100%;
     max-width: 700px;
+    padding: 0 20px;
 }
 
 .userForm input {
@@ -47,6 +48,8 @@
     border-radius: 5px;
     box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
     display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 3rem;
     margin: 0 1.5rem;
 }
@@ -61,7 +64,8 @@
 
 .userInfo {
     color: #111;
-    margin-left: 2rem;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .userInfo h2 {
@@ -73,16 +77,15 @@
 
 .userInfo ul {
     display: flex;
+    flex-wrap: wrap;
     list-style-type: none;
-    justify-content: space-between;
+    justify-content: center;
     padding: 0;
-    max-width: 400px;
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .userInfo ul li {
-    display: flex;
-    align-items: center;
+    margin: 0 10px;
 }
 
 .userInfo ul li strong {
@@ -106,13 +109,12 @@
     box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-@media(max-width: 700px) {
+@media (max-width: 700px) {
     .card {
-        flex-direction: column;
-        align-items: center;
+        margin: 20px 0;
     }
 
     .userForm {
-        max-width: 400px;
+        max-width: 100%;
     }
 }
