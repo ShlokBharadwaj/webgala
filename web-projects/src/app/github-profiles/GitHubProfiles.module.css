@@ -40,3 +40,13 @@
 .userForm input::placeholder {
     color: #111;
 }
+
+.card {
+    max-width: 800px;
+    background-color: #ced4da;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
+    display: flex;
+    padding: 3rem;
+    margin: 0 1.5rem;
+}
