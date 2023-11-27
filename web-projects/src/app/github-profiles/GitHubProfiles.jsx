@@ -75,9 +75,29 @@ const GitHubProfiles = () => {
                         </li>
                     </ul>
                     <div id="repos">{reposData && reposData.length > 0 && <ReposList repos={reposData} />}</div>
+                    <div id="starred">
+                        {starredRepos && starredRepos.length > 0 && (
+                            <StarredReposList starredRepos={starredRepos} />
+                        )}
+                    </div>
                 </div>
             </div>
         );
+    };
+
+    const StarredReposList = ({ starredRepos }) => {
+        <div>
+            <h3>Starred Repositories:</h3>
+            <ul>
+                {starredRepos.map((repo) => (
+                    <li key={repo.id}>
+                        <a href={repo.html_url} target='_blank' rel='noopener noreferrer'>
+                            {repo.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </div>
     };
 
     const createErrorCard = () => (
