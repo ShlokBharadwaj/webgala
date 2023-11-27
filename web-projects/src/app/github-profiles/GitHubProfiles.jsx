@@ -10,13 +10,11 @@ const GitHubProfiles = () => {
     const [orgsData, setOrgsData] = useState([]);
     const [starredRepos, setStarredRepos] = useState([]);
     const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
 
     const searchRef = useRef();
 
     const getUser = async (username) => {
         try {
-            setLoading(true);
             const [userData, repos, orgs, starred] = await Promise.all([
                 axios(APIURL + username),
                 axios(APIURL + username + '/repos?sort=created'),
@@ -36,8 +34,6 @@ const GitHubProfiles = () => {
             } else {
                 setError('An error occurred');
             }
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -160,9 +156,6 @@ const GitHubProfiles = () => {
         <div className={styles.container}>
             <form className={styles.userForm} onSubmit={handleSubmit}>
                 <input type="text" ref={searchRef} placeholder="Search a Github User" autoFocus />
-                <button type="submit" disabled={loading}>
-                    {loading ? 'Loading...' : 'Search'}
-                </button>
             </form>
             <main id="main">
                 {error ? createErrorCard() : userData.login && createUserCard()}
