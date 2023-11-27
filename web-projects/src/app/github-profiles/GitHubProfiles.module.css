@@ -57,3 +57,32 @@
     height: 150px;
     width: 150px;
 }
+
+.userInfo {
+    color: #111;
+    margin-left: 2rem;
+}
+
+.userInfo h2 {
+    margin-top: 0;
+    font-weight: bolder;
+    font-size: 22px;
+}
+
+.userInfo ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
+    max-width: 400px;
+}
+
+.userInfo ul li {
+    display: flex;
+    align-items: center;
+}
+
+.userInfo ul li strong {
+    font-size: 0.9rem;
+    margin-left: 0.3rem;
+}
