@@ -29,7 +29,7 @@ const GitHubProfiles = () => {
             if (err.response && err.response.status === 404) {
                 setError('No profile with this username: ' + username);
             } else {
-                setError('An error occured.');
+                setError('An error occurred');
             }
         } finally {
             setLoading(false);
@@ -44,10 +44,10 @@ const GitHubProfiles = () => {
 
     const getUserStarredRepos = async (username) => {
         try {
-            const { data } = await axios(APIURL + username + './starred');
+            const { data } = await axios(APIURL + username + '/starred');
             setStarredRepos(data);
         } catch (err) {
-            setError('Problem fetching starred repos.');
+            setError('Problem fetching starred repos');
         }
     };
 
@@ -74,7 +74,9 @@ const GitHubProfiles = () => {
                             {userData.public_repos} <strong>Repos</strong>
                         </li>
                     </ul>
-                    <div id="repos">{reposData && reposData.length > 0 && <ReposList repos={reposData} />}</div>
+                    <div id="repos">
+                        {reposData && reposData.length > 0 && <ReposList repos={reposData} />}
+                    </div>
                     <div id="starred">
                         {starredRepos && starredRepos.length > 0 && (
                             <StarredReposList starredRepos={starredRepos} />
