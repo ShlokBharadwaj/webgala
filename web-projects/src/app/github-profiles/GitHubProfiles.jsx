@@ -51,15 +51,6 @@ const GitHubProfiles = () => {
         }
     };
 
-    const getRepos = async (username) => {
-        try {
-            const { data } = await axios(APIURL + username + '/repos?sort=created');
-            setReposData(data);
-        } catch (err) {
-            setError('Problem fetching repos');
-        }
-    };
-
     const createUserCard = () => {
         const userID = userData.name || userData.login;
         const userBio = userData.bio ? <p>{userData.bio}</p> : '';
