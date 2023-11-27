@@ -104,7 +104,11 @@ const GitHubProfiles = () => {
             <strong>Top Organizations:</strong> <br />
             <ul>
                 {orgs.slice(0, 5).map((org) => (
-                    <li key={org.id} className={styles.orgsLists}>{org.login}</li>
+                    <li key={org.id}>
+                        <a href={org.html_url} target='_blank' rel='noopener noreferrer' className={styles.orgsLists}>
+                            {org.login}
+                        </a>
+                    </li>
                 ))}
             </ul>
         </div>
@@ -155,7 +159,7 @@ const GitHubProfiles = () => {
     return (
         <div className={styles.container}>
             <form className={styles.userForm} onSubmit={handleSubmit}>
-                <input type="text" ref={searchRef} placeholder="Search a Github User"/>
+                <input type="text" ref={searchRef} placeholder="Search a Github User" />
             </form>
             <main id="main">
                 {error ? createErrorCard() : userData.login && createUserCard()}
