@@ -147,7 +147,7 @@ const GitHubProfiles = () => {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             <form className={styles.userForm} onSubmit={handleSubmit}>
                 <input type="text" ref={searchRef} placeholder="Search a Github User" />
                 <button type="submit" disabled={loading}>
