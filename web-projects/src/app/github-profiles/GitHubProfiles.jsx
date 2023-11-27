@@ -95,9 +95,9 @@ const GitHubProfiles = () => {
 
     const OrgsList = ({ orgs }) => (
         <div>
-            <h3>Organizations:</h3>
+            <h3>Top Organizations:</h3>
             <ul>
-                {orgs.map((org) => (
+                {orgs.slice(0, 5).map((org) => (
                     <li key={org.id}>{org.login}</li>
                 ))}
             </ul>
