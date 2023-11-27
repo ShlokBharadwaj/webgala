@@ -105,7 +105,7 @@ const GitHubProfiles = () => {
 
     const OrgsList = ({ orgs }) => (
         <div>
-            <h3>Top Organizations:</h3>
+            <strong>Top Organizations:</strong>
             <ul>
                 {orgs.slice(0, 5).map((org) => (
                     <li key={org.id}>{org.login}</li>
@@ -116,7 +116,7 @@ const GitHubProfiles = () => {
 
     const StarredReposList = ({ starredRepos }) => (
         <div>
-            <h3>Top Starred Repositories:</h3>
+            <strong>Top Starred Repositories:</strong>
             <ul>
                 {starredRepos.slice(0, 5).map((repo) => (
                     <li key={repo.id}>
@@ -131,7 +131,7 @@ const GitHubProfiles = () => {
 
     const ReposList = ({ repos }) => (
         <div>
-            <h3>Top Repositories:</h3>
+            <strong>Top Repositories:</strong>
             {repos.slice(0, 5).map((repo) => (
                 <a key={repo.id} className={styles.repo} href={repo.html_url} target="_blank" rel="noopener noreferrer">
                     {repo.name}
