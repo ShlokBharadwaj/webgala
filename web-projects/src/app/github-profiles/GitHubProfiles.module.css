@@ -88,7 +88,9 @@
     margin-left: 0.3rem;
 }
 
-.repo {
+.repo,
+.starredRepos,
+.orgsLists {
     text-decoration: none;
     color: #111;
     background-color: #e9ecef;
@@ -107,6 +109,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .userForm {
         max-width: 400px;
     }

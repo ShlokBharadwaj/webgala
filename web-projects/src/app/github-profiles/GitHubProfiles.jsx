@@ -108,7 +108,7 @@ const GitHubProfiles = () => {
             <strong>Top Organizations:</strong> <br />
             <ul>
                 {orgs.slice(0, 5).map((org) => (
-                    <li key={org.id}>{org.login}</li>
+                    <li key={org.id} className={styles.orgsLists}>{org.login}</li>
                 ))}
             </ul>
         </div>
@@ -120,7 +120,7 @@ const GitHubProfiles = () => {
             <ul>
                 {starredRepos.slice(0, 5).map((repo) => (
                     <li key={repo.id}>
-                        <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                        <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className={styles.starredRepos}>
                             {repo.name}
                         </a>
                     </li>
