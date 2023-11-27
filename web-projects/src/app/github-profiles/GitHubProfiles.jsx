@@ -7,8 +7,9 @@ const APIURL = 'https://api.github.com/users/';
 const GitHubProfiles = () => {
     const [userData, setUserData] = useState({});
     const [reposData, setReposData] = useState([]);
-    const [error, setError] = useState('');
+    const [orgsData, setOrgsData] = useState([]);
     const [starredRepos, setStarredRepos] = useState([]);
+    const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
 
     const searchRef = useRef();
@@ -16,14 +17,16 @@ const GitHubProfiles = () => {
     const getUser = async (username) => {
         try {
             setLoading(true);
-            const [userData, repos, starred] = await Promise.all([
+            const [userData, repos, orgs, starred] = await Promise.all([
                 axios(APIURL + username),
-                axios(APIURL + username + '/repos?sort=updated'),
+                axios(APIURL + username + '/repos?sort=created'),
+                axios(APIURL + username + '/orgs'),
                 axios(APIURL + username + '/starred'),
             ]);
 
             setUserData(userData.data);
             setReposData(repos.data);
+            setOrgsData(orgs.data);
             setStarredRepos(starred.data);
         } catch (err) {
             if (err.response && err.response.status === 404) {
@@ -77,6 +80,9 @@ const GitHubProfiles = () => {
                     <div id="repos">
                         {reposData && reposData.length > 0 && <ReposList repos={reposData} />}
                     </div>
+                    <div id="orgs">
+                        {orgsData && orgsData.length > 0 && <OrgsList orgs={orgsData} />}
+                    </div>
                     <div id="starred">
                         {starredRepos && starredRepos.length > 0 && (
                             <StarredReposList starredRepos={starredRepos} />
@@ -87,11 +93,22 @@ const GitHubProfiles = () => {
         );
     };
 
+    const OrgsList = ({ orgs }) => (
+        <div>
+            <h3>Organizations:</h3>
+            <ul>
+                {orgs.map((org) => (
+                    <li key={org.id}>{org.login}</li>
+                ))}
+            </ul>
+        </div>
+    );
+
     const StarredReposList = ({ starredRepos }) => (
         <div>
-            <h3>Starred Repositories:</h3>
+            <h3>Top Starred Repositories:</h3>
             <ul>
-                {starredRepos.map((repo) => (
+                {starredRepos.slice(0, 5).map((repo) => (
                     <li key={repo.id}>
                         <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
                             {repo.name}
@@ -99,12 +116,6 @@ const GitHubProfiles = () => {
                     </li>
                 ))}
             </ul>
-        </div>
-    );
-
-    const createErrorCard = () => (
-        <div className={styles.card}>
-            <h1>{error}</h1>
         </div>
     );
 
@@ -116,6 +127,12 @@ const GitHubProfiles = () => {
                     {repo.name}
                 </a>
             ))}
+        </div>
+    );
+
+    const createErrorCard = () => (
+        <div className={styles.card}>
+            <h1>{error}</h1>
         </div>
     );
 
