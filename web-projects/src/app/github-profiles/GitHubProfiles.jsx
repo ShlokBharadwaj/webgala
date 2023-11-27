@@ -108,6 +108,7 @@ const GitHubProfiles = () => {
 
     const ReposList = ({ repos }) => (
         <div>
+            <h3>Top Repositories:</h3>
             {repos.slice(0, 5).map((repo) => (
                 <a key={repo.id} className={styles.repo} href={repo.html_url} target="_blank" rel="noopener noreferrer">
                     {repo.name}
