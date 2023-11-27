@@ -8,19 +8,31 @@ const GitHubProfiles = () => {
     const [userData, setUserData] = useState({});
     const [reposData, setReposData] = useState([]);
     const [error, setError] = useState('');
+    const [starredRepos, setStarredRepos] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const searchRef = useRef();
 
     const getUser = async (username) => {
         try {
-            const { data } = await axios(APIURL + username);
+            setLoading(true);
+            const [userData, repos, starred] = await Promise.all([
+                axios(APIURL + username),
+                axios(APIURL + username + '/repos?sort=updated'),
+                axios(APIURL + username + '/starred'),
+            ]);
 
-            setUserData(data);
-            getRepos(username);
+            setUserData(userData.data);
+            setReposData(repos.data);
+            setStarredRepos(starred.data);
         } catch (err) {
             if (err.response && err.response.status === 404) {
-                setError('No profile with this username');
+                setError('No profile with this username: ' + username);
+            } else {
+                setError('An error occured');
             }
+        } finally {
+            setLoading(false);
         }
     };
 
