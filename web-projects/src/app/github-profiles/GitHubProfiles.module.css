@@ -56,6 +56,7 @@
     border: 10px solid #e9ecef;
     height: 150px;
     width: 150px;
+    box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
 .userInfo {
@@ -85,4 +86,18 @@
 .userInfo ul li strong {
     font-size: 0.9rem;
     margin-left: 0.3rem;
+}
+
+.repo {
+    text-decoration: none;
+    color: #111;
+    background-color: #e9ecef;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    display: inline-block;
+    box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
 }
