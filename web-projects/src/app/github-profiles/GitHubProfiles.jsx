@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import styles from './GitHubProfiles.module.css';
 
@@ -29,10 +29,25 @@ const GitHubProfiles = () => {
             if (err.response && err.response.status === 404) {
                 setError('No profile with this username: ' + username);
             } else {
-                setError('An error occured');
+                setError('An error occured.');
             }
         } finally {
             setLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        if (userData.login) {
+            getUserStarredRepos(userData.login);
+        }
+    }, [userData.login]);
+
+    const getUserStarredRepos = async (username) => {
+        try {
+            const { data } = await axios(APIURL + username + './starred');
+            setStarredRepos(data);
+        } catch (err) {
+            setError('Problem fetching starred repos.');
         }
     };
 
