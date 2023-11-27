@@ -31,6 +31,8 @@ const GitHubProfiles = () => {
         } catch (err) {
             if (err.response && err.response.status === 404) {
                 setError('No profile with this username: ' + username);
+            } else if (err.response.status === 403) {
+                setError('Authentication error. Rate limit exceeded. This application does not use API Tokens and GitHub restricts API call without tokens. Please try again later.');
             } else {
                 setError('An error occurred');
             }
@@ -50,7 +52,15 @@ const GitHubProfiles = () => {
             const { data } = await axios(APIURL + username + '/starred');
             setStarredRepos(data);
         } catch (err) {
-            setError('Problem fetching starred repos');
+            if (err.response) {
+                if (err.response.status === 403) {
+                    setError('Authentication error. Rate limit exceeded. This application does not use API Tokens and GitHub restricts API call without tokens. Please try again later.');
+                } else {
+                    setError('Problem fetching starred repos.');
+                }
+            } else {
+                setError('An unexpected error occurred.');
+            }
         }
     };
 
@@ -149,7 +159,7 @@ const GitHubProfiles = () => {
     return (
         <div className={styles.container}>
             <form className={styles.userForm} onSubmit={handleSubmit}>
-                <input type="text" ref={searchRef} placeholder="Search a Github User" />
+                <input type="text" ref={searchRef} placeholder="Search a Github User" autoFocus />
                 <button type="submit" disabled={loading}>
                     {loading ? 'Loading...' : 'Search'}
                 </button>
