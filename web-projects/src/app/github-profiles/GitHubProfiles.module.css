@@ -33,8 +33,8 @@
     box-shadow: 0 5px 10px rgba(152, 160, 185, 0.05), 0 15px 40px rgba(0, 0, 0, 0.1);
 }
 
-.userForm:focus,
-.userForm:active {
+.userForm input:focus,
+.userForm input:active {
     outline: none;
 }
 
