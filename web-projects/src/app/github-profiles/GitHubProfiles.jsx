@@ -1,55 +1,85 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import styles from './GitHubProfiles.module.css';
 
 const APIURL = 'https://api.github.com/users/';
 
 const GitHubProfiles = () => {
-    const [userData, setUserData] = useState(null);
-    const [repos, setRepos] = useState([]);
-    const formRef = useRef(null);
-    const searchRef = useRef(null);
+    const [userData, setUserData] = useState({});
+    const [reposData, setReposData] = useState([]);
+    const [error, setError] = useState('');
+
+    const searchRef = useRef();
 
     const getUser = async (username) => {
         try {
             const { data } = await axios(APIURL + username);
+
             setUserData(data);
             getRepos(username);
         } catch (err) {
-            console.error('Error fetching user data:', err);
-            setUserData(null);
             if (err.response && err.response.status === 404) {
-                createErrorCard('No profile with this username');
-            } else {
-                createErrorCard('Error fetching user data');
+                setError('No profile with this username');
             }
         }
     };
 
-
     const getRepos = async (username) => {
         try {
             const { data } = await axios(APIURL + username + '/repos?sort=created');
-            setRepos(data.slice(0, 5));
+            setReposData(data);
         } catch (err) {
-            setRepos([]);
-            createErrorCard('Problem fetching repos');
+            setError('Problem fetching repos');
         }
     };
 
-    const createErrorCard = (msg) => {
-        console.log('Error message:', msg);
-        setUserData(
+    const createUserCard = () => {
+        const userID = userData.name || userData.login;
+        const userBio = userData.bio ? <p>{userData.bio}</p> : '';
+
+        return (
             <div className={styles.card}>
-                <h1>{msg}</h1>
+                <div>
+                    <img src={userData.avatar_url} alt={userData.name} className={styles.avatar} />
+                </div>
+                <div className={styles.userInfo}>
+                    <h2>{userID}</h2>
+                    {userBio}
+                    <ul>
+                        <li>
+                            {userData.followers} <strong>Followers</strong>
+                        </li>
+                        <li>
+                            {userData.following} <strong>Following</strong>
+                        </li>
+                        <li>
+                            {userData.public_repos} <strong>Repos</strong>
+                        </li>
+                    </ul>
+                    <div id="repos">{reposData && reposData.length > 0 && <ReposList repos={reposData} />}</div>
+                </div>
             </div>
         );
     };
 
+    const createErrorCard = () => (
+        <div className={styles.card}>
+            <h1>{error}</h1>
+        </div>
+    );
+
+    const ReposList = ({ repos }) => (
+        <div>
+            {repos.slice(0, 5).map((repo) => (
+                <a key={repo.id} className={styles.repo} href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                    {repo.name}
+                </a>
+            ))}
+        </div>
+    );
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         const user = searchRef.current.value;
 
         if (user) {
@@ -58,52 +88,14 @@ const GitHubProfiles = () => {
         }
     };
 
-    useEffect(() => {
-        formRef.current.addEventListener('submit', handleSubmit);
-
-        return () => {
-            formRef.current.removeEventListener('submit', handleSubmit);
-        };
-    }, []);
-
     return (
-        <div className={styles.container}>
-            <form ref={formRef} className={styles.userForm}>
-                <input type="text" placeholder="Search a GitHub user" className={styles.userInput} ref={searchRef} />
+        <div>
+            <form className={styles.userForm} onSubmit={handleSubmit}>
+                <input type="text" ref={searchRef} placeholder="Search a Github User" />
             </form>
-            <main className={styles.main}>
-                {userData !== null ? (
-                    userData === 'NOT_FOUND' ? (
-                        <div className={styles.card}>
-                            <h1>No profile with this username</h1>
-                        </div>
-                    ) : (
-                        <div className={styles.card}>
-                            <div>
-                                <img src={userData.avatar_url} alt={userData.name} className={styles.avatar} />
-                            </div>
-                            <div className={styles.userInfo}>
-                                <h2>{userData.name || userData.login}</h2>
-                                {userData.bio && <p>{userData.bio}</p>}
-                                <ul>
-                                    <li>{userData.followers} <strong>Followers</strong></li>
-                                    <li>{userData.following} <strong>Following</strong></li>
-                                    <li>{userData.public_repos} <strong>Repos</strong></li>
-                                </ul>
-                                <div>
-                                    {repos.map((repo) => (
-                                        <a key={repo.id} className={styles.repo} href={repo.html_url} target="_blank">
-                                            {repo.name}
-                                        </a>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    )
-                ) : null}
-            </main>
+            <main id="main">{error ? createErrorCard() : userData.login && createUserCard()}</main>
         </div>
     );
-}
+};
 
 export default GitHubProfiles;
