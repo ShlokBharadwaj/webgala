@@ -1,0 +1,32 @@
+.toggleContainer {
+    margin-bottom: 1rem;
+}
+
+.toggle {
+    display: none;
+}
+
+.label {
+    display: inline-block;
+    width: 30px;
+    height: 15px;
+    background-color: #ddd;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+}
+
+.ball {
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: -2.5px;
+    left: -5px;
+    transition: 0.3s;
+}
+
+.toggle:checked+.label .ball {
+    left: 15px;
+}
