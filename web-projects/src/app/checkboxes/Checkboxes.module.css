@@ -16,6 +16,8 @@
 .container h2 {
     font-weight: bolder;
     font-size: x-large;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .toggleContainer {
