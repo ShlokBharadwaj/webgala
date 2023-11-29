@@ -24,7 +24,7 @@ const Checkboxes = () => {
     };
 
     return (
-        <div>
+        <div className={styles.container}>
             <h2>How do you want your project to be?</h2>
 
             <div className={styles.toggleContainer}>
