@@ -16,7 +16,7 @@
 .toggleContainer {
     display: flex;
     align-items: center;
-    margin-bottom: 10px 0;
+    margin: 10px 0;
     width: 200px;
 }
 
@@ -25,13 +25,13 @@
 }
 
 .label {
-    display: inline-block;
-    width: 100px;
-    height: 50px;
     background-color: #2196f3;
-    border-radius: 15px;
     position: relative;
+    width: 100px;
+    height: 49px;
     cursor: pointer;
+    border-radius: 50px;
+    display: inline-block;
     margin: 0 25px 0;
 }
 
@@ -40,16 +40,13 @@
 }
 
 .ball {
-    width: 20px;
-    height: 20px;
+    align-items: center;
+    justify-content: center;
     background-color: #fff;
+    width: 42px;
+    height: 42px;
     border-radius: 50%;
     position: absolute;
-    top: -2.5px;
-    left: -5px;
-    transition: 0.3s;
-}
-
-.toggle:checked+.label .ball {
-    left: 15px;
+    top: 3.5px;
+    left: 4px;
 }
