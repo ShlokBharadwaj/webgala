@@ -9,16 +9,7 @@ const Hoverboard = () => {
     const [squares, setSquares] = useState([]);
 
     useEffect(() => {
-        const setColor = (element) => {
-            const color = getRandomColor();
-            element.style.background = color;
-            element.style.boxShadow = `0 0 2px ${color}, 0 0 10px ${color}`;
-        };
-
-        const removeColor = (element) => {
-            element.style.background = "#1d1d1d";
-            element.style.boxShadow = `0 0 2px #000`
-        };
+        
 
         const getRandomColor = () => {
             return colors[Math.floor(Math.random() * colors.length)];
@@ -28,10 +19,12 @@ const Hoverboard = () => {
             <div
                 key={index}
                 className={styles.square}
-                onMouseOver={(e) => setColor(e.target)}
-                onMouseOut={(e) => removeColor(e.target)}
+                onMouseOver={handleMouseOver}
+                onMouseOut={handleMouseOut}
             />
         ));
+
+        setSquares(squares);
     })
 
 
