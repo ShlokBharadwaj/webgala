@@ -8,7 +8,9 @@ const HiddenSearchWidget = () => {
         <div className={styles.container}>
             <div className={styles.search}>
                 <input type="text" className={styles.input} placeholder='Search...' />
-                <FontAwesomeIcon icon={faSearch} className={styles.btn} />
+                <button className={styles.btn}>
+                    <FontAwesomeIcon icon={faSearch} className={styles.icon} />
+                </button>
             </div>
         </div>
     )
