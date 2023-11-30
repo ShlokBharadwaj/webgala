@@ -20,6 +20,12 @@ const Hoverboard = () => {
             element.style.background = "#1d1d1d";
             element.style.boxShadow = `0 0 2px #000`
         };
+
+        const getRandomColor = () => {
+            return colors[Math.floor(Math.random() * colors.length)];
+        };
+
+        
     })
 
 
