@@ -46,8 +46,10 @@ const Hoverboard = () => {
     };
 
     return (
-        <div className={styles.container} ref={containerRef}>
-            {squares}
+        <div className={styles.parentContainer}>
+            <div className={styles.container} ref={containerRef}>
+                {squares}
+            </div>
         </div>
     )
 }
