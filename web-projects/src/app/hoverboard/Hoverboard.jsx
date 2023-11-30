@@ -9,10 +9,13 @@ const Hoverboard = () => {
     const [squares, setSquares] = useState([]);
 
     useEffect(() => {
-        
 
-        const getRandomColor = () => {
-            return colors[Math.floor(Math.random() * colors.length)];
+        const handleMouseOver = (event) => {
+            setColor(event.target);
+        };
+
+        const handleMouseOut = (event) => {
+            removeColor(event.target);
         };
 
         const squares = Array.from({ length: SQUARES }).map((_, index) => (
@@ -25,8 +28,11 @@ const Hoverboard = () => {
         ));
 
         setSquares(squares);
-    })
+    }, []);
 
+    const getRandomColor = () => {
+        return colors[Math.floor(Math.random() * colors.length)];
+    };
 
     return (
         <div className={styles.container} ref={containerRef}>
