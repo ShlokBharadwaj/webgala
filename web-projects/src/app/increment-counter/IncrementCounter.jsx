@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './IncrementCounter.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faGithub, faReddit } from '@fortawesome/free-brands-svg-icons';
@@ -14,6 +14,31 @@ const IncrementCounter = () => {
 
     const [counters, setCounters] = useState(counterData);
 
+    useEffect(() => {
+        const updateCounter = (index) => {
+            setCounters((prevCounters) => {
+                const newCounters = [...prevCounters];
+                const target = newCounters[index].target;
+                const increment = target / 200;
+                newCounters[index].current = Math.min(target, Math.ceil((newCounters[index].current || 0) + increment));
+                return newCounters;
+            });
+        };
+
+        const updateCounters = () => {
+            counters.forEach((_, index) => {
+                updateCounter(index);
+            });
+
+            const hasPendingUpdates = counters.some((counter) => counter.current < counter.count);
+
+            if (hasPendingUpdates) {
+                requestAnimationFrame(updateCounters);
+            }
+        };
+
+        updateCounters();
+    }, [counters]);
 
     return (
         <div className={styles.container}>
