@@ -1,41 +1,52 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 .container {
-    box-sizing: border-box;
-    background-color: #96d7ff;
-    color: #111;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    overflow: hidden;
-    margin: 0;
+  box-sizing: border-box;
+  background-color: #96d7ff;
+  color: #111;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
 }
 
 .counterItem {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    margin: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin: 30px;
+  padding: 20px;
+  background-color: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+
+.counterItem:hover {
+    transform: scale(1.05);
 }
 
 .counter {
-    font-size: 60px;
-    margin-top: 10px;
+  font-size: 48px;
+  margin-top: 10px;
 }
 
 .icons {
-    font-size: 60px;
+  font-size: 48px;
 }
 
 .counterItem span {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 @media (max-width: 950px) {
-    .container {
-        flex-direction: column;
-    }
+  .container {
+    flex-direction: column;
+  }
+
+  .counterItem {
+    margin: 20px;
+  }
 }
