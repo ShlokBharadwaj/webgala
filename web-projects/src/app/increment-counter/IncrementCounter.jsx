@@ -18,9 +18,9 @@ const IncrementCounter = () => {
         const updateCounter = (index) => {
             setCounters((prevCounters) => {
                 const newCounters = [...prevCounters];
-                const target = newCounters[index].target;
-                const increment = target / 200;
-                newCounters[index].current = Math.min(target, Math.ceil((newCounters[index].current || 0) + increment));
+                const count = newCounters[index].count;
+                const increment = count / 200;
+                newCounters[index].current = Math.min(count, Math.ceil((newCounters[index].current || 0) + increment));
                 return newCounters;
             });
         };
