@@ -19,7 +19,7 @@ const IncrementCounter = () => {
             setCounters((prevCounters) => {
                 const newCounters = [...prevCounters];
                 const count = newCounters[index].count;
-                const increment = count / 200;
+                const increment = count / 3500;
                 newCounters[index].current = Math.min(count, Math.ceil((newCounters[index].current || 0) + increment));
                 return newCounters;
             });
@@ -44,7 +44,7 @@ const IncrementCounter = () => {
         <div className={styles.container}>
             {counters.map((counter, index) => (
                 <div key={index} className={styles.counterItem}>
-                    <FontAwesomeIcon icon={counter.icon} />
+                    <FontAwesomeIcon icon={counter.icon} className={styles.icons}/>
                     <div className={styles.counter} data-target={counter.count}>
                         {counter.current || 0}
                     </div>
