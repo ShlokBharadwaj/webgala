@@ -80,10 +80,10 @@ const InsectCatchGame = () => {
 
             {/* Screen 3 - End Game */}
             {currentScreen === 3 && (
-                <div className="screen game-container flex flex-col items-center justify-between h-[100vh] w-[100vw] bg-[#2b9348] relative">
+                <div className="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348] relative">
                     <h3 id="time" className="absolute top-5 right-5">Time: 00:00</h3>
                     <h3 id="score" className="absolute top-5 left-5">Score: 0</h3>
-                    <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute top-0 left-[50%] translate-x-[50%] translate-y-[-150%] transition-transform opacity-0">
+                    <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
                         Are you annoyed yet? <br />
                         You are playing an impossible game
                     </h5>
