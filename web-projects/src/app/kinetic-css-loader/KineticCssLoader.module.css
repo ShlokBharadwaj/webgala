@@ -13,5 +13,21 @@
     position: relative;
     height: 80px;
     width: 80px;
-    background-color: #fff;
+}
+
+.loader::after, .loader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border: 50px solid transparent;
+    border-bottom-color: #fff;
+    animation: turnLeft 2s linear infinite 0.5s;
+}
+
+.loader::before {
+    transform: rotate(180deg);
+    animation: turnRight 2d linear infinite;
 }
