@@ -1,9 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './InsectCatchGame.module.css';
 
 const InsectCatchGame = () => {
 
     const [currentScreen, setCurrentScreen] = useState(1);
+    const [seconds, setSeconds] = useState(0);
+    const [score, setScore] = useState(0);
+    const [selectedInsect, setSelectedInsect] = useState(null);
+    const [insects, setInsects] = useState([]);
+
+    useEffect(() => {
+        let interval;
+        if (currentScreen === 3) {
+            interval = setInterval(() => {
+                setSeconds((prevSeconds) => prevSeconds + 1);
+            }, 1000);
+        }
+
+        return () => clearInterval(interval);
+    }, [currentScreen]);
 
     const handlePlayGameClick = () => {
         setCurrentScreen(2);
@@ -81,7 +96,7 @@ const InsectCatchGame = () => {
             {/* Screen 3 - End Game */}
             {currentScreen === 3 && (
                 <div className="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348] relative">
-                    <h3 id="time" className="absolute top-5 right-5">Time: 00:00</h3>
+                    <h3 id="time" className="absolute top-5 right-5">Time: {String(Math.floor(seconds / 60)).padStart(2, '0')}:{String(seconds % 60).padStart(2, '0')}</h3>
                     <h3 id="score" className="absolute top-5 left-5">Score: 0</h3>
                     <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
                         Are you annoyed yet? <br />
