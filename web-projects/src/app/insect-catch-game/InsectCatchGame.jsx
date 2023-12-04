@@ -120,11 +120,6 @@ const InsectCatchGame = () => {
                         </li>
                     </ul>
                     <button
-                        onClick={handleInsectSelection}
-                        className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90 mt-10'>
-                        Continue
-                    </button>
-                    <button
                         onClick={handleBackButtonClick}
                         className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90 mt-10'>
                         Back
