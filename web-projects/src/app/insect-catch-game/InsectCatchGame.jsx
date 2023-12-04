@@ -34,6 +34,7 @@ const InsectCatchGame = () => {
         }
         else if (currentScreen === 3) {
             setCurrentScreen(2);
+            setSeconds(0);
         }
     };
 
