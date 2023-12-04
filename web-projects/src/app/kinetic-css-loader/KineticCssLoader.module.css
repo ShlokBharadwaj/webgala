@@ -28,6 +28,35 @@
 }
 
 .loader::before {
-    transform: rotate(180deg);
-    animation: turnRight 2d linear infinite;
+    transform: rotate(90deg);
+    animation: turnRight 2s linear infinite;
+}
+
+@keyframes turnLeft {
+    0%, 25% {
+        transform: rotate(0deg);
+    }
+
+    50%, 75% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes turnRight {
+    0%, 25% {
+        transform: rotate(90deg);
+    }
+
+    50%, 75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(450deg);
+    }
+    
 }
