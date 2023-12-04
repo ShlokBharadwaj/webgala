@@ -4,7 +4,7 @@ import styles from './KineticCssLoader.module.css';
 const KineticCssLoader = () => {
     return (
         <div className={styles.container}>
-            <div className={styles.kinetic}></div>
+            <div className={styles.loader}></div>
         </div>
     )
 }

@@ -8,3 +8,10 @@
     overflow: hidden;
     margin: 0;
 }
+
+.loader {
+    position: relative;
+    height: 80px;
+    width: 80px;
+    background-color: #fff;
+}
