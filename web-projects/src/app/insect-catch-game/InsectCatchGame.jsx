@@ -13,6 +13,15 @@ const InsectCatchGame = () => {
         setCurrentScreen(3);
     };
 
+    const handleBackButtonClick = () => {
+        if (currentScreen === 2) {
+            setCurrentScreen(1);
+        }
+        else if (currentScreen === 3) {
+            setCurrentScreen(2);
+        }
+    };
+
     return (
         <div className={`${styles.container} h-[100vh] overflow-hidden m-0 box-border text-center`}>
 
@@ -29,7 +38,7 @@ const InsectCatchGame = () => {
             {/* Screen 2  - Choose Insect*/}
             {currentScreen === 2 && (
                 <div className='screen flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348]'>
-                    <h1>What's your favourite insect?</h1>
+                    <h1 className='text-2xl my-4'>What's your favourite insect?</h1>
                     <ul className="insect-list flex flex-wrap justify-center list-none p-0 mt-10">
                         <li className="m-3">
                             <button
@@ -61,20 +70,30 @@ const InsectCatchGame = () => {
                         className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90 mt-10'>
                         Continue
                     </button>
+                    <button
+                        onClick={handleBackButtonClick}
+                        className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90 mt-10'>
+                        Back
+                    </button>
                 </div>
             )}
 
             {/* Screen 3 - End Game */}
             {currentScreen === 3 && (
-                <div
-                    className="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348] relative">
+                <div className="screen game-container flex flex-col items-center justify-between h-[100vh] w-[100vw] bg-[#2b9348] relative">
                     <h3 id="time" className="absolute top-5 right-5">Time: 00:00</h3>
                     <h3 id="score" className="absolute top-5 left-5">Score: 0</h3>
-                    <h5 id="message"
-                        className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute top-0 left-[50%] translate-x-[50%] translate-y-[-150%] transition-transform opacity-0">
+                    <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute top-0 left-[50%] translate-x-[50%] translate-y-[-150%] transition-transform opacity-0">
                         Are you annoyed yet? <br />
                         You are playing an impossible game
                     </h5>
+                    <div className="flex flex-col items-center absolute top-5">
+                        <button
+                            onClick={handleBackButtonClick}
+                            className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90'>
+                            Back
+                        </button>
+                    </div>
                 </div>
             )}
         </div>
