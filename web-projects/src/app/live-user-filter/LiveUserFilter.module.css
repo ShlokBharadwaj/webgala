@@ -46,3 +46,17 @@
     font-size: 14px;
     opacity: 0.8;
 }
+
+.userList {
+    background-color: #f5f3f4;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.userList li {
+    display: flex;
+    padding: 20px;
+}
