@@ -36,3 +36,13 @@
     columns: #111;
     padding: 30px 20px;
 }
+
+.header input {
+    background-color: #fbb1bd;
+    outline: none;
+    border-radius: 5px;
+    padding: 4px 7px;
+    width: 100%;
+    font-size: 14px;
+    opacity: 0.8;
+}
