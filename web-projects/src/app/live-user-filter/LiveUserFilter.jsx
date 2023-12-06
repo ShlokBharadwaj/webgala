@@ -8,7 +8,7 @@ const LiveUserFilter = () => {
             <header className={styles.header}>
                 <h4 className={styles.title}>Live User Filter</h4>
                 <small className={styles.subtitle}>Search by name or location</small>
-                <input type="text" name='name' id='filter' placeholder='Search...' className='w-1/3 py-2 border-b-2 border-blue-500 outline-none text-black focus:border-red-500 focus:outline-none' autoFocus/>
+                <input type="text" name='name' id='filter' placeholder='Search...' className='w-1/3 py-2 border-b-2 border-blue-500 outline-none focus:border-red-500 focus:outline-none' autoFocus/>
             </header>
             <ul className={styles.userList}>
                 <li>
