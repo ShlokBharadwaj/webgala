@@ -67,3 +67,19 @@
     height: 50px;
     width: 50px;
 }
+
+.userList .userInfo {
+    margin-left: 10px;
+}
+
+.userList .userInfo h4 {
+    margin: 0 0 10px;
+}
+
+.userList .userInfo p {
+    font-size: 12px;
+}
+
+.userList li:not(:last-of-type) {
+    border-bottom: 2px solid #fae0e4;
+}
