@@ -60,3 +60,10 @@
     display: flex;
     padding: 20px;
 }
+
+.userListItem img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 50px;
+    width: 50px;
+}
