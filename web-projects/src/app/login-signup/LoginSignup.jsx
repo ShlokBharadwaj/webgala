@@ -19,10 +19,20 @@ const LoginSignup = () => {
                     <div className={`${styles.form} ${styles.signInForm}`}>
                         <form>
                             <h3>Sign In</h3>
-                            <input type="text" placeholder='Email Address' />
+                            <input type="email" placeholder='Email Address' />
                             <input type="password" placeholder='Password' />
                             <input type="submit" value='Login' />
                             <a href="#" className={styles.forgot}>Forgot Password</a>
+                        </form>
+                    </div>
+                    <div className={`${styles.form} ${styles.signUpForm}`}>
+                        <form>
+                            <h3>Sign Up</h3>
+                            <input type="text" placeholder='Full Name' />
+                            <input type="email" placeholder='Email Address' />
+                            <input type="password" placeholder='Password' />
+                            <input type="password" placeholder='Confirm Password' />
+                            <input type="submit" value='Register' />
                         </form>
                     </div>
                 </div>
