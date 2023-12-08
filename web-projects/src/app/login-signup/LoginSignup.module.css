@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Hubballi&family=Poppins:wght@100&display=swap');
+
+.container {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Poppins', sans-serif, 'Hubballi', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background: #23a0ee;
+    transition: 0.5s ease-in-out;
+}
+
+.container.active {
+    background: #dd311e;
+}

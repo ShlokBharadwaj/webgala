@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './LoginSignup.module.css';
 
 const LoginSignup = () => {
-
     const [isSignInActive, setSignInActive] = useState(true);
 
     const handleSignUpClick = () => {
@@ -14,7 +13,7 @@ const LoginSignup = () => {
     };
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${isSignInActive ? '' : styles.active}`}>
             <div className={styles.childContainer}>
                 <div className={styles.initialContainer}>
                     <div className={`${styles.box} ${styles.signIn}`}>
@@ -51,4 +50,5 @@ const LoginSignup = () => {
         </div>
     )
 }
+
 export default LoginSignup;
