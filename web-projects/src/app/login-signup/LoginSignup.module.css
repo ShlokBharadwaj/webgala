@@ -17,3 +17,10 @@
 .container.active {
     background: #dd311e;
 }
+
+.childContainer {
+    position: relative;
+    width: 800px;
+    height: 500px;
+    margin: 20px;
+}
