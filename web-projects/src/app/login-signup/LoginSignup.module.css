@@ -101,6 +101,11 @@
     transition-delay: 0s;
 }
 
+.formContainer.active .signUpForm {
+    left: 0;
+    transition-delay: 0.25s;
+}
+
 .formContainer .signUpForm {
     left: 100%;
     transition-delay: 0s;
