@@ -136,15 +136,15 @@
 }
 
 .formContainer .form form input[type="submit"] {
-    background-color: #23a0ee;
+    background: #23a0ee;
     border: none;
     color: #fff;
     cursor: pointer;
     max-width: 100px;
 }
 
-.formContainer .signUpForm input[type="submit"] {
-    background-color: #dd311e;
+.formContainer.active .signUpForm input[type="submit"] {
+    background: #dd311e;
 }
 
 .formContainer .form form .forgot {
