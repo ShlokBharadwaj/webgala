@@ -43,7 +43,16 @@ const MobileTabNavigation = () => {
                         />
                     ))
                 }
-                
+                <div className={styles.nav}>
+                    <ul>
+                        {icons.map((icon, index) => (
+                            <li key={index}>
+                                <FontAwesomeIcon icon={icon} />
+                                <p>{tabTitles[index]}</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
             </div>
         </div>
     )
