@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './MobileTabNavigtion.module.css';
+import styles from './MobileTabNavigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog, faBriefcase, faHouseChimney, faImagePortrait } from '@fortawesome/free-solid-svg-icons';
 
