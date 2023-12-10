@@ -19,3 +19,18 @@
     height: 600px;
     width: 340px;
 }
+
+.mobileContainer .content {
+    opacity: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 60px);
+    width: 100%;
+    transition: opacity 0.4s ease;
+}
+
+.mobileContainer .content.show {
+    opacity: 1;
+}
