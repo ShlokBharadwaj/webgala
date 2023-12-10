@@ -37,7 +37,7 @@ const MobileTabNavigation = () => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.main}>
+            <div className={styles.mobileContainer}>
                 {
                     imgUrls.map((imgs, index) => (
                         <img
