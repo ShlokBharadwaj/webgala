@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './MobileTabNavigtion.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase, faHouseChimney, faImagePortrait } from '@fortawesome/free-solid-svg-icons';
-import { faBlogger } from '@fortawesome/free-brands-svg-icons';
+import { faBlog, faBriefcase, faHouseChimney, faImagePortrait } from '@fortawesome/free-solid-svg-icons';
 
 const MobileTabNavigation = () => {
+
+    const [activeIndex, setActiveIndex] = useState(0);
 
     const imgUrls = [
         {
@@ -24,11 +25,15 @@ const MobileTabNavigation = () => {
     const icons = [
         faBriefcase,
         faHouseChimney,
-        faBlogger,
+        faBlog,
         faImagePortrait,
     ];
 
     const tabTitles = ['Work', 'Home', 'Blog', 'Portrait'];
+
+    const handleItemClick = (index) => {
+        setActiveIndex(index);
+    };
 
     return (
         <div className={styles.container}>
@@ -39,14 +44,18 @@ const MobileTabNavigation = () => {
                             key={index}
                             src={imgs.url}
                             alt={imgs.alt}
-                            className={`${styles.content} ${index === 0 ? 'show' : ''}`}
+                            className={`${styles.content} ${index === activeIndex ? styles.show : ''}`}
                         />
                     ))
                 }
                 <div className={styles.nav}>
                     <ul>
                         {icons.map((icon, index) => (
-                            <li key={index}>
+                            <li
+                                key={index}
+                                onClick={() => handleItemClick(index)}
+                                className={`${index === activeIndex ? styles.active : ''}`}
+                            >
                                 <FontAwesomeIcon icon={icon} />
                                 <p>{tabTitles[index]}</p>
                             </li>
