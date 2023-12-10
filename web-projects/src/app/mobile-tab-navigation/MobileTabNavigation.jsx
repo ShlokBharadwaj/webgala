@@ -15,7 +15,7 @@ const MobileTabNavigation = () => {
             url: 'https://source.unsplash.com/random/?home', alt: 'Home'
         },
         {
-            url: 'https://source.unsplash.com/random/?website', alt: 'Blog'
+            url: 'https://source.unsplash.com/random/?blog', alt: 'Blog'
         },
         {
             url: 'https://source.unsplash.com/random/?portrait', alt: 'Portrait'
