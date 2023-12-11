@@ -2,8 +2,25 @@
 
 .container {
     box-sizing: border-box;
-    background-color: #e9ecef;
-    color: #111;
+    background-color: #adb5bd;
     font-family: "Poppins", sans-serif;
     margin: 0;
+}
+
+.container header {
+    padding: 0.9rem;
+    display: flex;
+    justify-content: center;
+    background-color: #212529;
+}
+
+.search {
+    background-color: transparent;
+    border: 1px solid #adb5bd;
+    border-radius: 10px;
+    padding: 0.6rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #adb5bd;
+    outline: none;
 }

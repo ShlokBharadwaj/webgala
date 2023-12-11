@@ -50,7 +50,7 @@ const MovieApp = () => {
         <div className={styles.container}>
             <header>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" className={styles.search} placeholder='Search...' value={searchTerm} onChange={handleSearch} />
+                    <input type="text" className={styles.search} placeholder='Search...' value={searchTerm} onChange={handleSearch} autoFocus/>
                 </form>
             </header>
             <main>
