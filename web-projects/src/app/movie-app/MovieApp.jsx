@@ -36,6 +36,16 @@ const MovieApp = () => {
         setSearchTerm(e.target.value);
     };
 
+    const getClassByRate = (vote) => {
+        if (vote >= 7.5) {
+            return 'green';
+        } else if (vote >= 4.5) {
+            return 'orange';
+        } else {
+            return 'red';
+        }
+    };
+
     return (
         <div className={styles.container}>
             <header>
@@ -43,9 +53,28 @@ const MovieApp = () => {
                     <input type="text" className={styles.search} placeholder='Search...' value={searchTerm} onChange={handleSearch} />
                 </form>
             </header>
-            <main></main>
+            <main>
+                {movies.map((movie) => (
+                    <div
+                        key={movie.id}
+                        className={styles.movie}
+                    >
+                        <img src={`${IMG_PATH}${movie.poster_path}`} alt={movie.title} />
+                        <div className={styles.movieInfo}>
+                            <h3>{movie.title}</h3>
+                            <span className={`${styles.voteAverage} ${getClassByRate(movie.vote_average)}`}>
+                                {movie.vote_average}
+                            </span>
+                        </div>
+                        <div className={styles.overview}>
+                            <h3>Overview</h3>
+                            {movie.overview}
+                        </div>
+                    </div>
+                ))}
+            </main>
         </div>
-    )
-}
+    );
+};
 
 export default MovieApp;
