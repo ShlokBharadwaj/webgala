@@ -68,6 +68,7 @@
 .movieInfo h3 {
     margin-top: 0;
     font-weight: bolder;
+    text-align: center;
 }
 
 .movieInfo span {
@@ -88,6 +89,24 @@
 
 .voteLow {
     color: #ff0000;
+}
+
+.overview {
+    background-color: #fff;
+    color: #111;
+    padding: 2rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-height: 100%;
+    transform: translateY(101%);
+    transition: transform 0.3s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0%);
+    overflow: auto;
 }
 
 @media (min-width: 768px) {
