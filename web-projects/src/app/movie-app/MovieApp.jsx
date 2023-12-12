@@ -36,21 +36,11 @@ const MovieApp = () => {
         setSearchTerm(e.target.value);
     };
 
-    const getClassByRate = (vote) => {
-        if (vote >= 7.5) {
-            return 'green';
-        } else if (vote >= 4.5) {
-            return 'orange';
-        } else {
-            return 'red';
-        }
-    };
-
     return (
         <div className={styles.container}>
             <header>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" className={styles.search} placeholder='Search...' value={searchTerm} onChange={handleSearch} autoFocus/>
+                    <input type="text" className={styles.search} placeholder='Search...' value={searchTerm} onChange={handleSearch} autoFocus />
                 </form>
             </header>
             <main>
@@ -62,7 +52,11 @@ const MovieApp = () => {
                         <img src={`${IMG_PATH}${movie.poster_path}`} alt={movie.title} />
                         <div className={styles.movieInfo}>
                             <h3>{movie.title}</h3>
-                            <span className={`${styles.voteAverage} ${getClassByRate(movie.vote_average)}`}>
+                            <span className={`${styles.voteAverage} ${movie.vote_average < 5
+                                ? styles.voteLow
+                                : movie.vote_average < 8
+                                    ? styles.voteMedium
+                                    : styles.voteHigh}`}>
                                 {movie.vote_average}
                             </span>
                         </div>
