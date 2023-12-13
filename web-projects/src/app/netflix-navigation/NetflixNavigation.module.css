@@ -17,6 +17,7 @@
 
 .logo {
     width: 300px;
+    padding: 20px;
 }
 
 .text {
@@ -38,7 +39,12 @@
 
 .openIcon {
     color: #111;
-} 
+}
+
+.closeIcon {
+    color: #111;
+    margin-left: 10px;
+}
 
 .nav {
     position: fixed;
@@ -103,7 +109,7 @@
 }
 
 .list li {
-    margin: 20px 0;
+    margin: 20px;
 }
 
 .list li a {
@@ -111,4 +117,10 @@
     font-size: 14px;
     text-decoration: none;
     letter-spacing: 1px;
+}
+
+@media(max-width: 428px) {
+    .openIcon {
+        color: #fff;
+    }
 }
