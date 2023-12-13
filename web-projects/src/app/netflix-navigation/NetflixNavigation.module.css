@@ -96,3 +96,19 @@
 .navWhite.visible {
     transition-delay: 0.4s;
 }
+
+.list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.list li {
+    margin: 20px 0;
+}
+
+.list li a {
+    color: #000;
+    font-size: 14px;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
