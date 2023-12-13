@@ -32,22 +32,26 @@ const NetflixNavigation = () => {
             </button>
 
             <div className={`${styles.nav} ${isNavVisible ? styles.visible : ''}`}>
-                <div className={`${styles.nav} ${styles.navWhite} ${isNavVisible ? styles.visible : ''}`}>
-                    <button className={`${styles.navBtn} ${styles.closeBtn}`} onClick={handleCloseClick}>
-                        <FontAwesomeIcon icon={faArrowRightFromBracket} />
-                    </button>
-                    <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix's logo" className={styles.logo} />
+                <div className={`${styles.nav} ${styles.navBlack} ${isNavVisible ? styles.visible : ''}`}>
+                    <div className={`${styles.nav} ${styles.navRed} ${isNavVisible ? styles.visible : ''}`}>
+                        <div className={`${styles.nav} ${styles.navWhite} ${isNavVisible ? styles.visible : ''}`}>
+                            <button className={`${styles.navBtn} ${styles.closeBtn}`} onClick={handleCloseClick}>
+                                <FontAwesomeIcon icon={faArrowRightFromBracket} className={styles.closeIcon} />
+                            </button>
+                            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix's logo" className={styles.logo} />
 
-                    <ul className={styles.list}>
-                        {navItems.map((item, index) => (
-                            <li key={index}>
-                                <a href={item.link} className={styles.text}>{item.label}</a>
-                            </li>
-                        ))}
-                    </ul>
+                            <ul className={styles.list}>
+                                {navItems.map((item, index) => (
+                                    <li key={index}>
+                                        <a href={item.link} className={styles.text}>{item.label}</a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }
 
