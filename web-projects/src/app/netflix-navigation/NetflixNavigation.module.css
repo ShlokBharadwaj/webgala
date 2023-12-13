@@ -14,3 +14,85 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.logo {
+    width: 300px;
+}
+
+.text {
+    text-transform: uppercase;
+}
+
+.navBtn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.openBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+.openIcon {
+    color: #111;
+} 
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+.nav.visible {
+    transform: translateX(0);
+}
+
+.closeBtn {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    opacity: 0.3;
+}
+
+.navBlack {
+    background-color: #111;
+    width: 60%;
+    max-width: 480px;
+    min-width: 320px;
+    transition-delay: 0.4s;
+}
+
+.navBlack.visible {
+    transition-delay: .1s;
+}
+
+.navRed {
+    background-color: #e63946;
+    width: 95%;
+    max-width: 480px;
+    min-width: 320px;
+    transition-delay: .2s;
+}
+
+.navRed.visible {
+    transition-delay: .3s;
+}
+
+.navWhite {
+    background-color: #fff;
+    width: 95%;
+    max-width: 480px;
+    min-width: 320px;
+    position: relative;
+    transition-delay: 0;
+}
+
+.navWhite.visible {
+    transition-delay: 0.4s;
+}

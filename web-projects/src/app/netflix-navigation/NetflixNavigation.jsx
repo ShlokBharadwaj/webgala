@@ -28,7 +28,7 @@ const NetflixNavigation = () => {
     return (
         <div className={styles.container}>
             <button className={`${styles.navBtn} ${styles.openBtn}`} onClick={handleOpenClick}>
-                <FontAwesomeIcon icon={faBars} />
+                <FontAwesomeIcon icon={faBars} className={styles.openIcon} />
             </button>
 
             <div className={`${styles.nav} ${styles.navBlack} ${isNavVisible ? styles.visible : ''}`}>
@@ -44,7 +44,7 @@ const NetflixNavigation = () => {
                                 <li
                                     key={index}
                                 >
-                                    <a href={item.link}>{item.label}</a>
+                                    <a href={item.link} className={styles.text}>{item.label}</a>
                                 </li>
                             ))}
                         </ul>
