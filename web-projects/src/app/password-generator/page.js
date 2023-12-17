@@ -1,3 +1,3 @@
-'use client'
+'use client';
 
-export { default } from './PasswordGeneratorPage;'
+export { default } from './PasswordGenerator';
