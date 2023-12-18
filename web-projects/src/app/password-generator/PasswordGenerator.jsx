@@ -37,6 +37,8 @@ const PasswordGenerator = () => {
                         </div>
                     ))}
                 </div>
+
+                <button className={`${styles.btn2} ${styles.btnLarge}`} id='generate'>Generate Password</button>
             </div>
         </div>
     )
