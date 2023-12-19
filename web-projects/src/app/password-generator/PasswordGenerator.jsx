@@ -28,11 +28,11 @@ const PasswordGenerator = () => {
                 <div className={styles.passConfigs}>
                     {passItems.map((item) => (
                         <div key={item.id} className={styles.config}>
-                            <label>{item.label}</label>
+                            <label htmlFor={item.id} className={styles.label}>{item.label}</label>
                             {item.type === 'number' ? (
-                                <input type={item.type} id={item.id} min={item.min} max={item.max} defaultValue={item.defaultValue} />
+                                <input type={item.type} id={item.id} min={item.min} max={item.max} value={item.defaultValue} />
                             ) : (
-                                <input type={item.type} id={item.id} defaultChecked={item.defaultChecked} />
+                                <input type={item.type} id={item.id} checked={item.defaultChecked} />
                             )}
                         </div>
                     ))}
