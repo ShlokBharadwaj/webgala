@@ -40,12 +40,10 @@ const PasswordGenerator = () => {
             typesArr.forEach(type => {
                 const funcName = Object.keys(type)[0];
                 generatedPass += randomFunc[funcName]();
-                console.log(`Generated password is ${generatedPass}`);
             });
         }
 
         const finalPass = shuffle(generatedPass).slice(0, passwordLength);
-        console.log(`Final pass is ${finalPass}`)
         setPassword(finalPass);
     };
 
