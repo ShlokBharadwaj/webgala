@@ -54,6 +54,24 @@ const PasswordGenerator = () => {
         return arr.join('');
     };
 
+    const handleCheckboxChange = checkbox => {
+        switch (checkbox) {
+            case 'uppercase':
+                setIncludeUppercase(!includeUppercase);
+                break;
+            case 'lowercase':
+                setIncludeLowercase(!includeLowercase);
+                break;
+            case 'numbers':
+                setIncludeNumbers(!includeNumbers);
+                break;
+            case 'symbols':
+                setIncludeSymbols(!includeSymbols);
+                break;
+            default:
+                break;
+        };
+    };
 
     const passItems = [
         { id: 'length', label: 'Password Length', type: 'number', min: 8, max: 25, defaultValue: 20 },
@@ -80,9 +98,19 @@ const PasswordGenerator = () => {
                         <div key={item.id} className={styles.config}>
                             <label htmlFor={item.id} className={styles.label}>{item.label}</label>
                             {item.type === 'number' ? (
-                                <input type={item.type} id={item.id} min={item.min} max={item.max} value={item.defaultValue} />
+                                <input
+                                    type={item.type}
+                                    id={item.id}
+                                    min={item.min}
+                                    max={item.max}
+                                    value={item.defaultValue} />
                             ) : (
-                                <input type={item.type} id={item.id} checked={item.defaultChecked} />
+                                <input
+                                    type={item.type}
+                                    id={item.id}
+                                    checked={item.defaultChecked}
+                                    onChange={() => handleCheckboxChange(item.id)}
+                                />
                             )}
                         </div>
                     ))}
