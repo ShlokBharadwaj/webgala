@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import styles from './PasswordGenerator.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
+import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 const PasswordGenerator = () => {
 
@@ -19,6 +20,40 @@ const PasswordGenerator = () => {
         number: getRandomNumber,
         symbol: getRandomSymbol,
     };
+
+    const handleGenerateClick = () => {
+        const typesArr = [
+            { upper: includeUppercase },
+            { lower: includeLowercase },
+            { number: includeNumbers },
+            { symbol: includeSymbols },
+        ].filter(item => Object.values(item[0]));
+
+        if (typesArr.length === 0) {
+            setPassword('');
+            return;
+        }
+
+        let generatedPass = '';
+        const typesCount = typesArr.length;
+
+        for (let i = 0; i < passwordLength; i += typesCount) {
+            typesArr.forEach(type => {
+                const funcName = Object.keys(type)[0];
+                generatedPass += randomFunc[funcName]();
+            });
+        }
+
+        const finalPass = shuffle(generatedPass).slice(0, passwordLength);
+        setPassword(finalPass);
+    };
+
+    const shuffle = i => {
+        const arr = i.split('');
+        arr.sort(() => 0.5 - Math.random());
+        return arr.join('');
+    };
+
 
     const passItems = [
         { id: 'length', label: 'Password Length', type: 'number', min: 8, max: 25, defaultValue: 20 },
@@ -53,7 +88,7 @@ const PasswordGenerator = () => {
                     ))}
                 </div>
 
-                <button className={`${styles.btn2} ${styles.btnLarge}`} id='generate'>Generate Password</button>
+                <button className={`${styles.btn2} ${styles.btnLarge}`} onClick={handleGenerateClick}>Generate Password</button>
             </div>
         </div>
     );
