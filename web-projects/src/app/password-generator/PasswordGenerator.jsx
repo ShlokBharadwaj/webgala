@@ -2,7 +2,6 @@ import React, { useState, useRef } from 'react';
 import styles from './PasswordGenerator.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClipboard } from '@fortawesome/free-regular-svg-icons';
-import { faShuffle } from '@fortawesome/free-solid-svg-icons';
 
 const PasswordGenerator = () => {
 
@@ -27,7 +26,7 @@ const PasswordGenerator = () => {
             { lower: includeLowercase },
             { number: includeNumbers },
             { symbol: includeSymbols },
-        ].filter(item => Object.values(item[0]));
+        ].filter(item => Object.values(item)[0]);
 
         if (typesArr.length === 0) {
             setPassword('');
@@ -92,7 +91,7 @@ const PasswordGenerator = () => {
                 <h2>Password Generator</h2>
 
                 <div className={styles.resultContainer}>
-                    <span id='result' />
+                    <input type="text" readOnly value={password} ref={resultRef} />
                     <button className={styles.btn} id='clipboard'>
                         <FontAwesomeIcon icon={faClipboard} />
                     </button>
