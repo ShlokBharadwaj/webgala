@@ -75,6 +75,20 @@ const PasswordGenerator = () => {
     const handlePassLenChange = e => {
         const length = parseInt(e.target.value, 10);
         setPasswordLength(length);
+    };
+
+    const handleClipboardClick = async () => {
+        const passToCopy = resultRef.current.value;
+
+        if (!passToCopy)
+            return;
+
+        try {
+            await navigator.clipboard.writeText(passToCopy);
+            alert('Password is copied to your clipboard!');
+        } catch (err) {
+            console.error('Unable to copy to your clipboard: ', err);
+        }
     }
 
     const passItems = [
@@ -92,7 +106,7 @@ const PasswordGenerator = () => {
 
                 <div className={styles.resultContainer}>
                     <input type="text" readOnly value={password} ref={resultRef} />
-                    <button className={styles.btn} id='clipboard'>
+                    <button className={styles.btn} onClick={handleClipboardClick}>
                         <FontAwesomeIcon icon={faClipboard} />
                     </button>
                 </div>
