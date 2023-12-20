@@ -40,10 +40,12 @@ const PasswordGenerator = () => {
             typesArr.forEach(type => {
                 const funcName = Object.keys(type)[0];
                 generatedPass += randomFunc[funcName]();
+                console.log(`Generated password is ${generatedPass}`);
             });
         }
 
         const finalPass = shuffle(generatedPass).slice(0, passwordLength);
+        console.log(`Final pass is ${finalPass}`)
         setPassword(finalPass);
     };
 
@@ -92,11 +94,11 @@ const PasswordGenerator = () => {
     }
 
     const passItems = [
-        { id: 'length', label: 'Password Length', type: 'number', min: 8, max: 25, defaultValue: 20 },
-        { id: 'uppercase', label: 'Include uppercase letters', type: 'checkbox', defaultChecked: true },
-        { id: 'lowercase', label: 'Include lowercase letters', type: 'checkbox', defaultChecked: true },
-        { id: 'numbers', label: 'Include numbers', type: 'checkbox', defaultChecked: true },
-        { id: 'symbols', label: 'Include symbols', type: 'checkbox', defaultChecked: true },
+        { id: 'length', label: 'Password Length', type: 'number', min: 8, max: 25, defaultValue: passwordLength },
+        { id: 'uppercase', label: 'Include uppercase letters', type: 'checkbox', defaultChecked: includeUppercase },
+        { id: 'lowercase', label: 'Include lowercase letters', type: 'checkbox', defaultChecked: includeLowercase },
+        { id: 'numbers', label: 'Include numbers', type: 'checkbox', defaultChecked: includeNumbers },
+        { id: 'symbols', label: 'Include symbols', type: 'checkbox', defaultChecked: includeSymbols },
     ];
 
     return (
@@ -105,7 +107,12 @@ const PasswordGenerator = () => {
                 <h2>Password Generator</h2>
 
                 <div className={styles.resultContainer}>
-                    <input type="text" readOnly value={password} ref={resultRef} />
+                    <input
+                        type="text"
+                        readOnly
+                        value={password}
+                        ref={resultRef}
+                    />
                     <button className={styles.btn} onClick={handleClipboardClick}>
                         <FontAwesomeIcon icon={faClipboard} />
                     </button>
