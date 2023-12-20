@@ -73,6 +73,11 @@ const PasswordGenerator = () => {
         };
     };
 
+    const handlePassLenChange = e => {
+        const length = parseInt(e.target.value, 10);
+        setPasswordLength(length);
+    }
+
     const passItems = [
         { id: 'length', label: 'Password Length', type: 'number', min: 8, max: 25, defaultValue: 20 },
         { id: 'uppercase', label: 'Include uppercase letters', type: 'checkbox', defaultChecked: true },
@@ -103,7 +108,9 @@ const PasswordGenerator = () => {
                                     id={item.id}
                                     min={item.min}
                                     max={item.max}
-                                    value={item.defaultValue} />
+                                    value={item.defaultValue}
+                                    onChange={handlePassLenChange}
+                                />
                             ) : (
                                 <input
                                     type={item.type}
