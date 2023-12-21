@@ -128,6 +128,7 @@ const PasswordGenerator = () => {
                                     max={item.max}
                                     value={item.defaultValue}
                                     onChange={handlePassLenChange}
+                                    className={styles.passLen}
                                 />
                             ) : (
                                 <input
