@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import styles from './PasswordStrengthBackground.module.css';
 
 const PasswordStrengthBackground = () => {
 
