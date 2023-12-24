@@ -67,6 +67,13 @@ const Pokedex = () => {
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
                         alt={`${pokemon.name}'s picture`} />
                 </div>
+                <div className={styles.pokeInfo}>
+                    <span className={styles.pokeNum}>#{pokemon.id}</span>
+                    <h3 className={styles.pokeName}>{pokemon.name}</h3>
+                    <small className={styles.pokeType}>
+                        Type: <span>{type}</span>
+                    </small>
+                </div>
             </div>
         );
     };
