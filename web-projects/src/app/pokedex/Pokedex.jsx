@@ -7,7 +7,7 @@ const Pokedex = () => {
 
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const totalPokemonCount = 1025;
+    const totalPokemonCount = 10; //TODO: Count to 1025 after debugging.
 
     const colors = {
         normal: '#A8A878',
@@ -32,6 +32,25 @@ const Pokedex = () => {
         shadow: '#333333',
     };
 
+    const fetchAllPokemons = async () => {
+        const data = [];
+        for (let i = 1; i <= totalPokemonCount; i++) {
+            const pokemon = await fetchPokemon(i);
+            data.push(pokemon);
+        }
+        setPokemonData(data);
+        setLoading(false);
+    };
+
+    const fetchPokemon = async (id) => {
+        const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
+        const res = await fetch(url);
+        return res.json();
+    };
+
+    useEffect(() => {
+    fetchAllPokemons();
+}, []);
 
 
     return (
