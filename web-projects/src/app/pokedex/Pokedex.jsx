@@ -69,15 +69,18 @@ const Pokedex = () => {
                 </div>
                 <div className={styles.pokeInfo}>
                     <span className={styles.pokeNum}>#{pokemon.id}</span>
-                    <h3 className={styles.pokeName}>{pokemon.name}</h3>
+                    <h3 className={styles.pokeName}>{capitalizeFirstLetter(pokemon.name)}</h3>
                     <small className={styles.pokeType}>
-                        Type: <span>{type}</span>
+                        Type: <span>{capitalizeFirstLetter(type)}</span>
                     </small>
                 </div>
             </div>
         );
     };
 
+    const capitalizeFirstLetter = (name) => {
+        return name.charAt(0).toUpperCase() + name.slice(1);
+    }
 
     return (
         <div className={styles.container}>
