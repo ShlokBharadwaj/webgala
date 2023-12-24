@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Pokedex.module.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Pokedex = () => {
 
@@ -30,11 +32,19 @@ const Pokedex = () => {
         shadow: '#333333',
     };
 
+
+
     return (
         <div className={styles.container}>
             <h1>Pokedex</h1>
             <small>Have nostalgia with all 1025 pokemons</small>
-            <div className={styles.pokeContainer} id="pokeContainer"></div>
+            {loading ? (
+                <div className={styles.loadingContainer}>
+                    <FontAwesomeIcon icon={faSpinner} spin size="3x"></FontAwesomeIcon>
+                </div>
+            ) : (
+                <div className={styles.pokeContainer} id="pokeContainer"></div>
+            )}
         </div>
     )
 }
