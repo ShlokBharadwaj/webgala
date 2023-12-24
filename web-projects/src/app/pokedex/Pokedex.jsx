@@ -7,13 +7,13 @@ const Pokedex = () => {
 
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const totalPokemonCount = 10; //TODO: Count to 1025 after debugging.
+    const totalPokemonCount = 1; //TODO: Count to 1025 after debugging.
 
     const colors = {
         normal: '#A8A878',
         fighting: '#C03028',
-        flyting: '#A890F0',
-        posion: '#A040A0',
+        flying: '#A890F0',
+        poison: '#A040A0',
         ground: '#E0C068',
         rock: '#B8A038',
         bug: '#A8B820',
@@ -49,8 +49,17 @@ const Pokedex = () => {
     };
 
     useEffect(() => {
-    fetchAllPokemons();
-}, []);
+        fetchAllPokemons();
+    }, []);
+
+    const mapPokemonToElement = (pokemon) => {
+        const pokeType = pokemon.types.map((type) => type.type.name);
+        console.log(`Poke Type: ${pokeType[0]}`);
+        const type = Object.keys(colors).find((key) => pokeType[0].includes(key));
+        console.log(`Type: ${type}`);
+        const color = colors[type];
+        console.log(`Color: ${color}`);
+    }
 
 
     return (
@@ -62,7 +71,9 @@ const Pokedex = () => {
                     <FontAwesomeIcon icon={faSpinner} spin size="3x"></FontAwesomeIcon>
                 </div>
             ) : (
-                <div className={styles.pokeContainer} id="pokeContainer"></div>
+                <div className={styles.pokeContainer}>
+                    {pokemonData.map(mapPokemonToElement)}
+                </div>
             )}
         </div>
     )
