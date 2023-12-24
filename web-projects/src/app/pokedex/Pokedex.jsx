@@ -54,12 +54,22 @@ const Pokedex = () => {
 
     const mapPokemonToElement = (pokemon) => {
         const pokeType = pokemon.types.map((type) => type.type.name);
-        console.log(`Poke Type: ${pokeType[0]}`);
+        // console.log(`Poke Type: ${pokeType[0]}`);
         const type = Object.keys(colors).find((key) => pokeType[0].includes(key));
-        console.log(`Type: ${type}`);
+        // console.log(`Type: ${type}`);
         const color = colors[type];
-        console.log(`Color: ${color}`);
-    }
+        // console.log(`Color: ${color}`);
+
+        return (
+            <div key={pokemon.id} className={styles.pokemon} style={{ backgroundColor: color }}>
+                <div className={styles.imgContainer}>
+                    <img
+                        src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
+                        alt={`${pokemon.name}'s picture`} />
+                </div>
+            </div>
+        );
+    };
 
 
     return (
