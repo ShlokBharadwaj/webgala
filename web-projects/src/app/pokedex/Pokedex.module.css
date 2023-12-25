@@ -76,3 +76,19 @@
 .pokeInfo {
     margin-top: 15px;
 }
+
+.pokemon .pokeInfo .pokeNum {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 0.8rem;
+}
+
+.pokemon .pokeInfo .pokeName {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.pokemon .pokeInfo .pokeType {
+    margin-top: 12px;
+}
