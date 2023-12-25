@@ -44,8 +44,15 @@ const Pokedex = () => {
 
     const fetchPokemon = async (id) => {
         const url = `https://pokeapi.co/api/v2/pokemon/${id}`;
-        const res = await fetch(url);
-        return res.json();
+        try {
+            const res = await fetch(url);
+            if (!res.ok) {
+                throw new Error('Failed to fetch Pokemon');
+            }
+            return res.json();
+        } catch (error) {
+            console.error('Error fetching Pokemon: ', error);
+        }
     };
 
     useEffect(() => {
@@ -84,7 +91,7 @@ const Pokedex = () => {
             <h1>Pokedex</h1>
             <small>Have nostalgia with all {totalPokemonCount} pokemons</small>
             {loading ? (
-                <div className={styles.loadingContainer}>
+                <div className={styles.loadingContainer} aria-live="polite">
                     <FontAwesomeIcon icon={faSpinner} spin size="3x" className={styles.spinnerIcon}></FontAwesomeIcon>
                 </div>
             ) : (
