@@ -85,7 +85,7 @@ const Pokedex = () => {
             <small>Have nostalgia with all 1025 pokemons</small>
             {loading ? (
                 <div className={styles.loadingContainer}>
-                    <FontAwesomeIcon icon={faSpinner} spin size="3x"></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faSpinner} spin size="3x" className={styles.spinnerIcon}></FontAwesomeIcon>
                 </div>
             ) : (
                 <div className={styles.pokeContainer}>
