@@ -41,16 +41,38 @@
 .pokemon {
     background-color: #eee;
     border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(100,100,100,0.7);
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.7);
     padding: 20px;
     margin: 10px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.pokeType span{
+.pokeType span {
     color: #fff;
 }
 
 .spinnerIcon {
     color: #111;
+}
+
+.pokemon .imgContainer {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pokemon .imgContainer img {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.pokeInfo {
+    margin-top: 15px;
 }
