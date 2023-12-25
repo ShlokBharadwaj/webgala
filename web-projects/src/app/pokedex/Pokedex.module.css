@@ -3,7 +3,7 @@
 .container {
     box-sizing: border-box;
     background: #f6fff8;
-    color: #111;
+    color: #fff;
     font-family: 'Nunito Sans', sans-serif;
     display: flex;
     flex-direction: column;
@@ -18,9 +18,11 @@
     letter-spacing: 2px;
     font-size: 3rem;
     font-weight: 900;
+    color: #111;
 }
 
 .container small {
+    color: #111;
     margin-top: -2px;
     margin-bottom: 20px;
     text-align: center;
@@ -34,4 +36,21 @@
     justify-content: center;
     margin: 0 auto;
     max-width: 1200px;
+}
+
+.pokemon {
+    background-color: #eee;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(100,100,100,0.7);
+    padding: 20px;
+    margin: 10px;
+    text-align: center;
+}
+
+.pokeType span{
+    color: #fff;
+}
+
+.spinnerIcon {
+    color: #111;
 }

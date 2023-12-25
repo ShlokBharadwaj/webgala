@@ -68,7 +68,7 @@ const Pokedex = () => {
                     <span className={styles.pokeNum}>#{pokemon.id}</span>
                     <h3 className={styles.pokeName}>{capitalizeFirstLetter(pokemon.name)}</h3>
                     <small className={styles.pokeType}>
-                        Type: <span>{capitalizeFirstLetter(type)}</span>
+                        <span>Type: {capitalizeFirstLetter(type)}</span>
                     </small>
                 </div>
             </div>
@@ -82,7 +82,7 @@ const Pokedex = () => {
     return (
         <div className={styles.container}>
             <h1>Pokedex</h1>
-            <small>Have nostalgia with all 1025 pokemons</small>
+            <small>Have nostalgia with all {totalPokemonCount} pokemons</small>
             {loading ? (
                 <div className={styles.loadingContainer}>
                     <FontAwesomeIcon icon={faSpinner} spin size="3x" className={styles.spinnerIcon}></FontAwesomeIcon>
