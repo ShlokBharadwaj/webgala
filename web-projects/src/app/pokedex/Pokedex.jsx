@@ -7,7 +7,7 @@ const Pokedex = () => {
 
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const totalPokemonCount = 1; //TODO: Count to 1025 after debugging.
+    const totalPokemonCount = 1024;
 
     const colors = {
         normal: '#A8A878',
@@ -54,11 +54,8 @@ const Pokedex = () => {
 
     const mapPokemonToElement = (pokemon) => {
         const pokeType = pokemon.types.map((type) => type.type.name);
-        // console.log(`Poke Type: ${pokeType[0]}`);
         const type = Object.keys(colors).find((key) => pokeType[0].includes(key));
-        // console.log(`Type: ${type}`);
         const color = colors[type];
-        // console.log(`Color: ${color}`);
 
         return (
             <div key={pokemon.id} className={styles.pokemon} style={{ backgroundColor: color }}>
