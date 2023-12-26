@@ -11,6 +11,7 @@ const ImageCarousel = () => {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const intervalRef = useRef(null);
+    const containerRef = useRef(null);
 
     useEffect(() => {
         intervalRef.current = setInterval(() => {
@@ -32,10 +33,18 @@ const ImageCarousel = () => {
         }, 1500);
     };
 
+    const calculateTranslation = () => {
+        if (containerRef.current) {
+            const containerWidth = containerRef.current.offsetWidth;
+            return `${-currentIndex * containerWidth}px`;
+        }
+        return '0px';
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.carousel}>
-                <div className={styles.imageContainer} style={{ transform: `translateX(${-currentIndex * 500}px)` }}>
+                <div ref={containerRef} className={styles.imageContainer} style={{ transform: `translateX(${calculateTranslation()})` }}>
                     {images.map((src, index) => (
                         <img key={index} src={src} alt={`Image ${index + 1}`} onClick={() => changeImage(index)} />
                     ))}
