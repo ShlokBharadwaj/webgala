@@ -35,7 +35,7 @@ const ImageCarousel = () => {
     return (
         <div className={styles.container}>
             <div className={styles.carousel}>
-                <div className={styles.imageContainer} style={{ transform: `translateX(${-currentIndex * 530}px)` }}>
+                <div className={styles.imageContainer} style={{ transform: `translateX(${-currentIndex * 500}px)` }}>
                     {images.map((src, index) => (
                         <img key={index} src={src} alt={`Image ${index + 1}`} onClick={() => changeImage(index)} />
                     ))}
