@@ -50,15 +50,10 @@ const InsectCatchGame = () => {
                 <h3 id="time" className="absolute top-5 right-5">Time: 00:00</h3>
                 <h3 id="score" className="absolute top-5 left-5">Score: 0</h3>
                 <h5 id="message"
-                    className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center opacity-0 text-white absolute top-0 left-[50%] translate-x-[50%] translate-y-[-150%] transition-transform">
+                    className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute ">
                     Are you annoyed yet? <br />
-                        You are playing an impossible game
+                    You are playing an impossible game
                 </h5>
-
-                {/* <div className="insect flex items-center justify-center w-[100px] h-[100px] absolute translate-x-[-50%] translate-y-[-50%] scale-100 cursor-pointer transition-transform">
-                    <img src="https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
-                        alt="" className="w-[100px] h-[100px]" />
-                </div> */}
             </div>
 
         </div>
