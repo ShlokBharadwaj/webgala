@@ -33,15 +33,17 @@ const ImageCarousel = () => {
     };
 
     return (
-        <div className={styles.carousel}>
-            <div className={styles.imageContainer} style={{ transform: `translateX(${-currentIndex * 530}px)` }}>
-                {images.map((src, index) => (
-                    <img key={index} src={src} alt={`Image ${index + 1}`} onClick={() => changeImage(index)} />
-                ))}
-            </div>
-            <div className={styles.buttonsContainer}>
-                <button onClick={() => changeImage((currentIndex - 1 + images.length) % images.length)}>Previous</button>
-                <button onClick={() => changeImage((currentIndex + 1) % images.length)}>Next</button>
+        <div className={styles.container}>
+            <div className={styles.carousel}>
+                <div className={styles.imageContainer} style={{ transform: `translateX(${-currentIndex * 530}px)` }}>
+                    {images.map((src, index) => (
+                        <img key={index} src={src} alt={`Image ${index + 1}`} onClick={() => changeImage(index)} />
+                    ))}
+                </div>
+                <div className={styles.buttonsContainer}>
+                    <button onClick={() => changeImage((currentIndex - 1 + images.length) % images.length)}>Previous</button>
+                    <button onClick={() => changeImage((currentIndex + 1) % images.length)}>Next</button>
+                </div>
             </div>
         </div>
     );
