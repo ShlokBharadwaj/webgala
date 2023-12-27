@@ -132,22 +132,20 @@ const InsectCatchGame = () => {
                 <div className="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348] relative">
                     <h3 id="time" className="absolute top-5 right-5">Time: {String(Math.floor(seconds / 60)).padStart(2, '0')}:{String(seconds % 60).padStart(2, '0')}</h3>
                     <h3 id="score" className="absolute top-5 left-5">Score: {score}</h3>
-                    {
-                        insects.map((insect) => (
-                            <div
-                                key={insect.id}
-                                className='insect flex items-center justify-center'
-                                style={{
-                                    top: `${insect.y}px`,
-                                    left: `${insect.x}px`,
-                                    transform: `rotate(${insect.rotation}deg)`,
-                                }}
-                                onClick={() => catchInsects(insect.id)}
-                            >
-                                <img src={selectedInsect?.src} alt={selectedInsect.alt} className='w-[100px] h-[100px]' />
-                            </div>
-                        ))
-                    }
+                    {insects.map((insect) => (
+                        <div
+                            key={insect.id}
+                            className='insect absolute'  // Use "absolute" positioning
+                            style={{
+                                top: `${insect.y}px`,
+                                left: `${insect.x}px`,
+                                transform: `rotate(${insect.rotation}deg)`,
+                            }}
+                            onClick={() => catchInsects(insect.id)}
+                        >
+                            <img src={selectedInsect?.src} alt={selectedInsect.alt} className='w-[100px] h-[100px]' />
+                        </div>
+                    ))}
 
                     {score > 19 && (
                         <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
@@ -165,6 +163,7 @@ const InsectCatchGame = () => {
                     </div>
                 </div>
             )}
+
         </div>
     )
 }
