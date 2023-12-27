@@ -147,10 +147,17 @@ const InsectCatchGame = () => {
                         </div>
                     ))}
 
-                    {score > 19 && (
+                    {score > 19 && score <= 25 && (
                         <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
                             Are you annoyed yet? <br />
                             You are playing an impossible game
+                        </h5>
+                    )}
+
+                    {score > 25 && (
+                        <h5 id="newMessage" className="new-message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
+                            Congratulations! <br />
+                            You can now go outside and catch some real insects
                         </h5>
                     )}
 
