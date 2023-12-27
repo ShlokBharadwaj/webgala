@@ -156,7 +156,7 @@ const InsectCatchGame = () => {
                         </h5>
                     )}
 
-                    <div className="flex flex-col items-center absolute top-5">
+                    <div className="flex flex-col items-center absolute bottom-5">
                         <button
                             onClick={handleBackButtonClick}
                             className='btn border-0 bg-white text-[#2b9348] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90'>
