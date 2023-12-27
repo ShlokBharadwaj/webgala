@@ -88,7 +88,7 @@ const InsectCatchGame = () => {
 
             {/* Screen 2  - Choose Insect*/}
             {currentScreen === 2 && (
-                <div className='screen flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348]'>
+                <div className='screen flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#2b9348] overflow-auto sm:overflow-hidden'>
                     <h1 className='text-2xl my-4'>What's your favourite insect?</h1>
                     <ul className="insect-list flex flex-wrap justify-center list-none p-0 mt-10">
                         <li className="m-3">
@@ -97,25 +97,25 @@ const InsectCatchGame = () => {
                                 className={`bg-transparent border-2 w-[150px] h-[150px] active:bg-[#007f5f] hover:scale-110`}>
                                 <p>Mantis</p>
                                 <img src="https://images.unsplash.com/photo-1630942592547-d7d223e15dc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                                    alt="Mantis" className="w-[100px] h-[100px] object-contain" />
+                                    alt="Mantis" className="w-full h-[120px] object-cover" />
                             </button>
                         </li>
                         <li className="m-3">
                             <button
                                 onClick={() => handleInsectSelection('https://images.unsplash.com/photo-1579776711405-534256abcbb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=471&q=80', 'Spider')}
-                                className="choose-insect-btn bg-transparent border-2 w-[150px] h-[150px]  active:bg-[#007f5f] hover:scale-110">
+                                className="choose-insect-btn bg-transparent border-2 w-[150px] h-[150px] active:bg-[#007f5f] hover:scale-110">
                                 <p>Spider</p>
                                 <img src="https://images.unsplash.com/photo-1579776711405-534256abcbb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=471&q=80"
-                                    alt="Spider" className="w-[100px] h-[100px] object-contain" />
+                                    alt="Spider" className="w-full h-[120px] object-cover" />
                             </button>
                         </li>
                         <li className="m-3">
                             <button
                                 onClick={() => handleInsectSelection('https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80', 'Cockroach')}
-                                className="choose-insect-btn bg-transparent border-2 w-[150px] h-[150px]  active:bg-[#007f5f] hover:scale-110">
+                                className="choose-insect-btn bg-transparent border-2 w-[150px] h-[150px] active:bg-[#007f5f] hover:scale-110">
                                 <p>Cockroach</p>
                                 <img src="https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
-                                    alt="Cockroach" className="w-[100px] h-[100px] object-contain" />
+                                    alt="Cockroach" className="w-full h-[120px] object-cover" />
                             </button>
                         </li>
                     </ul>
@@ -135,7 +135,7 @@ const InsectCatchGame = () => {
                     {insects.map((insect) => (
                         <div
                             key={insect.id}
-                            className='insect absolute'  // Use "absolute" positioning
+                            className='insect absolute'
                             style={{
                                 top: `${insect.y}px`,
                                 left: `${insect.x}px`,
@@ -147,14 +147,14 @@ const InsectCatchGame = () => {
                         </div>
                     ))}
 
-                    {score > 19 && score <= 25 && (
+                    {score > 10 && score <= 15 && (
                         <h5 id="message" className="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
                             Are you annoyed yet? <br />
                             You are playing an impossible game
                         </h5>
                     )}
 
-                    {score > 25 && (
+                    {score > 15 && (
                         <h5 id="newMessage" className="new-message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center text-white absolute transition-transform opacity-100">
                             Congratulations! <br />
                             You can now go outside and catch some real insects
