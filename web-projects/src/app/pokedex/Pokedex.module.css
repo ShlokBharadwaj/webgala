@@ -92,3 +92,38 @@
 .pokemon .pokeInfo .pokeType {
     margin-top: 12px;
 }
+
+.controls {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.controls input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #111;
+}
+
+.controls select {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #111;
+}
+
+.controls select:focus,
+.controls input:focus {
+    outline: none;
+    border-color: #4CAF50;
+}
+
+.controls option {
+    background-color: #fff;
+}

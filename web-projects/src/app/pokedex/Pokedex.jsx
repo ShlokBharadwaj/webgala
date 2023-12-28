@@ -7,6 +7,8 @@ const Pokedex = () => {
 
     const [pokemonData, setPokemonData] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [sortBy, setSortBy] = useState('id');
     const totalPokemonCount = 1024;
 
     const colors = {
@@ -86,21 +88,60 @@ const Pokedex = () => {
         return name.charAt(0).toUpperCase() + name.slice(1);
     }
 
+    const handleSearchChange = (event) => {
+        setSearchTerm(event.target.value.toLowerCase());
+    };
+
+    const handleSortChange = (event) => {
+        setSortBy(event.target.value);
+    };
+
+    const filteredAndSortedPokemon = pokemonData
+        .filter((pokemon) => pokemon.name.includes(searchTerm))
+        .sort((a, b) => {
+            if (sortBy === 'id') {
+                return a.id - b.id;
+            } else if (sortBy === 'name') {
+                return a.name.localeCompare(b.name);
+            } else if (sortBy === 'type') {
+                const typeA = a.types[0].type.name;
+                const typeB = b.types[0].type.name;
+                return typeA.localeCompare(typeB);
+            }
+            return 0;
+        });
+
     return (
         <div className={styles.container}>
-            <h1>Pokedex</h1>
-            <small>Have nostalgia with all {totalPokemonCount} pokemons</small>
+            <h1>Pokédex</h1>
+            <small>Have nostalgia with all {totalPokemonCount} pokémons</small>
             {loading ? (
                 <div className={styles.loadingContainer} aria-live="polite">
                     <FontAwesomeIcon icon={faSpinner} spin size="3x" className={styles.spinnerIcon}></FontAwesomeIcon>
                 </div>
             ) : (
-                <div className={styles.pokeContainer}>
-                    {pokemonData.map(mapPokemonToElement)}
-                </div>
+                <>
+                    <div className={styles.controls}>
+                        <input
+                            type="text"
+                            placeholder="Search Pokémon..."
+                            value={searchTerm}
+                            onChange={handleSearchChange}
+                        />
+                        <select value={sortBy} onChange={handleSortChange}>
+                            <option value="id">Sort by ID</option>
+                            <option value="name">Sort by Name</option>
+                            <option value="type">Sort by Type</option>
+                        </select>
+                    </div>
+                    <div className={styles.pokeContainer}>
+                        {filteredAndSortedPokemon.map(mapPokemonToElement)}
+                    </div>
+                </>
+
             )}
         </div>
-    )
+    );
 }
 
 export default Pokedex;
