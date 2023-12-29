@@ -32,7 +32,7 @@ const LoginSignup = () => {
                             <input type="email" placeholder='Email Address' />
                             <input type="password" placeholder='Password' />
                             <input type="submit" value='Login' />
-                            <a href="#" className={styles.forgot}>Forgot Password</a>
+                            <a href="#" className={styles.forgot}>Forgot Password?</a>
                         </form>
                     </div>
                     <div className={`${styles.form} ${styles.signUpForm} ${!isSignInActive ? styles.active : ''}`}>
