@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Pokedex.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faRandom, faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const Pokedex = () => {
 
@@ -111,6 +111,13 @@ const Pokedex = () => {
             return 0;
         });
 
+    const fetchRandomPokemon = async () => {
+        const randomId = Math.floor(Math.random() * totalPokemonCount) + 1;
+        const randomPokemon = await fetchPokemon(randomId);
+        setPokemonData([randomPokemon]);
+        setSearchTerm('');
+    };
+
     return (
         <div className={styles.container}>
             <h1>Pokédex</h1>
@@ -133,6 +140,10 @@ const Pokedex = () => {
                             <option value="name">Sort by Name</option>
                             <option value="type">Sort by Type</option>
                         </select>
+                        <button className={styles.randomButton} onClick={fetchRandomPokemon}>
+                            <FontAwesomeIcon icon={faRandom} className={styles.randomIcon} />
+                            Random Pokémon
+                        </button>
                     </div>
                     <div className={styles.pokeContainer}>
                         {filteredAndSortedPokemon.map(mapPokemonToElement)}

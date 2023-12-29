@@ -98,32 +98,56 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 300px;
+    max-width: 1200px;
 }
 
-.controls input {
+.controls input,
+.controls select,
+.controls button {
     padding: 8px;
     font-size: 14px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    margin-right: 8px;
     color: #111;
 }
 
-.controls select {
-    padding: 8px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #111;
+.controls button {
+    background-color: #4CAF50;
+    color: #fff;
+    display: flex;
+    align-items: center;
 }
 
 .controls select:focus,
 .controls input:focus {
     outline: none;
-    border-color: #4CAF50;
+    border-color: #45a049;
 }
 
 .controls option {
     background-color: #fff;
+}
+
+.controls button:hover {
+    background-color: #45a049;
+}
+
+.randomIcon {
+    margin-right: 8px;
+}
+
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls input,
+    .controls select,
+    .controls button {
+        margin-right: 0;
+        margin-bottom: 8px;
+        width: 100%;
+    }
 }
