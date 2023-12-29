@@ -63,3 +63,23 @@
     border: none;
     border-radius: 1px;
 }
+
+.formContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 50px rgba(0,0,0,0.31);
+    transition: 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+.formContainer.active {
+    left: 50%;
+}

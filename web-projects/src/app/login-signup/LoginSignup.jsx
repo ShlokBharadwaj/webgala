@@ -25,7 +25,7 @@ const LoginSignup = () => {
                         <button className={styles.signUpBtn} onClick={handleSignUpClick}>Sign up</button>
                     </div>
                 </div>
-                <div className={styles.fromContainer}>
+                <div className={`${styles.formContainer} ${!isSignInActive ? styles.active : ''}`}>
                     <div className={`${styles.form} ${styles.signInForm} ${isSignInActive ? styles.active : ''}`}>
                         <form>
                             <h3>Sign In</h3>
