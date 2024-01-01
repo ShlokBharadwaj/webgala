@@ -2,14 +2,14 @@
 
 .container {
     box-sizing: border-box;
-    background-color: #ffffea;
+    background-color: white;
+    font-family: 'Roboto', sans-serif;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin: 0;
-    color: #111;
-    min-height: 100vh;
+    justify-content: center;
+    height: 100vh;
     overflow: hidden;
+    margin: 0;
 }
 
 .childContainer {
@@ -20,7 +20,7 @@
     display: flex;
     justify-content: space-between;
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     max-width: 100%;
     width: 35rem;
 }
@@ -33,7 +33,7 @@
     left: 0;
     transform: translateY(-50%);
     height: 4px;
-    width: 0%;
+    width: 100%;
     z-index: -1;
 }
 
@@ -46,12 +46,12 @@
     height: 4px;
     width: 0%;
     z-index: -1;
-    transition: .4s ease;
+    transition: 0.4s ease;
 }
 
 .circle {
     background-color: white;
-    color: #111;
+    color: black;
     border-radius: 50%;
     height: 3rem;
     width: 3rem;
@@ -59,7 +59,7 @@
     align-items: center;
     justify-content: center;
     border: .3rem solid gray;
-    transition: .4s ease;
+    transition: 0.4s ease;
 }
 
 .circle.active {
@@ -79,11 +79,11 @@
 }
 
 .btn:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
 .btn:focus {
-    outline: none;
+    outline: 0;
 }
 
 .btn:disabled {
