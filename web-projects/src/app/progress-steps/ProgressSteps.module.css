@@ -1,86 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 .container {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.childContainer {
-  width: 80%;
-  max-width: 400px;
-}
-
-.progressContainer {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 2rem;
-}
-
-.progressContainer::before {
-  content: '';
-  background-color: #ccc;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  z-index: -1;
-}
-
-.progress {
-  background-color: #4caf50;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
-}
-
-.circle {
-  background-color: white;
-  color: black;
-  border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 0.3rem solid #ccc;
-  transition: 0.4s ease;
-}
-
-.circle.active {
-  border-color: #4caf50;
-}
-
-.btn {
-  background-color: #4caf50;
-  color: white;
-  border: 0;
-  border-radius: 0.6rem;
-  cursor: pointer;
-  font-family: 'Roboto', sans-serif;
-  padding: 0.8rem 2rem;
-  margin: 0.5rem;
-  font-size: 1.4rem;
-}
-
-.btn:active {
-  transform: scale(0.98);
-}
-
-.btn:focus {
-  outline: 0;
-}
-
-.btn:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000;
+  }
+  
+  .childContainer {
+    width: 50%;
+  }
+  
+  .progressContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow:1; 
+  }
+  
+  .circle {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius :50%;
+      border :2px solid grey ;
+      padding :10px ;
+      width :30px ;
+      height :30px ;
+  }
+  .active{
+     border-color:green ; 
+     background-color: green;
+     color: white;
+  }
+  .btn{
+     padding :10px ; 
+     color:white ; 
+     border:none ; 
+     background-color: green;
+     border-radius: 5px;
+     margin-top: 10px;
+  }
+  .btn[disabled]{
+   background-color:#D3D3D3;  
+  }
+  
