@@ -72,3 +72,29 @@
     background-color: #D3D3D3;
     cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+
+    .childContainer {
+        width: 80%;
+    }
+
+    .progressContainer {
+        width: 100%;
+    }
+
+    .progress {
+        width: 100%
+    }
+
+    .circle {
+        width: 2rem;
+        height: 2rem;
+        padding: 15px;
+        margin: 0.4rem;
+    }
+
+    .btn {
+        padding: 0.4rem 1.5rem;
+    }
+}
