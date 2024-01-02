@@ -17,6 +17,11 @@ const ProgressSteps = () => {
       <div className={styles.childContainer}>
         <div className={styles.progressContainer}>
           <div className={styles.progress}>
+            {/* Adding a line below */}
+            <div
+              className={styles.line}
+              style={{ width: `${(currentActive - 1) * 33.33}%` }}
+            ></div>
             {[1, 2, 3, 4].map((step, index) => (
               <div
                 key={index}
