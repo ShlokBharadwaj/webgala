@@ -28,20 +28,22 @@ const ProgressSteps = () => {
             ))}
           </div>
 
-          <button
-            className={styles.btn}
-            disabled={currentActive === 1}
-            onClick={handlePrevClick}
-          >
-            Previous
-          </button>
-          <button
-            className={styles.btn}
-            disabled={currentActive === 4}
-            onClick={handleNextClick}
-          >
-            Next
-          </button>
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.btn}
+              disabled={currentActive === 1}
+              onClick={handlePrevClick}
+            >
+              Previous
+            </button>
+            <button
+              className={styles.btn}
+              disabled={currentActive === 4}
+              onClick={handleNextClick}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>
