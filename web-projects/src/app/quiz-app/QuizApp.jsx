@@ -65,7 +65,7 @@ const QuizApp = () => {
             <div className={styles.quizContainer}>
                 {currentQuestion ? (
                     <div className={styles.quizHeader}>
-                        <h2 id="question">{currentQuestion.question}</h2>
+                        <h2>{currentQuestion.question}</h2>
                         <ul>
                             {[...currentQuestion.incorrect_answers, currentQuestion.correct_answer].map((answer, index) => (
                                 <li key={index}>
@@ -83,11 +83,11 @@ const QuizApp = () => {
                                 </li>
                             ))}
                         </ul>
+                        <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
                     </div>
                 ) : (
                     <p>Loading...</p>
                 )}
-                <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
             </div>
         </div>
     )
