@@ -15,6 +15,7 @@ const QuizApp = () => {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
+    const [quizCompleted, setQuizCompleted] = useState(false);
 
     useEffect(() => {
         fetchQuestions();
@@ -56,14 +57,29 @@ const QuizApp = () => {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedAnswer(null);
         } else {
-            alert(`Quiz completed! Your score is ${score} / ${questions.length} `);
+            setQuizCompleted(true);
         }
+    };
+
+    const restartQuiz = () => {
+        setQuizCompleted(false);
+        setScore(0);
+        setCurrentQuestionIndex(0);
+        setSelectedAnswer(null);
+        fetchQuestions();
     };
 
     return (
         <div className={styles.container}>
             <div className={styles.quizContainer}>
-                {currentQuestion ? (
+                {quizCompleted ? (
+                    <div className={styles.quizHeader}>
+                        <h2>Quiz completed! Your score is {score} / {questions.length}</h2>
+                        <button onClick={restartQuiz} className={styles.submit}>
+                            Restart Quiz
+                        </button>
+                    </div>
+                ) : currentQuestion ? (
                     <div className={styles.quizHeader}>
                         <h2>{currentQuestion.question}</h2>
                         <ul>
@@ -87,12 +103,14 @@ const QuizApp = () => {
                 ) : (
                     <p className={styles.loading}>Loading...</p>
                 )}
-                {currentQuestion &&
-                    <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
-                }
+                {!quizCompleted && currentQuestion && (
+                    <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>
+                        Submit
+                    </button>
+                )}
             </div>
         </div>
-    )
+    );
 }
 
 export default QuizApp;
