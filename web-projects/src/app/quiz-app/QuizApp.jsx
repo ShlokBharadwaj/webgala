@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styles from './QuizApp.module.css';
 
+const decodeHTML = (html) => {
+    return html.replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#039;/g, "'");
+}
+
 const QuizApp = () => {
 
     const [questions, setQuestions] = useState([]);
@@ -19,9 +27,9 @@ const QuizApp = () => {
             if (data.results) {
                 setQuestions(data.results.map((question) => ({
                     ...question,
-                    question: question.question,
-                    incorrect_answers: question.incorrect_answers,
-                    correct_answer: question.correct_answer,
+                    question: decodeHTML(question.question),
+                    incorrect_answers: question.incorrect_answers.map(decodeHTML),
+                    correct_answer: decodeHTML(question.correct_answer),
                 })));
             } else {
                 console.error('Error fetching questions: ', data);
