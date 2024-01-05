@@ -68,7 +68,7 @@ const QuizApp = () => {
                         <h2>{currentQuestion.question}</h2>
                         <ul>
                             {[...currentQuestion.incorrect_answers, currentQuestion.correct_answer].map((answer, index) => (
-                                <li key={index}>
+                                <li key={index} onClick={() => setSelectedAnswer(answer)}>
                                     <input
                                         type="radio"
                                         name="answer"
@@ -85,7 +85,7 @@ const QuizApp = () => {
                         </ul>
                     </div>
                 ) : (
-                    <p>Loading...</p>
+                    <p className={styles.loading}>Loading...</p>
                 )}
                 {currentQuestion &&
                     <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>

@@ -42,7 +42,7 @@
     margin: 1rem 0;
 }
 
-.quizHeaderul ul li label {
+.quizHeader ul li label {
     cursor: pointer;
 }
 
@@ -76,4 +76,12 @@
 
 .submit:active {
     transform: scale(0.98);
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
 }
