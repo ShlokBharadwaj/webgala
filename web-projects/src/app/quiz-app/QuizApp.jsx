@@ -8,6 +8,20 @@ const QuizApp = () => {
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [score, setScore] = useState(0);
 
+    useEffect(() => {
+        fetchQuestions();
+    }, []);
+
+    const fetchQuestions = async () => {
+        try {
+            const response = await fetch('https://opentdb.com/api.php?amount=5&type=multiple');
+            const data = await response.json();
+            console.log(data);
+        } catch (error) {
+            console.error('Error fetching questions: ', error);
+        }
+    }
+
     return (
         <div className={styles.container}>
             <div className={styles.quizContainer} id="quiz">
