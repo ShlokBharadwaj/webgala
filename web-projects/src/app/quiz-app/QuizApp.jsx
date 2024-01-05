@@ -83,11 +83,13 @@ const QuizApp = () => {
                                 </li>
                             ))}
                         </ul>
-                        <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
                     </div>
                 ) : (
                     <p>Loading...</p>
                 )}
+                {currentQuestion &&
+                    <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
+                }
             </div>
         </div>
     )
