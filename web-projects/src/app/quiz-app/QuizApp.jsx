@@ -50,22 +50,20 @@ const QuizApp = () => {
                     <div className={styles.quizHeader}>
                         <h2 id="question">{currentQuestion.question}</h2>
                         <ul>
-                            <li>
-                                <input type="radio" name="answer" className={styles.answer} id="a" />
-                                <label htmlFor="a" id="a_text">Answer 1</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="answer" className={styles.answer} id="b" />
-                                <label htmlFor="b" id="b_text">Answer 2</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="answer" className={styles.answer} id="c" />
-                                <label htmlFor="c" id="c_text">Answer 3</label>
-                            </li>
-                            <li>
-                                <input type="radio" name="answer" className={styles.answer} id="d" />
-                                <label htmlFor="d" id="d_text">Answer 4</label>
-                            </li>
+                            {[...currentQuestion.incorrect_answers, currentQuestion.correct_answer].map((answer, index) => (
+                                <li key={index}>
+                                    <input
+                                        type="radio"
+                                        name="answer"
+                                        className={styles.answer}
+                                        value={answer}
+                                        checked={selectedAnswer === answer}
+                                    />
+                                    <label htmlFor={answer}>
+                                        {answer}
+                                    </label>
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 ) : (
