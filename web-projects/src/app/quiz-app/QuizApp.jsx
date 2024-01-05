@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './QuizApp.module.css';
 
 const QuizApp = () => {
+
+    const [questions, setQuestions] = useState([]);
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState(null);
+    const [score, setScore] = useState(0);
+
     return (
         <div className={styles.container}>
             <div className={styles.quizContainer} id="quiz">
