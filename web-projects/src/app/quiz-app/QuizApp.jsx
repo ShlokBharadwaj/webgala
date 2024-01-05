@@ -41,12 +41,29 @@ const QuizApp = () => {
 
     const currentQuestion = questions.length > 0 ? questions[currentQuestionIndex] : null;
 
+    const handleAnswerChange = (event) => {
+        setSelectedAnswer(event.target.value);
+    };
+
+    const handleSubmit = () => {
+        const currentQuestion = questions[currentQuestionIndex];
+
+        if (selectedAnswer === currentQuestion.correct_answer) {
+            setScore(score + 1);
+        }
+
+        if (currentQuestionIndex + 1 < questions.length) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1);
+            setSelectedAnswer(null);
+        } else {
+            alert(`Quiz completed! Your score is ${score} / ${questions.length} `);
+        }
+    };
+
     return (
         <div className={styles.container}>
             <div className={styles.quizContainer}>
                 {currentQuestion ? (
-
-
                     <div className={styles.quizHeader}>
                         <h2 id="question">{currentQuestion.question}</h2>
                         <ul>
@@ -58,6 +75,7 @@ const QuizApp = () => {
                                         className={styles.answer}
                                         value={answer}
                                         checked={selectedAnswer === answer}
+                                        onChange={handleAnswerChange}
                                     />
                                     <label htmlFor={answer}>
                                         {answer}
@@ -69,7 +87,7 @@ const QuizApp = () => {
                 ) : (
                     <p>Loading...</p>
                 )}
-                <button id="submit">Submit</button>
+                <button onClick={handleSubmit} disabled={!selectedAnswer} className={styles.submit}>Submit</button>
             </div>
         </div>
     )
