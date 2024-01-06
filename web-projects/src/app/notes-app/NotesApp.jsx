@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './NotesApp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-import ReactMarkdown from 'react-markdown';
+import * as marked from 'marked';
 
 const NotesApp = () => {
   const [notes, setNotes] = useState([]);
@@ -48,6 +48,16 @@ const NotesApp = () => {
     localStorage.setItem('notes', JSON.stringify(notes));
   };
 
+  const renderMarkdown = (markdownText) => {
+    try {
+      const htmlContent = marked.parse(markdownText);
+      return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+    } catch (error) {
+      console.error('Error rendering Markdown:', error);
+      return <div>Error rendering Markdown</div>;
+    }
+  };
+
   return (
     <div className={styles.container}>
       <button className={styles.createNote} onClick={() => addNewNote()}>
@@ -79,7 +89,11 @@ const NotesApp = () => {
               {console.log('Markdown Content:', note.text)}
               {/* Use marked to render Markdown content */}
               {renderMarkdown(note.text)}
-              <ReactMarkdown>{note.text}</ReactMarkdown>
+              {/* Log the Markdown content for debugging */}
+              {console.log('Note ID:', note.id)}
+              {console.log('Markdown Content:', note.text)}
+              {/* Use marked to render Markdown content */}
+              {renderMarkdown(note.text)}
             </div>
           )}
         </div>
