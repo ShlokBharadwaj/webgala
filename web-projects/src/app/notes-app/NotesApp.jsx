@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './NotesApp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-import * as marked from 'marked';
+import ReactMarkdown from 'react-markdown';
 
 const NotesApp = () => {
   const [notes, setNotes] = useState([]);
@@ -77,10 +77,7 @@ const NotesApp = () => {
               onChange={(e) => updateNoteText(note.id, e.target.value)}
             ></textarea>
           ) : (
-            <div className={styles.main}>
-              {/* Use marked to render Markdown content */}
-              <div dangerouslySetInnerHTML={{ __html: marked.parse(note.text) }} />
-            </div>
+            <div className={styles.main} dangerouslySetInnerHTML={{ __html: note.text ? marked.parse(note.text) : '' }}></div>
           )}
         </div>
       ))}
