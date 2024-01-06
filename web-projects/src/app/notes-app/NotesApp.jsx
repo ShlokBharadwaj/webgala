@@ -73,13 +73,7 @@ const NotesApp = () => {
               onChange={(e) => updateNoteText(note.id, e.target.value)}
             ></textarea>
           ) : (
-            <div className={styles.main}>
-              {/* Log the Markdown content for debugging */}
-              {console.log('Note ID:', note.id)}
-              {console.log('Markdown Content:', note.text)}
-              {/* Use marked to render Markdown content */}
-              {renderMarkdown(note.text)}
-            </div>
+            <div className={styles.main} dangerouslySetInnerHTML={{ __html: note.text ? marked.parse(note.text) : '' }}></div>
           )}
         </div>
       ))}
