@@ -79,6 +79,7 @@ const NotesApp = () => {
               {console.log('Markdown Content:', note.text)}
               {/* Use marked to render Markdown content */}
               {renderMarkdown(note.text)}
+              <ReactMarkdown>{note.text}</ReactMarkdown>
             </div>
           )}
         </div>
