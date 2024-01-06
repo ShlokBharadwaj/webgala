@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './NotesApp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-import ReactMarkdown from 'react-markdown';
+import * as marked from 'marked';
 
 const NotesApp = () => {
   const [notes, setNotes] = useState([]);
@@ -48,10 +48,6 @@ const NotesApp = () => {
     localStorage.setItem('notes', JSON.stringify(notes));
   };
 
-  useEffect(() => {
-    updateLocalStorage();
-  }, [notes]);
-
   return (
     <div className={styles.container}>
       <button className={styles.createNote} onClick={() => addNewNote()}>
@@ -77,7 +73,9 @@ const NotesApp = () => {
               onChange={(e) => updateNoteText(note.id, e.target.value)}
             ></textarea>
           ) : (
-            <div className={styles.main} dangerouslySetInnerHTML={{ __html: note.text ? marked.parse(note.text) : '' }}></div>
+            <div className={styles.main}>
+              <ReactMarkdown>{note.text}</ReactMarkdown>
+            </div>
           )}
         </div>
       ))}
