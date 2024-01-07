@@ -37,7 +37,52 @@ const RandomChoicePicker = () => {
         setTags(newTags);
     };
 
-    const randomSelect = (input) => { };
+    const randomSelect = () => {
+        const times = 40;
+        let count = 0;
+
+        const interval = setInterval(() => {
+            const randomTag = pickRandomTag();
+
+            if (randomTag !== undefined) {
+                highlightTag(randomTag);
+
+                setTimeout(() => {
+                    unHighlightTag(randomTag);
+                }, 100);
+            }
+
+            count++;
+            if (count === times) {
+                clearInterval(interval);
+
+                setTimeout(() => {
+                    const randomTag = pickRandomTag();
+                    highlightTag(randomTag);
+                }, 100);
+            }
+        }, 100);
+    };
+
+    const pickRandomTag = () => {
+        return tags.length > 0 ? tags[Math.floor(Math.random() * tags.length)] : undefined;
+    };
+
+    const highlightTag = (tag) => {
+        tagElementsRef.current.forEach((element) => {
+            if (element.innerText === tag) {
+                element.classList.add('highlight');
+            }
+        });
+    };
+
+    const unHighlightTag = (tag) => {
+        tagElementsRef.current.forEach((element) => {
+            if (element.innerText === tag) {
+                element.classList.remove('highlight');
+            }
+        });
+    };
 
     return (
         <div className={styles.container}>
@@ -60,7 +105,7 @@ const RandomChoicePicker = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
 export default RandomChoicePicker;
