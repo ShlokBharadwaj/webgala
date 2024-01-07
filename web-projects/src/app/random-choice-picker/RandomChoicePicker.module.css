@@ -16,4 +16,6 @@
 
 .choiceContainer textarea {
     color: #111;
+    resize: none;
+    outline: none;
 }
