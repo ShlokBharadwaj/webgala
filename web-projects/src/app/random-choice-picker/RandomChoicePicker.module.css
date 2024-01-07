@@ -15,7 +15,8 @@
 }
 
 .choiceContainer {
-    width: 500px;
+    width: 80%;
+    max-width: 500px; 
 }
 
 .choiceContainer h3 {
@@ -52,4 +53,14 @@
 .tag.highlight {
     background-color: #111;
     color: #fff;
+}
+
+@media (max-width: 600px) {
+    .choiceContainer {
+        width: 90%; 
+    }
+
+    .tag {
+        font-size: 14px; 
+    }
 }
