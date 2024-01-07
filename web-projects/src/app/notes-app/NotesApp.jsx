@@ -22,12 +22,10 @@ const NotesApp = () => {
     };
 
     setNotes((prevNotes) => [...prevNotes, newNote]);
-    updateLocalStorage();
   };
 
   const deleteNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
-    updateLocalStorage();
   };
 
   const toggleEdit = (id) => {
@@ -44,17 +42,20 @@ const NotesApp = () => {
         note.id === id ? { ...note, text: newText } : note
       )
     );
-    updateLocalStorage();
   };
 
   const updateLocalStorage = () => {
     localStorage.setItem('notes', JSON.stringify(notes));
   };
 
+  useEffect(() => {
+    updateLocalStorage();
+  }, [notes]);
+
   return (
     <div className={styles.container}>
       <button className={styles.createNote} onClick={() => addNewNote()}>
-        <FontAwesomeIcon icon={faPlusSquare} className={styles.plusStyle}/>
+        <FontAwesomeIcon icon={faPlusSquare} className={styles.plusStyle} />
         Add Note
       </button>
 
@@ -76,9 +77,11 @@ const NotesApp = () => {
               onChange={(e) => updateNoteText(note.id, e.target.value)}
             ></textarea>
           ) : (
-            <div className={styles.main} dangerouslySetInnerHTML={{ __html: note.text ? marked.parse(note.text) : '' }}></div>
+            <div className={styles.main}>
+              {/* Use marked to render Markdown content */}
+              <div dangerouslySetInnerHTML={{ __html: marked.parse(note.text) }} />
+            </div>
           )}
-
         </div>
       ))}
     </div>
