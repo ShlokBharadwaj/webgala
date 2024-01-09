@@ -20,13 +20,19 @@ const NotesApp = () => {
       isEditing: false,
     };
 
-    setNotes((prevNotes) => [...prevNotes, newNote]);
-    updateLocalStorage();
+    setNotes((prevNotes) => {
+      const updatedNotes = [...prevNotes, newNote];
+      updateLocalStorage(updatedNotes);
+      return updatedNotes;
+    });
   };
 
   const deleteNote = (id) => {
-    setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
-    updateLocalStorage();
+    setNotes((prevNotes) => {
+      const updatedNotes = prevNotes.filter((note) => note.id !== id);
+      updateLocalStorage(updatedNotes);
+      return updatedNotes;
+    });
   };
 
   const toggleEdit = (id) => {
@@ -38,16 +44,17 @@ const NotesApp = () => {
   };
 
   const updateNoteText = (id, newText) => {
-    setNotes((prevNotes) =>
-      prevNotes.map((note) =>
+    setNotes((prevNotes) => {
+      const updatedNotes = prevNotes.map((note) =>
         note.id === id ? { ...note, text: newText } : note
-      )
-    );
-    updateLocalStorage();
+      );
+      updateLocalStorage(updatedNotes);
+      return updatedNotes;
+    });
   };
 
-  const updateLocalStorage = () => {
-    localStorage.setItem('notes', JSON.stringify(notes));
+  const updateLocalStorage = (updatedNotes) => {
+    localStorage.setItem('notes', JSON.stringify(updatedNotes));
   };
 
   return (
