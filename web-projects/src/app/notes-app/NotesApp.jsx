@@ -21,10 +21,12 @@ const NotesApp = () => {
     };
 
     setNotes((prevNotes) => [...prevNotes, newNote]);
+    updateLocalStorage();
   };
 
   const deleteNote = (id) => {
     setNotes((prevNotes) => prevNotes.filter((note) => note.id !== id));
+    updateLocalStorage();
   };
 
   const toggleEdit = (id) => {
@@ -41,6 +43,7 @@ const NotesApp = () => {
         note.id === id ? { ...note, text: newText } : note
       )
     );
+    updateLocalStorage();
   };
 
   const updateLocalStorage = () => {
@@ -73,7 +76,6 @@ const NotesApp = () => {
             ></textarea>
           ) : (
             <div className={styles.main}>
-              {/* Removed Markdown rendering code */}
               {note.text}
             </div>
           )}
