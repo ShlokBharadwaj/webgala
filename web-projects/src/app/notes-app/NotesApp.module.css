@@ -137,3 +137,25 @@
     font-size: 0.8rem;
     margin-bottom: 2px;
 }
+
+.main a {
+    color: #219ebc;
+    text-decoration: underline;
+}
+
+.main a:hover {
+    color: #0056b3;
+}
+
+.main blockquote {
+    border-left: 2px solid #219ebc;
+    padding-left: 10px;
+    margin: 10px 0;
+    color: #555;
+}
+
+.main hr {
+    border: none;
+    border-top: 2px solid #ddd;
+    margin: 15px 0;
+}
