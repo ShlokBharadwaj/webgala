@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './NotesApp.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-import ReactMarkdown from 'react-markdown';
 
 const NotesApp = () => {
   const [notes, setNotes] = useState([]);
@@ -74,11 +73,8 @@ const NotesApp = () => {
             ></textarea>
           ) : (
             <div className={styles.main}>
-              {/* Log the Markdown content for debugging */}
-              {console.log('Note ID:', note.id)}
-              {console.log('Markdown Content:', note.text)}
-              {/* Use marked to render Markdown content */}
-              {renderMarkdown(note.text)}
+              {/* Removed Markdown rendering code */}
+              {note.text}
             </div>
           )}
         </div>
