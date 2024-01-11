@@ -36,10 +36,10 @@ const RotatingNavigation = () => {
             <div className={`${styles.container} ${isNavOpen ? styles.showNav : ''}`}>
                 <div className={styles.circleContainer}>
                     <div className={styles.circle}>
-                        <button onClick={closeNav}>
+                        <button onClick={closeNav} className={styles.btn1}>
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
-                        <button onClick={openNav}>
+                        <button onClick={openNav} className={styles.btn2}>
                             <FontAwesomeIcon icon={faBars} />
                         </button>
                     </div>
