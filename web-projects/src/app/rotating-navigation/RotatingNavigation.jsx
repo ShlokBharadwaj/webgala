@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styles from './RotatingNavigation.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faEnvelope, faHome, faTimes, faUserAlt } from "@fortawesome/free-solid-svg-icons";
 
 const RotatingNavigation = () => {
+    const [isNavOpen, setIsNavOpen] = useState(false);
+    const containerRef = useRef(null);
+
+    const openNav = () => {
+        setIsNavOpen(true);
+    };
+
+    const closeNav = () => {
+        setIsNavOpen(false);
+    };
+
     return (
-        <div className={styles.parentContainer}>
+        <div className={`${styles.parentContainer} ${isNavOpen ? styles.showNav : ''}`} ref={containerRef}>
             <div className={styles.container}>
                 <div className={styles.circleContainer}>
                     <div className={styles.circle}>
-                        <button id="close">
+                        <button id="close" onClick={closeNav}>
                             <FontAwesomeIcon icon={faTimes} />
                         </button>
-                        <button id="open">
+                        <button id="open" onClick={openNav}>
                             <FontAwesomeIcon icon={faBars} />
                         </button>
                     </div>
@@ -41,8 +52,8 @@ const RotatingNavigation = () => {
                     </li>
                 </ul>
             </nav>
-        </div >
-    )
+        </div>
+    );
 }
 
 export default RotatingNavigation;
