@@ -107,3 +107,28 @@
     margin-left: 30px;
     transform: translateX(-200%);
 }
+
+.content img {
+    max-width: 100%;
+}
+
+.content {
+    max-width: 1024px;
+    margin: 50px auto;
+}
+
+.content h1 {
+    margin: 0;
+    font-weight: bolder;
+    font-size: xx-large;
+}
+
+.content small, .content h3{
+    color: #a52a2a;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.content p {
+    line-height: 1.5;
+}
