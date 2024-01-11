@@ -32,8 +32,8 @@ const RotatingNavigation = () => {
     };
 
     return (
-        <div className={`${styles.parentContainer} ${isNavOpen ? styles.showNav : ''}`} ref={containerRef}>
-            <div className={styles.container}>
+        <div className={`${styles.parentContainer}`} ref={containerRef}>
+            <div className={`${styles.container} ${isNavOpen ? styles.showNav : ''}`}>
                 <div className={styles.circleContainer}>
                     <div className={styles.circle}>
                         <button onClick={closeNav}>
