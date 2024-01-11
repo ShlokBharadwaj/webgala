@@ -15,7 +15,8 @@
     transition: transform 0.5s linear;
     width: 100vw;
     min-height: 100vh;
-    padding: 50px; /* 100px */
+    padding: 50px;
+    /* 100px */
 }
 
 .container.showNav {
@@ -65,4 +66,44 @@
 
 .circle .btn2 {
     left: 60%;
+}
+
+.container.showNav+nav li {
+    transform: translateX(0);
+    transition-delay: 0.3s;
+}
+
+.parentContainer nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 999;
+}
+
+.parentContainer nav ul {
+    list-style-type: none;
+    padding-left: 30px;
+}
+
+.parentContainer nav ul li {
+    text-transform: uppercase;
+    color: #111;
+    transform: translateX(-150%);
+    transition: transform 0.4s ease-in;
+}
+
+.icon {
+    font-size: 20px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.parentContainer nav ul li+li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+.parentContainer nav ul li+li+li {
+    margin-left: 30px;
+    transform: translateX(-200%);
 }

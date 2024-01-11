@@ -56,13 +56,13 @@ const RotatingNavigation = () => {
             <nav>
                 <ul>
                     <li>
-                        <FontAwesomeIcon icon={faHome} />Home
+                        <FontAwesomeIcon icon={faHome} className={styles.icon}/>Home
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={faUserAlt} />About
+                        <FontAwesomeIcon icon={faUserAlt} className={styles.icon}/>About
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={faEnvelope} />Contact
+                        <FontAwesomeIcon icon={faEnvelope} className={styles.icon}/>Contact
                     </li>
                 </ul>
             </nav>
