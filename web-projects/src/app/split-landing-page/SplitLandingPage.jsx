@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './SplitLandingPage.module.css';
 
 const SplitLandingPage = () => {
+
+    const containerRef = useRef(null);
+    const [isHoverLeft, setHoverLeft] = useState(false);
+    const [isHoverRight, setHoverRight] = useState(false);
+
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${isHoverLeft ? styles.hoverLeft : ''} ${isHoverRight ? styles.hoverRight : ''}`} ref={containerRef}>
             <div className={styles.childContainer}>
                 <div className={`${styles.split} ${styles.left}`}>
                     <h1>X</h1>
