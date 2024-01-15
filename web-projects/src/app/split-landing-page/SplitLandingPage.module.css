@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Syne+Mono&display=swap');
+
+.container {
+    box-sizing: border-box;
+    font-family: 'Merriweather', 'Syne Mono', monospace;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.childContainer h1 {
+    font-size: 4rem;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
