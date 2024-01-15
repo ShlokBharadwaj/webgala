@@ -23,7 +23,7 @@ const QuizApp = () => {
 
     const fetchQuestions = async () => {
         try {
-            const response = await fetch('https://opentdb.com/api.php?amount=5&type=multiple');
+            const response = await fetch('https://opentdb.com/api.php?amount=5&category=18&type=multiple');
             const data = await response.json();
             if (data.results) {
                 setQuestions(data.results.map((question) => ({
