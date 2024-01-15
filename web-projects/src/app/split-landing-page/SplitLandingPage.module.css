@@ -16,4 +16,25 @@
     top: 20%;
     transform: translateX(-50%);
     white-space: nowrap;
+    font-weight: bolder;
+}
+
+.btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+    text-decoration: none;
+    color: #fff;
+    border: #fff solid 0.2rem;
+    padding: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 15rem;
+    border-radius: 10px;
+    letter-spacing: 0.1rem;
 }
