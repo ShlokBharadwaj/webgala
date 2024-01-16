@@ -11,7 +11,6 @@ const RandomImageFeed = () => {
             const imageArray = [];
             for (let i = 0; i < rows * 3; i++) {
                 const size = getRandomSize();
-                console.log(`Size for this iteration is: ${size}`);
                 const imageURL = `${randomImageURL}${size}`;
                 imageArray.push(imageURL);
             }
