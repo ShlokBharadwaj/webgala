@@ -20,13 +20,13 @@ const RandomImageFeed = () => {
         fetchImages();
     }, []);
 
-    function getRandomSize() {
+    const getRandomSize = () => {
         return `${getRandomNr()}x${getRandomNr()}`;
-    }
+    };
 
-    function getRandomNr() {
+    const getRandomNr = () => {
         return Math.floor(Math.random() * 10) + 300;
-    }
+    };
 
     return (
         <div className="bg-[#011627] box-border flex flex-col items-center justify-center min-h-full overflow-visible m-0 text-white">
