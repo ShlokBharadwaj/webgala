@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro&family=Montserrat+Alternates:wght@300&family=Poppins:wght@300,400&display=swap');
+
+.container {
+    box-sizing: border-box;
+    font-family: 'Montserrat Alternates', sans-serif, 'Anonymous Pro', monospace, 'Poppins', sans-serif;
+    background-color: #f1faee;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.btn {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #f1faee;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+@media screen and (max-width: 600px) {
+    .btn {
+        font-size: 14px;
+    }
+}
