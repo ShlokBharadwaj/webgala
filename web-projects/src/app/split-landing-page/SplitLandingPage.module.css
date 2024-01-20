@@ -2,6 +2,7 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
+    background: linear-gradient(to right, #8a3ab9,#bc2a8d,#fccc63, #eee, #111);
 }
 
 .childContainer {
@@ -27,12 +28,14 @@
     background: url('../../../public/assets/x-logo-new.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 25%;
 }
 
 .right {
     background: url('../../../public/assets/instagram-logo-new.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 25%;
 }
 
 .childContainer h1 {
