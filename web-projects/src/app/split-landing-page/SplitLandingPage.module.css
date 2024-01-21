@@ -138,6 +138,7 @@
     .right {
         flex: initial;
         width: 100%;
-        transition: flex 1000ms ease;
+        height: 50vh;
+        transition: flex 0.5s ease;
     }
 }
