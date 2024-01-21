@@ -2,7 +2,7 @@
     display: flex;
     height: 100vh;
     overflow: hidden;
-    background: linear-gradient(to right, #8a3ab9,#bc2a8d,#fccc63, #eee, #111);
+    background: linear-gradient(to right, #8a3ab9, #bc2a8d, #fccc63, #eee, #111);
 }
 
 .childContainer {
@@ -29,6 +29,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25%;
+    transition: flex 1000ms ease;
 }
 
 .right {
@@ -36,6 +37,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25%;
+    transition: flex 1000ms ease;
 }
 
 .childContainer h1 {
@@ -67,6 +69,58 @@
     color: #fff;
 }
 
+.container.hoverLeft .left {
+    flex: 2;
+}
+
+.container.hoverLeft .right {
+    flex: 1;
+}
+
+.container.hoverLeft .left .btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.container.hoverLeft .right .btn {
+    display: none;
+}
+
+.container.hoverLeft .left h1 {
+    color: #fff;
+}
+
+.container.hoverLeft .right h1 {
+    color: #444;
+}
+
+.container.hoverRight .left {
+    flex: 1;
+}
+
+.container.hoverRight .right {
+    flex: 2;
+}
+
+.container.hoverRight .left .btn {
+    display: none;
+}
+
+.container.hoverRight .right .btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.container.hoverRight .left h1 {
+    color: #444;
+}
+
+.container.hoverRight .right h1 {
+    color: #fff;
+}
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -84,6 +138,6 @@
     .right {
         flex: initial;
         width: 100%;
-        height: 50vh;
+        transition: flex 1000ms ease;
     }
 }
