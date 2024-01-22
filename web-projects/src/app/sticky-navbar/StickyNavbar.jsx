@@ -21,16 +21,24 @@ const StickyNavbar = () => {
         }
     }, []);
 
+    const navLinks = [
+        { id: 1, text: 'Home', url: '#' },
+        { id: 2, text: 'About', url: '#' },
+        { id: 3, text: 'Services', url: '#' },
+        { id: 4, text: 'Contact', url: '#' },
+    ];
+
     return (
         <div className={`${styles.container} ${isActive ? styles.active : ''}`} >
             <nav className={styles.nav} ref={navRef}>
                 <div className={styles.childContainer}>
                     <h1 className={styles.logo}><a href="#">Sticky Navbar</a></h1>
                     <ul>
-                        <li><a href="#" className={styles.current}>Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li><a href="#">Connect</a></li>
+                        {navLinks.map((link, index) => (
+                            <li key={index}>
+                                <a href={link.url}>{link.text}</a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </nav>
