@@ -46,7 +46,7 @@
 
 .nav.active {
     background-color: #fff;
-    box-shadow: 0 20px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 10px rgba(0, 0, 0, 0.3);
 }
 
 .nav.active a {
@@ -85,7 +85,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: -1;
 }
 
@@ -118,4 +118,33 @@
     color: #555;
     line-height: 30px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav .childContainer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav ul {
+        margin-top: 10px;
+    }
+
+    .nav ul a {
+        margin: 5px;
+    }
+
+    .hero {
+        height: 100vh;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+        margin-bottom: 5px;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
 }
