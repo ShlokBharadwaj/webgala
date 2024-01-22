@@ -36,7 +36,7 @@ const StickyNavbar = () => {
                     <ul>
                         {navLinks.map((link, index) => (
                             <li key={index}>
-                                <a href={link.url}>{link.text}</a>
+                                <a href={link.url} className={`${index === 0 ? styles.current : ''}`}>{link.text}</a>
                             </li>
                         ))}
                     </ul>
@@ -44,7 +44,7 @@ const StickyNavbar = () => {
             </nav>
             <div className={styles.hero}>
                 <div className={styles.childContainer}>
-                    <h1>Weldome to My Website</h1>
+                    <h1>Weldome to Sticky Navbar</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, culpa.</p>
                 </div>
             </div>
