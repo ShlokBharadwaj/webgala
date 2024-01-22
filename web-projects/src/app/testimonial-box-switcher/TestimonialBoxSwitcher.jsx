@@ -3,7 +3,7 @@ import styles from './TestimonialBoxSwitcher.module.css';
 
 const TestimonialBoxSwitcher = () => {
   return (
-    <div>TestimonialBoxSwitcher</div>
+    <div className={`${styles.container} box-border`}>TestimonialBoxSwitcher</div>
   )
 }
 
