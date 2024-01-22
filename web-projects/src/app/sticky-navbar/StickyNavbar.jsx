@@ -42,7 +42,19 @@ const StickyNavbar = () => {
                     </ul>
                 </div>
             </nav>
+            <div className={styles.hero}>
+                <div className={styles.childContainer}>
+                    <h1>Weldome to My Website</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, culpa.</p>
+                </div>
+            </div>
 
+            <section className={`${styles.childContainer} ${styles.content}`}>
+                <h2>Content One</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit atque facere error eum quibusdam deserunt expedita dolorum labore! Perspiciatis aspernatur perferendis voluptatum ratione omnis ipsum officiis. Quo unde recusandae sed esse nobis eaque voluptates quia ab numquam dolor voluptatem incidunt sit fugiat velit asperiores ad distinctio, aliquid nulla repellendus tempore iste est necessitatibus laborum sapiente? Ex voluptatum libero omnis nemo in culpa sed. Suscipit, odio quia! Assumenda dolorum tenetur impedit! Repudiandae quas alias quibusdam consequuntur dolorem quis mollitia neque, nesciunt dolorum ullam iure dolore fugiat eligendi. Sint temporibus quisquam facilis doloribus. Vero eveniet ea fugit inventore, enim animi dolor quam?</p><br />
+                <h3>Content Two</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim natus aliquid placeat quisquam voluptas itaque iusto perferendis modi eius delectus quo ab, vero minus blanditiis omnis expedita necessitatibus veniam commodi voluptatibus error, inventore dolor quaerat maxime rem! Nam culpa quibusdam qui, totam alias architecto, facere iure distinctio, animi repellat numquam?</p>
+            </section>
         </div>
     )
 }
