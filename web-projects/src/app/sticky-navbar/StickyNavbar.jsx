@@ -29,8 +29,8 @@ const StickyNavbar = () => {
     ];
 
     return (
-        <div className={`${styles.container} ${isActive ? styles.active : ''}`} >
-            <nav className={styles.nav} ref={navRef}>
+        <div className={`${styles.container}`} >
+            <nav className={`${styles.nav} ${isActive ? styles.active : ''}`} ref={navRef}>
                 <div className={styles.childContainer}>
                     <h1 className={styles.logo}><a href="#">Sticky Navbar</a></h1>
                     <ul>
