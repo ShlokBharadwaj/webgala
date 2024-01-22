@@ -18,6 +18,7 @@
     right: 0;
     transition: all .2s ease;
     z-index: 2;
+    height: 60px;
 }
 
 .nav .childContainer {
@@ -47,14 +48,11 @@
 .nav.active {
     background-color: #fff;
     box-shadow: 0 20px 10px rgba(0, 0, 0, 0.3);
+    height: 60px;
 }
 
 .nav.active a {
     color: #000;
-}
-
-.nav.active .childContainer {
-    padding: 10px 0;
 }
 
 .nav a.current,
@@ -118,33 +116,4 @@
     color: #555;
     line-height: 30px;
     margin-bottom: 20px;
-}
-
-@media screen and (max-width: 768px) {
-    .nav .childContainer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .nav ul {
-        margin-top: 10px;
-    }
-
-    .nav ul a {
-        margin: 5px;
-    }
-
-    .hero {
-        height: 100vh;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
-        margin-bottom: 5px;
-    }
-
-    .hero p {
-        font-size: 1rem;
-        margin-bottom: 10px;
-    }
 }
