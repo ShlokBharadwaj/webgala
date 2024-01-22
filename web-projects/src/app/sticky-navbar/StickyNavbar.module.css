@@ -18,7 +18,6 @@
     right: 0;
     transition: all .2s ease;
     z-index: 2;
-    height: 60px;
 }
 
 .nav .childContainer {
@@ -48,7 +47,6 @@
 .nav.active {
     background-color: #fff;
     box-shadow: 0 20px 10px rgba(0, 0, 0, 0.3);
-    height: 60px;
 }
 
 .nav.active a {
@@ -116,4 +114,19 @@
     color: #555;
     line-height: 30px;
     margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .nav .childContainer {
+        flex-direction: column;
+        text-align: justify;
+    }
+
+    .nav ul {
+        margin-top: 10px;
+    }
+
+    .nav ul a {
+        padding: 10px;
+    }
 }
