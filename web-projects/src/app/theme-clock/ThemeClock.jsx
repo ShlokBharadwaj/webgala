@@ -7,7 +7,11 @@ const ThemeClock = () => {
 
     const handleToggle = () => {
         setIsDarkMode(!isDarkMode);
-    }
+    };
+
+    const scale = (num, inMin, inMax, outMin, outMax) => {
+        return (num - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+    };
 
     return (
         <div className={`${styles.container} ${isDarkMode ? styles.darkMode : ''}`}>
