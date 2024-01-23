@@ -3,3 +3,16 @@
 .container {
     font-family: 'Inconsolata', monospace;
 }
+
+.progressBar {
+    animation: nextTestimonial 7s linear infinite;
+}
+
+@keyframes nextTestimonial {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
