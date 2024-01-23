@@ -13,6 +13,16 @@ const ThemeClock = () => {
         return (num - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     };
 
+    const setClock = () => {
+        const time = new Date();
+        console.log(time);
+        const month = time.getMonth();
+    };
+
+    setClock();
+
+    setInterval(setClock, 1000);
+
     return (
         <div className={`${styles.container} ${isDarkMode ? styles.darkMode : ''}`}>
             <button className={styles.toggle} onClick={handleToggle}>
@@ -32,4 +42,4 @@ const ThemeClock = () => {
     )
 }
 
-export default ThemeClock;
+export default ThemeClock
