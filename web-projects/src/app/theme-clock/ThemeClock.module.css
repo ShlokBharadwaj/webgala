@@ -2,7 +2,7 @@
 
 .container {
     box-sizing: border-box;
-    transition: all 0.7s ease-in-out;
+    transition: all 0.9s ease-in-out;
     font-family: 'Indie Flower', cursive, 'Libre Baskerville', serif;
     display: flex;
     align-items: center;

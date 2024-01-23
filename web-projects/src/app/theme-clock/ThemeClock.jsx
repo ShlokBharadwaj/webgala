@@ -1,9 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ThemeClock.module.css';
 
 const ThemeClock = () => {
 
     const [isDarkMode, setIsDarkMode] = useState(false);
+    const [timeData, setTimeData] = useState({
+        month: '',
+        day: '',
+        date: '',
+        hours: '',
+        hoursForClock: '',
+        minutes: '',
+        seconds: '',
+        ampm: '',
+    });
 
     const handleToggle = () => {
         setIsDarkMode(!isDarkMode);
@@ -19,15 +29,35 @@ const ThemeClock = () => {
         const day = time.getDay();
         const date = time.getDate();
         const hours = time.getHours();
-        const hoursForClock = hours % 12;
+        const hoursForClock = hours % 12 || 12;
         const minutes = time.getMinutes();
         const seconds = time.getSeconds();
         const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        console.log(`The time is: ${time}`);
+        console.log(`The value of day is: ${day}`);
+        console.log(`The value of month is: ${month}`);
+        console.log(`The value of date is: ${date}`);
+
+        setTimeData({
+            ...timeData,
+            month,
+            day,
+            date,
+            hours,
+            hoursForClock,
+            minutes,
+            seconds,
+            ampm,
+        });
     };
 
-    setClock();
+    useEffect(() => {
+        setClock();
+        const intervalId = setInterval(setClock, 1000);
 
-    setInterval(setClock, 1000);
+        return () => clearInterval(intervalId);
+    }, []);
 
     return (
         <div className={`${styles.container} ${isDarkMode ? styles.darkMode : ''}`}>
@@ -36,13 +66,29 @@ const ThemeClock = () => {
             </button>
             <div className={styles.clockContainer}>
                 <div className={styles.clock}>
-                    <div className={`${styles.needle} ${styles.hour}`}></div>
-                    <div className={`${styles.needle} ${styles.minute}`}></div>
-                    <div className={`${styles.needle} ${styles.second}`}></div>
+                    <div className={`${styles.needle} ${styles.hour}`}
+                        style={{
+                            transform: `translate(-50%, -100%) rotate(${scale(timeData.hoursForClock, 0, 12, 0, 360)}deg)`
+                        }}
+                    ></div>
+                    <div className={`${styles.needle} ${styles.minute}`}
+                        style={{
+                            transform: `translate(-50%, -100%) rotate(${scale(timeData.minutes, 0, 60, 0, 360)}deg)`
+                        }}
+                    ></div>
+                    <div className={`${styles.needle} ${styles.second}`}
+                        style={{
+                            transform: `translate(-50%, -100%) rotate(${scale(timeData.seconds, 0, 60, 0, 360)}deg)`
+                        }}
+                    ></div>
                     <div className={`${styles.needle} ${styles.point}`}></div>
                 </div>
-                <div className={styles.time}></div>
-                <div className={styles.date}></div>
+                <div className={styles.time}>
+                    {String(timeData.hoursForClock).padStart(2, '0')}:{String(timeData.minutes).padStart(2, '0')}:{String(timeData.seconds).padStart(2, '0')} {timeData.ampm}
+                </div>
+                <div className={styles.date}>
+                    {timeData.day}, {timeData.month} {timeData.date}
+                </div>
             </div>
         </div>
     )
