@@ -25,8 +25,8 @@ const ThemeClock = () => {
 
     const setClock = () => {
         const time = new Date();
-        const month = time.getMonth();
-        const day = time.getDay();
+        const month = time.toLocaleString('default', { month: 'short' }).toUpperCase();
+        const day = time.toLocaleString('default', { weekday: 'short' }).toUpperCase();
         const date = time.getDate();
         const hours = time.getHours();
         const hoursForClock = hours % 12 || 12;
@@ -87,7 +87,7 @@ const ThemeClock = () => {
                     {String(timeData.hoursForClock).padStart(2, '0')}:{String(timeData.minutes).padStart(2, '0')}:{String(timeData.seconds).padStart(2, '0')} {timeData.ampm}
                 </div>
                 <div className={styles.date}>
-                    {timeData.day}, {timeData.month} {timeData.date}
+                    {timeData.month} <span className={styles.circle}>{timeData.date}</span>, {timeData.day}
                 </div>
             </div>
         </div>
