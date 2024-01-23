@@ -34,11 +34,6 @@ const ThemeClock = () => {
         const seconds = time.getSeconds();
         const ampm = hours >= 12 ? 'PM' : 'AM';
 
-        console.log(`The time is: ${time}`);
-        console.log(`The value of day is: ${day}`);
-        console.log(`The value of month is: ${month}`);
-        console.log(`The value of date is: ${date}`);
-
         setTimeData({
             ...timeData,
             month,
