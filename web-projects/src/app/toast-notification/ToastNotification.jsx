@@ -32,10 +32,6 @@ const ToastNotification = () => {
         return messages[Math.floor(Math.random() * messages.length)];
     };
 
-    const getRandomType = () => {
-        return ['success', 'error', 'warning', 'info'][Math.floor(Math.random() * 4)];
-    };
-
     const createNotification = () => {
         const randomMessage = getRandomMessage();
         const toast = {
