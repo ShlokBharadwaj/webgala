@@ -38,3 +38,31 @@
 .toggle:active {
     transform: scale(0.9);
 }
+
+.clockContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.needle {
+    position: absolute;
+    background-color: #222;
+    top: 50%;
+    left: 50%;
+    height: 65px;
+    width: 3px;
+    transform-origin: bottom center;
+    transform: translate(-50%, -100%);
+}
+
+.needle.dark {
+    background-color: #fff;
+}

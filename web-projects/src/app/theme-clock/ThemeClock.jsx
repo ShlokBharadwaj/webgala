@@ -61,22 +61,22 @@ const ThemeClock = () => {
             </button>
             <div className={styles.clockContainer}>
                 <div className={styles.clock}>
-                    <div className={`${styles.needle} ${styles.hour}`}
+                    <div className={`${styles.needle} ${styles.hour} ${isDarkMode ? styles.dark : ''}`}
                         style={{
                             transform: `translate(-50%, -100%) rotate(${scale(timeData.hoursForClock, 0, 12, 0, 360)}deg)`
                         }}
                     ></div>
-                    <div className={`${styles.needle} ${styles.minute}`}
+                    <div className={`${styles.needle} ${styles.minute} ${isDarkMode ? styles.dark : ''}`}
                         style={{
                             transform: `translate(-50%, -100%) rotate(${scale(timeData.minutes, 0, 60, 0, 360)}deg)`
                         }}
                     ></div>
-                    <div className={`${styles.needle} ${styles.second}`}
+                    <div className={`${styles.needle} ${styles.second} ${isDarkMode ? styles.dark : ''}`}
                         style={{
                             transform: `translate(-50%, -100%) rotate(${scale(timeData.seconds, 0, 60, 0, 360)}deg)`
                         }}
                     ></div>
-                    <div className={`${styles.needle} ${styles.point}`}></div>
+                    <div className={`${styles.needle} ${styles.point} ${isDarkMode ? styles.dark : ''}`}></div>
                 </div>
                 <div className={styles.time}>
                     {String(timeData.hoursForClock).padStart(2, '0')}:{String(timeData.minutes).padStart(2, '0')}:{String(timeData.seconds).padStart(2, '0')} {timeData.ampm}
