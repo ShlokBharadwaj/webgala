@@ -11,12 +11,30 @@
     overflow: hidden;
     margin: 0;
     background-color: #fff;
-    color: #111;
+    color: #222;
 }
 
 .darkMode {
-    background-color: #111;
+    background-color: #222;
     color: #fff;
 }
 
-/* TODO: Add Theme style to clock */
+.toggle {
+    cursor: pointer;
+    border: 0;
+    border-radius: 4px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    outline: none;
+}
+
+.toggle.dark {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.toggle:active {
+    transform: scale(0.9);
+}

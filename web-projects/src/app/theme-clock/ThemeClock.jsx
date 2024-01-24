@@ -56,7 +56,7 @@ const ThemeClock = () => {
 
     return (
         <div className={`${styles.container} ${isDarkMode ? styles.darkMode : ''}`}>
-            <button className={styles.toggle} onClick={handleToggle}>
+            <button className={`${styles.toggle} ${isDarkMode ? styles.dark : ''}`} onClick={handleToggle}>
                 {isDarkMode ? 'Light Mode' : 'Dark Mode'}
             </button>
             <div className={styles.clockContainer}>
