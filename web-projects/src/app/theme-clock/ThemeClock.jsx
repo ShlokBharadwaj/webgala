@@ -81,8 +81,8 @@ const ThemeClock = () => {
                 <div className={styles.time}>
                     {String(timeData.hoursForClock).padStart(2, '0')}:{String(timeData.minutes).padStart(2, '0')}:{String(timeData.seconds).padStart(2, '0')} {timeData.ampm}
                 </div>
-                <div className={styles.date}>
-                    {timeData.month} <span className={styles.circle}>{timeData.date}</span>, {timeData.day}
+                <div className={`${styles.date} ${isDarkMode ? styles.dark : ''}`}>
+                    {timeData.month} <span className={styles.circle}>{timeData.date}</span> {timeData.day}
                 </div>
             </div>
         </div>
