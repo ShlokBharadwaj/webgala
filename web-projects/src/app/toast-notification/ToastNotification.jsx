@@ -3,7 +3,10 @@ import styles from './ToastNotification.module.css';
 
 const ToastNotification = () => {
     return (
-        <div>ToastNotification</div>
+        <div className={styles.container}>
+            <div className={styles.toasts}></div>
+            <button className={styles.btn}>Show Notification</button>
+        </div>
     )
 }
 
