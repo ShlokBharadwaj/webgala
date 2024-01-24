@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './ToastNotification.module.css';
 
 const ToastNotification = () => {
+
+    const [toasts, setToasts] = useState([]);
 
     const messages = [
         {
@@ -34,13 +36,26 @@ const ToastNotification = () => {
         return ['success', 'error', 'warning', 'info'][Math.floor(Math.random() * 4)];
     };
 
+    const createNotification = () => {
+        const randomMessage = getRandomMessage();
+        const toast = {
+            id: Math.floor(Math.random() * 100000),
+            type: randomMessage.type,
+            text: randomMessage.text
+        };
 
-    const createNotification = () => { }
-
+        setToasts([...toasts, toast]);
+    };
 
     return (
         <div className={styles.container}>
-            <div className={styles.toasts}></div>
+            <div className={styles.toasts}>
+                {toasts.map((toast) => (
+                    <div key={toast.id} className={`${styles.toast} ${styles[toast.type]}`}>
+                        {toast.text}
+                    </div>
+                ))}
+            </div>
             <button className={styles.btn} onClick={createNotification}>Show Notification</button>
         </div>
     )
