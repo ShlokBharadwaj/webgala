@@ -12,9 +12,7 @@ const ToastNotification = () => {
         { id: 4, text: 'Message Four', type: 'info' },
     ];
 
-    const getRandomMessage = () => {
-        return messages[Math.floor(Math.random() * messages.length)];
-    };
+    const getRandomMessage = () => messages[Math.floor(Math.random() * messages.length)];
 
     const removeNotification = (id) => {
         setNotifications((prevNotifications) =>
@@ -26,20 +24,24 @@ const ToastNotification = () => {
         if (timeoutRef.current) {
             clearTimeout(timeoutRef.current);
         }
-
+    
         const randomMessage = getRandomMessage();
         const notification = {
             id: Math.floor(Math.random() * 100000000),
             type: randomMessage.type,
             text: randomMessage.text,
         };
-
-        setNotifications([...notifications, notification]);
-
-        timeoutRef.current = setTimeout(() => {
-            removeNotification(notification.id);
-        }, 3000);
-    };
+    
+        setNotifications((prevNotifications) => {
+            const updatedNotifications = [...prevNotifications, notification];
+            
+            timeoutRef.current = setTimeout(() => {
+                removeNotification(notification.id);
+            }, 3000);
+    
+            return updatedNotifications;
+        });
+    };    
 
     useEffect(() => {
         return () => {
