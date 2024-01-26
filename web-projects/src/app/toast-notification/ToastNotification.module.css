@@ -11,11 +11,12 @@
     min-height: 100vh;
     overflow: hidden;
     margin: 0;
+    transition: all 0.3s ease-in-out;
 }
 
 .btn {
     background-color: #fff;
-    color:#32004f;
+    color: #32004f;
     padding: 1rem;
     border-radius: 5px;
     font-family: inherit;
@@ -27,4 +28,41 @@
 
 .btn:active {
     transform: scale(0.95);
+}
+
+.toasts {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.toast {
+    background-color: #fff;
+    color: #32004f;
+    border-radius: 5px;
+    padding: 1rem 2rem 0.8rem;
+    margin: 0.4rem;
+}
+
+.toast.success {
+    color: #fff;
+    background-color: #4caf50;
+}
+
+.toast.error {
+    color: #fff;
+    background-color: #f44336;
+}
+
+.toast.warning {
+    color: #fff;
+    background-color: #ff9800;
+}
+
+.toast.info {
+    color: #fff;
+    background-color: #2196f3;
 }
