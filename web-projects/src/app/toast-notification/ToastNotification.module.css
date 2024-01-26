@@ -12,3 +12,19 @@
     overflow: hidden;
     margin: 0;
 }
+
+.btn {
+    background-color: #fff;
+    color:#32004f;
+    padding: 1rem;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
