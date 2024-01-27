@@ -35,7 +35,22 @@ const TodoList = () => {
 
     const handleInputChange = (e) => {
         setTodoText(e.target.value);
-    }
+    };
+
+    const toggleTodoClick = (index) => {
+        setTodos((prevTodos) => {
+            const newTodos = [...prevTodos];
+            newTodos[index].complete = !newTodos[index].complete;
+            return newTodos;
+        });
+    };
+
+    const handleTodoContextMenu = (e, index) => {
+        e.preventDefault();
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
+    };
 
     useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem('todos'));
