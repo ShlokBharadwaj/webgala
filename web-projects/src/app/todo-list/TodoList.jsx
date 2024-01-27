@@ -50,10 +50,8 @@ const TodoList = () => {
     };
 
     const fetchTodosFromLocalStorage = () => {
-        const storedTodos = JSON.parse(localStorage.getItem('todos'));
-        if (storedTodos) {
-            setTodos(storedTodos);
-        }
+        const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+        setTodos(storedTodos);
     };
 
     useEffect(() => {
@@ -80,7 +78,7 @@ const TodoList = () => {
                     {todos.map((todo, index) => (
                         <li
                             key={index}
-                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? complete : ''}`}
+                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? styles.complete : ''}`}
                             onClick={() => toggleTodoClick(index)}
                             onContextMenu={(e) => handleTodoContextMenu(e, index)}
                         >
