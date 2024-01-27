@@ -10,7 +10,7 @@ const TodoList = () => {
             return;
         }
 
-        const newTodos = [...todos, { text: todoText, complete: false }];
+        const newTodos = [...todos, { text: todoText, completed: false }];
         setTodos(newTodos);
         setTodoText('');
     };
@@ -26,7 +26,7 @@ const TodoList = () => {
     const toggleTodoClick = (index) => {
         setTodos((prevTodos) => {
             const newTodos = [...prevTodos];
-            newTodos[index].complete = !newTodos[index].complete;
+            newTodos[index].completed = !newTodos[index].completed;
             return newTodos;
         });
     };
@@ -80,7 +80,7 @@ const TodoList = () => {
                     {todos.map((todo, index) => (
                         <li
                             key={index}
-                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.complete ? styles.complete : ''}`}
+                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? complete : ''}`}
                             onClick={() => toggleTodoClick(index)}
                             onContextMenu={(e) => handleTodoContextMenu(e, index)}
                         >
