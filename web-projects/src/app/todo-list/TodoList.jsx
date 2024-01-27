@@ -36,8 +36,8 @@ const TodoList = () => {
         removeTodo(index);
     };
 
-    const updateLocalStorage = () => {
-        localStorage.setItem('todos', JSON.stringify(todos));
+    const updateLocalStorage = (updatedTodos) => {
+        localStorage.setItem('todos', JSON.stringify(updatedTodos));
     };
 
     const handleSubmit = (e) => {
@@ -49,19 +49,13 @@ const TodoList = () => {
         setTodoText(e.target.value);
     };
 
-    const fetchTodosFromLocalStorage = async () => {
+    useEffect(() => {
         const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
         setTodos(storedTodos);
-    };
-
-    useEffect(() => {
-        (async () => {
-            await fetchTodosFromLocalStorage();
-        })();
     }, []);
 
     useEffect(() => {
-        updateLocalStorage();
+        updateLocalStorage(todos);
     }, [todos]);
 
     return (
@@ -80,7 +74,7 @@ const TodoList = () => {
                     {todos.map((todo, index) => (
                         <li
                             key={index}
-                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? styles.complete : ''}`}
+                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? styles.completed : ''}`}
                             onClick={() => toggleTodoClick(index)}
                             onContextMenu={(e) => handleTodoContextMenu(e, index)}
                         >
