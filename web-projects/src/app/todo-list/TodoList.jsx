@@ -5,6 +5,17 @@ const TodoList = () => {
     const [todos, setTodos] = useState([]);
     const [todoText, setTodoText] = useState('');
 
+    useEffect(() => {
+        const storedTodos = JSON.parse(localStorage.getItem('todos'));
+        if (storedTodos) {
+            setTodos(storedTodos);
+        }
+    }, []);
+
+    useEffect(() => {
+        updateLocalStorage();
+    }, [todos]);
+
     const addTodo = () => {
         if (!todoText.trim()) {
             return;
@@ -16,28 +27,19 @@ const TodoList = () => {
     };
 
     const removeTodo = (index) => {
-        setTodos((prevTodos) => {
-            const newTodos = [...prevTodos];
-            newTodos.splice(index, 1);
-            return newTodos;
-        });
+        const newTodos = [...todos];
+        newTodos.splice(index, 1);
+        setTodos(newTodos);
     };
 
     const toggleTodoClick = (index) => {
-        setTodos((prevTodos) => {
-            const newTodos = [...prevTodos];
-            newTodos[index].completed = !newTodos[index].completed;
-            return newTodos;
-        });
+        const newTodos = [...todos];
+        newTodos[index].completed = !newTodos[index].completed;
+        setTodos(newTodos);
     };
 
-    const handleTodoContextMenu = (e, index) => {
-        e.preventDefault();
-        removeTodo(index);
-    };
-
-    const updateLocalStorage = (updatedTodos) => {
-        localStorage.setItem('todos', JSON.stringify(updatedTodos));
+    const updateLocalStorage = () => {
+        localStorage.setItem('todos', JSON.stringify(todos));
     };
 
     const handleSubmit = (e) => {
@@ -48,15 +50,6 @@ const TodoList = () => {
     const handleInputChange = (e) => {
         setTodoText(e.target.value);
     };
-
-    useEffect(() => {
-        const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
-        setTodos(storedTodos);
-    }, []);
-
-    useEffect(() => {
-        updateLocalStorage(todos);
-    }, [todos]);
 
     return (
         <div className={`${styles.container} bg-[#f8f9fa] text-black flex flex-col items-center justify-center min-h-screen m-0 box-border`}>
@@ -74,9 +67,12 @@ const TodoList = () => {
                     {todos.map((todo, index) => (
                         <li
                             key={index}
-                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? styles.completed : ''}`}
+                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.completed ? styles.complete : ''}`}
                             onClick={() => toggleTodoClick(index)}
-                            onContextMenu={(e) => handleTodoContextMenu(e, index)}
+                            onContextMenu={(e) => {
+                                e.preventDefault();
+                                removeTodo(index);
+                            }}
                         >
                             {todo.text}
                         </li>
