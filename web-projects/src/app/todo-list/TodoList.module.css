@@ -3,3 +3,8 @@
 .container {
     font-family: 'Montserrat', sans-serif;
 }
+
+.todo.complete {
+    color: #b6b6b6;
+    text-decoration: line-through;
+}

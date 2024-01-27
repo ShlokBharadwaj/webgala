@@ -77,7 +77,7 @@ const TodoList = () => {
                 <ul className={`${styles.todos} bg-white p-0 m-0`}>
                     {todos.map((todo, index) => (
                         <li key={index}
-                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer`}
+                            className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.complete ? styles.complete : ''}`}
                             onClick={() => toggleTodoClick(index)}
                             onContextMenu={(e) => handleTodoContextMenu(e, index)}
                         >
