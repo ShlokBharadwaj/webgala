@@ -49,13 +49,15 @@ const TodoList = () => {
         setTodoText(e.target.value);
     };
 
-    const fetchTodosFromLocalStorage = () => {
+    const fetchTodosFromLocalStorage = async () => {
         const storedTodos = JSON.parse(localStorage.getItem('todos')) || [];
         setTodos(storedTodos);
     };
 
     useEffect(() => {
-        fetchTodosFromLocalStorage();
+        (async () => {
+            await fetchTodosFromLocalStorage();
+        })();
     }, []);
 
     useEffect(() => {
