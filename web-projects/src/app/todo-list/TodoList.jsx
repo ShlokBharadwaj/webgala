@@ -49,11 +49,15 @@ const TodoList = () => {
         setTodoText(e.target.value);
     };
 
-    useEffect(() => {
+    const fetchTodosFromLocalStorage = () => {
         const storedTodos = JSON.parse(localStorage.getItem('todos'));
         if (storedTodos) {
             setTodos(storedTodos);
         }
+    };
+
+    useEffect(() => {
+        fetchTodosFromLocalStorage();
     }, []);
 
     useEffect(() => {
