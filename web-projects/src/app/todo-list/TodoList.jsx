@@ -2,39 +2,25 @@ import React, { useState, useEffect } from 'react';
 import styles from './TodoList.module.css';
 
 const TodoList = () => {
-
     const [todos, setTodos] = useState([]);
     const [todoText, setTodoText] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        addTodo();
-    };
-
-    const addTodo = (todo) => {
-        let todoTextValue = todo ? todo.text : todoText;
-
-        if (todo) {
-            todoTextValue = todo.text;
-        }
-
-        if (todoTextValue.trim() === '') {
+    const addTodo = () => {
+        if (!todoText.trim()) {
             return;
         }
 
-        if (todoTextValue) {
-            const newTodos = [...todos, { text: todoTextValue, complete: false }];
-            setTodos(newTodos);
-            setTodoText('');
-        }
+        const newTodos = [...todos, { text: todoText, complete: false }];
+        setTodos(newTodos);
+        setTodoText('');
     };
 
-    const updateLocalStorage = () => {
-        localStorage.setItem('todos', JSON.stringify(todos));
-    };
-
-    const handleInputChange = (e) => {
-        setTodoText(e.target.value);
+    const removeTodo = (index) => {
+        setTodos((prevTodos) => {
+            const newTodos = [...prevTodos];
+            newTodos.splice(index, 1);
+            return newTodos;
+        });
     };
 
     const toggleTodoClick = (index) => {
@@ -47,9 +33,20 @@ const TodoList = () => {
 
     const handleTodoContextMenu = (e, index) => {
         e.preventDefault();
-        const newTodos = [...todos];
-        newTodos.splice(index, 1);
-        setTodos(newTodos);
+        removeTodo(index);
+    };
+
+    const updateLocalStorage = () => {
+        localStorage.setItem('todos', JSON.stringify(todos));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addTodo();
+    };
+
+    const handleInputChange = (e) => {
+        setTodoText(e.target.value);
     };
 
     useEffect(() => {
@@ -73,10 +70,12 @@ const TodoList = () => {
                     placeholder="your todos here"
                     autoComplete="off"
                     value={todoText}
-                    onChange={handleInputChange} />
+                    onChange={handleInputChange}
+                />
                 <ul className={`${styles.todos} bg-white p-0 m-0`}>
                     {todos.map((todo, index) => (
-                        <li key={index}
+                        <li
+                            key={index}
                             className={`${styles.todo} border-t border-[#e0e0e0] text-[#444] text-2xl pt-4 pb-4 pl-8 pr-8 block w-full focus:outline-[#0077b6] opacity-50 text-center cursor-pointer ${todo.complete ? styles.complete : ''}`}
                             onClick={() => toggleTodoClick(index)}
                             onContextMenu={(e) => handleTodoContextMenu(e, index)}
@@ -89,7 +88,7 @@ const TodoList = () => {
             <small className="text-[#b4b4b4] mt-12 text-center text-lg">left click to toggle complete</small>
             <small className="text-[#b4b4b4] text-center text-lg">right click to delete</small>
         </div>
-    )
-}
+    );
+};
 
 export default TodoList;
