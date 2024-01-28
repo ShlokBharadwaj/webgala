@@ -52,14 +52,6 @@ const TodoList = () => {
         setTodos(newTodos);
     };
 
-    const updateLocalStorage = () => {
-        try {
-            localStorage.setItem('todos', JSON.stringify(todos));
-        } catch (error) {
-            console.error("Error updating localStorage:", error);
-        }
-    };
-
     const handleSubmit = (e) => {
         e.preventDefault();
         addTodo();
