@@ -43,8 +43,14 @@ const TodoList = () => {
     const removeTodo = (index) => {
         const newTodos = [...todos];
         newTodos.splice(index, 1);
-        setTodos(newTodos);
+        try {
+            localStorage.setItem('todos', JSON.stringify(newTodos));
+        } catch (error) {
+            console.error("Error updating localStorage:", error);
+        }
+        setTodos(() => newTodos);
     };
+
 
     const toggleTodoClick = (index) => {
         const newTodos = [...todos];
