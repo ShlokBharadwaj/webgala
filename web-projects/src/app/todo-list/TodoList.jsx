@@ -2,21 +2,32 @@ import React, { useState, useEffect } from 'react';
 import styles from './TodoList.module.css';
 
 const TodoList = () => {
-    const getInitialTodos = () => {
-        try {
-            const storedTodos = JSON.parse(localStorage.getItem('todos'));
-            return storedTodos || [];
-        } catch (error) {
-            console.error("Error accessing localStorage:", error);
-            return [];
-        }
-    };
 
-    const [todos, setTodos] = useState(getInitialTodos);
+    const [todos, setTodos] = useState([]);
     const [todoText, setTodoText] = useState('');
 
     useEffect(() => {
-        updateLocalStorage();
+        const getInitialTodos = () => {
+            try {
+                const storedTodos = JSON.parse(localStorage.getItem('todos'));
+                return storedTodos || [];
+            } catch (error) {
+                console.error("Error accessing localStorage:", error);
+                return [];
+            }
+        };
+
+        setTodos(getInitialTodos());
+    }, []);
+
+    useEffect(() => {
+        if (todos.length) {
+            try {
+                localStorage.setItem('todos', JSON.stringify(todos));
+            } catch (error) {
+                console.error("Error updating localStorage:", error);
+            }
+        }
     }, [todos]);
 
     const addTodo = () => {
