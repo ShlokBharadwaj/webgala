@@ -90,7 +90,7 @@ const TodoList = () => {
                 </ul>
             </form>
             <small className="text-[#b4b4b4] mt-12 text-center text-lg">left click to toggle complete</small>
-            <small className="text-[#b4b4b4] text-center text-lg">right click to delete</small>
+            <small className="text-[#b4b4b4] text-center text-lg mb-8">right click to delete</small>
         </div>
     );
 };
