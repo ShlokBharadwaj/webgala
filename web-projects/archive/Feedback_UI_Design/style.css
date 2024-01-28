@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box ;
+}
+
+body {
+    background-color: #edf2f4;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.panel-container {
+    background-color: #e1eaed;
+    box-shadow: 0 0 15px #8da9c4;
+    border-radius: 4px;
+    font-size: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    max-width: 400px;
+}
+
+.panel-container strong {
+    line-height: 20px;
+}
+
+.ratings-container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.rating {
+    flex: 1;
+    cursor: pointer;
+    padding: 20px;
+    margin: 10px 5px;
+}
+
+.rating img {
+    display: flex;
+    max-width: 60px;
+    max-height: 60px;
+}
+
+.rating:hover,
+.rating.active {
+    border-radius: 4px;
+    box-shadow: 0 0 15px #8da9c4;
+}
+
+.rating small {
+    color: #555;
+    display: inline-block;
+    margin: 10px 0 0;
+}
+
+.rating:hover small,
+.rating.active small {
+    color: #111;
+} 
+
+.btn {
+    background-color: #dae1a4;
+    color: #000;
+    border: 0;
+    border-radius: 4px;
+    padding: 12px 30px;
+    cursor: pointer;
+    box-shadow: 0 0 7px #8da9c4;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(0.95);
+    color: #00f5d4;
+}
+
+.fa-heart {
+    color: red;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.fa-heart-circle-check {
+    color: red;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.fa-heart-crack {
+    color: red;
+    font-size: 30px;
+    margin-bottom: 10px;
+}

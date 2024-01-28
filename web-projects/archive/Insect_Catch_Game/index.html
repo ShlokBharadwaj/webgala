@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Insect Catch Game</title>
+</head>
+
+<body class="h-[100vh] overflow-hidden m-0 box-border text-center">
+    <div class="screen flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#588157]">
+        <h1 class="text-5xl my-4">Catch the Insect</h1>
+        <button
+            class="btn border-0 bg-white text-[#588157] py-4 px-5 cursor-pointer focus:outline-none hover:opacity-90"
+            id="start-button">Play Game</button>
+    </div>
+
+    <div class="screen flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#588157]">
+        <h1>What is your favourite insect?</h1>
+        <ul class="insect-list flex flex-wrap justify-center list-none p-0">
+            <li class="m-3">
+                <button
+                    class="choose-insect-btn bg-transparent border-2 text-black w-[150px] h-[150px] hover:bg-[#84a98c] hover:text-white active:bg-[rgba(255,255,255,0.7)]">
+                    <p>Mantis</p>
+                    <img src="https://images.unsplash.com/photo-1630942592547-d7d223e15dc6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+                        alt="Mantis" class="w-[100px] h-[100px] object-contain">
+                </button>
+            </li>
+            <li class="m-3">
+                <button
+                    class="choose-insect-btn bg-transparent border-2 text-black w-[150px] h-[150px] hover:bg-[#84a98c] hover:text-white active:bg-[rgba(255,255,255,0.7)]">
+                    <p>Spider</p>
+                    <img src="https://images.unsplash.com/photo-1579776711405-534256abcbb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=471&q=80"
+                        alt="Spider" class="w-[100px] h-[100px] object-contain">
+                </button>
+            </li>
+            <li class="m-3">
+                <button
+                    class="choose-insect-btn bg-transparent border-2 text-black w-[150px] h-[150px] hover:bg-[#84a98c] hover:text-white active:bg-[rgba(255,255,255,0.7)]">
+                    <p>Cockroach</p>
+                    <img src="https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
+                        alt="Cockroach" class="w-[100px] h-[100px] object-contain">
+                </button>
+            </li>
+        </ul>
+    </div>
+    <div
+        class="screen game-container flex flex-col items-center justify-center h-[100vh] w-[100vw] bg-[#588157] relative">
+        <h3 id="time" class="absolute top-5 right-5">Time: 00:00</h3>
+        <h3 id="score" class="absolute top-5 left-5">Score: 0</h3>
+        <h5 id="message"
+            class="message leading-6 bg-[rgba(0,0,0,0.5)] w-full p-5 z-[100] text-center opacity-0 text-white absolute top-0 left-[50%] translate-x-[50%] translate-y-[-150%] transition-transform">
+            Are you annoyed yet? <br>
+            You are playing an impossible game
+        </h5>
+
+        <!-- <div class="insect flex items-center justify-center w-[100px] h-[100px] absolute translate-x-[-50%] translate-y-[-50%] scale-100 cursor-pointer transition-transform">
+            <img src="https://images.unsplash.com/photo-1527942213181-ddbaba2e1496?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=446&q=80"
+                alt="" class="w-[100px] h-[100px]">
+        </div> -->
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
