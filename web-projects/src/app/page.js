@@ -1,58 +1,77 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import ThemeClock from "./theme-clock/ThemeClock";
+import DoubleHeartClick from "./double-heart-click/DoubleHeartClick";
+import DrinkWater from "./drink-water/DrinkWater";
+import GitHubProfiles from "./github-profiles/GitHubProfiles";
+import Hoverboard from "./hoverboard/Hoverboard";
+import EventKeyCodes from "./event-key-codes/EventKeyCodes";
+import HiddenSearchWidget from "./hidden-search-widget/HiddenSearchWidget";
+import KineticCssLoader from "./kinetic-css-loader/KineticCssLoader";
+
+const CardLink = ({ href, children }) => (
+  <Link legacyBehavior href={href}>
+    <a className="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md block hover:shadow-lg transition-shadow">
+      {children}
+    </a>
+  </Link>
+);
 
 const LandingPage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24 bg-gray-100 dark:bg-gray-800">
-      <div className="mb-32 grid gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-center lg:max-w-5xl lg:w-full lg:mb-0">
-        <div className="group rounded-lg border border-transparent p-8 transition-colors hover:border-gray-300 bg-blue-200 dark:bg-blue-700 hover:bg-blue-300 hover:dark:bg-blue-800">
-          <h2 className="mb-3 text-2xl font-semibold text-white ">
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-80 text-white">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </div>
+    <div className="flex flex-col min-h-screen bg-gray-100 dark:bg-gray-800 p-8">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold text-gray-800 dark:text-white">
+          Web Projects
+        </h1>
+        <p className="text-gray-600 dark:text-gray-400 mt-2">
+          Explore 50 UI cards and templates.
+        </p>
+      </header>
 
-        <div className="group rounded-lg border border-transparent p-8 transition-colors hover:border-gray-300 bg-green-200 dark:bg-green-700 hover:bg-green-300 hover:dark:bg-green-800">
-          <h2 className="mb-3 text-2xl font-semibold text-white">
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-80 text-white ">
-            Learn about Next.js in an interactive course with quizzes!
-          </p>
-        </div>
-
-        <div className="group rounded-lg border border-transparent p-8 transition-colors hover:border-gray-300 bg-purple-200 dark:bg-purple-700 hover:bg-purple-300 hover:dark:bg-purple-800">
-          <h2 className="mb-3 text-2xl font-semibold text-white ">
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-80 text-white ">
-            Explore starter templates for Next.js.
-          </p>
-        </div>
-
-        <div className="group rounded-lg border border-transparent p-8 transition-colors hover:border-gray-300 bg-red-200 dark:bg-red-700 hover:bg-red-300 hover:dark:bg-red-800">
-          <h2 className="mb-3 text-2xl font-semibold text-white ">
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-80 text-white ">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </div>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 flex-1">
+        {/* Card 1 */}
+        <CardLink href="/theme-clock">
+          <ThemeClock />
+        </CardLink>
+        {/* Card 2 */}
+        <CardLink href="/double-heart-click">
+          <DoubleHeartClick />
+        </CardLink>
+        {/* Card 3 */}
+        <CardLink href="/drink-water">
+          <DrinkWater />
+        </CardLink>
+        {/* Card 4 */}
+        {/* <CardLink href="/github-profiles"> */}
+          <GitHubProfiles />
+        {/* </CardLink> */}
+        {/* Card 5 */}
+        <CardLink href="/hoverboard">
+          <Hoverboard />
+        </CardLink>
+        {/* Card 6 */}
+        <CardLink href="/event-key-codes">
+          <EventKeyCodes />
+        </CardLink>
+        {/* Card 7 */}
+        <CardLink href="/hidden-search-widget">
+          <HiddenSearchWidget />
+        </CardLink>
+        {/* Card 8 */}
+        <CardLink href="/kinetic-css-loader">
+          <KineticCssLoader />
+        </CardLink>
       </div>
-    </main>
+
+      <footer className="text-center mt-16">
+        <p className="text-gray-600 dark:text-gray-400">
+          © 2024 Shlok Bharadwaj. All rights reserved.
+        </p>
+      </footer>
+    </div>
   );
 };
 
