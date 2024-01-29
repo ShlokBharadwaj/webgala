@@ -2,13 +2,14 @@
 
 import Head from 'next/head';
 import Masonry from 'react-masonry-css';
+
 // Navbar component
 const Navbar = () => {
   return (
     <nav className="bg-gray-800 p-4">
       <div className="container mx-auto flex items-center justify-between">
         <div className="text-white font-bold text-xl">Web Projects logo</div>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <input
             type="text"
             placeholder="Search..."
@@ -17,7 +18,7 @@ const Navbar = () => {
           <button className="bg-gray-700 px-3 py-1 rounded text-white">
             Search
           </button>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
@@ -75,7 +76,7 @@ const Grid = () => {
   return (
     <Masonry
       breakpointCols={breakpointColumnsObj}
-      className="flex w-full"
+      className="flex w-full mx-auto my-3"
       columnClassName="my-masonry-grid_column"
     >
       {gifUrls.map((url, index) => (
