@@ -1,5 +1,7 @@
-import Head from 'next/head';
+'use client';
 
+import Head from 'next/head';
+import Masonry from 'react-masonry-css';
 // Navbar component
 const Navbar = () => {
   return (
@@ -61,18 +63,27 @@ const Grid = () => {
     'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDB6bnV1anRjN2xkZHlwNjByanRmeDc1dXJibzl2ZGVhZWg0dDN6dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qDHm7y5hWEnNxvi/giphy.gif',
   ];
 
-  const getRandomHeight = () => {
-    return Math.floor(Math.random() * (96 - 52 + 1)) + 52;
+  const breakpointColumnsObj = {
+    default: 4,
+    3000: 6,
+    2000: 5,
+    1200: 3,
+    900: 2,
+    600: 1,
   };
 
   return (
-    <div className="container mx-auto my-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <Masonry
+      breakpointCols={breakpointColumnsObj}
+      className="flex w-full"
+      columnClassName="my-masonry-grid_column"
+    >
       {gifUrls.map((url, index) => (
-        <div key={index} className="rounded overflow-hidden shadow-lg">
-          <img src={url} alt={`GIF ${index}`} className={`h-${getRandomHeight()} w-full object-cover`} />
+        <div key={index} className="p-2">
+          <img src={url} alt={`GIF ${index}`} className="w-full mb-4" />
         </div>
       ))}
-    </div>
+    </Masonry>
   );
 };
 
