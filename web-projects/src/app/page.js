@@ -61,11 +61,15 @@ const Grid = () => {
     'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDB6bnV1anRjN2xkZHlwNjByanRmeDc1dXJibzl2ZGVhZWg0dDN6dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7qDHm7y5hWEnNxvi/giphy.gif',
   ];
 
+  const getRandomHeight = () => {
+    return Math.floor(Math.random() * (96 - 52 + 1)) + 52;
+  };
+
   return (
     <div className="container mx-auto my-8 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {gifUrls.map((url, index) => (
-        <div key={index} className={`rounded overflow-hidden shadow-lg ${index % 4 === 0 ? 'lg:col-span-2' : 'lg:col-span-1'}`}>
-          <img src={url} alt={`GIF ${index}`} className="w-full h-48 object-cover" />
+        <div key={index} className="rounded overflow-hidden shadow-lg">
+          <img src={url} alt={`GIF ${index}`} className={`h-${getRandomHeight()} w-full object-cover`} />
         </div>
       ))}
     </div>
