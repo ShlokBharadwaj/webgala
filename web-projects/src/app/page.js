@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Masonry from 'react-masonry-css';
 import Image from "next/image";
 import gifs from "../../public/assets/js/gifs";
+import Link from "next/link";
 
 // Navbar component
 const Navbar = () => {
@@ -32,15 +33,19 @@ const Grid = () => {
       className="flex w-full mx-auto my-3"
       columnClassName="my-masonry-grid_column"
     >
-      {gifs.map((gif, index) => (
+      {gifs.map((gifObj, index) => (
         <div key={index} className="p-2">
-          <Image
-            src={gif}
-            alt={`GIF ${index}`}
-            width={300}
-            height={200} 
-            className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
-            />
+          <Link href={gifObj.link} legacyBehavior>
+            <a>
+              <Image
+                src={gifObj.gif}
+                alt={`GIF ${index}`}
+                width={300}
+                height={200}
+                className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
+              />
+            </a>
+          </Link>
         </div>
       ))}
     </Masonry>
