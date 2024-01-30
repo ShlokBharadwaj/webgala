@@ -3,7 +3,8 @@
 import Head from 'next/head';
 import Masonry from 'react-masonry-css';
 import Image from "next/image";
-import gif from '../../public/assets/gifs/theme-clock.gif';
+import gif1 from '../../public/assets/gifs/theme-clock.gif';
+import gif2 from '../../public/assets/gifs/kinetic-css-loader.gif';
 
 // Navbar component
 const Navbar = () => {
@@ -30,7 +31,8 @@ const Navbar = () => {
 const Grid = () => {
   // Random GIF URLs for testing purposes
   const gifUrls = [
-    <Image key="localGif" src={gif} alt="Local GIF" />,
+    <Image key="localGif" src={gif1} alt="Local GIF" />,
+    <Image key="localGif" src={gif2} alt="Local GIF" />,
     'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmppb3I2N2V6amo0ZmU2ZjZzMGszOXc5dXh3MDQwYm4zdnptdWFtMCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3og0IG0vkIQpuJoLvO/giphy.gif',
     'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGdtaGljOGhqcXVhYWN2bGN4N2Jtd2Z6azBycHBjOHpvNzJ3MWRpaCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3DvcPXrHRjVDmBLhbBm/giphy.gif',
     'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjdtYzYxM2NrYWJ3c2h5NGVoejdmOG14enRiZ2c1cDVjcmExbGYzMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l0K4aAtTGlBFE6ifC/giphy.gif',
