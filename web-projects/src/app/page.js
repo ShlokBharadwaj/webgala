@@ -99,7 +99,6 @@ const Grid = () => {
             alt={`GIF ${index}`}
             width={300}
             height={200} 
-            layout="responsive"
             />
         </div>
       ))}
