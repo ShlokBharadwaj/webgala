@@ -39,6 +39,7 @@ const Grid = () => {
             alt={`GIF ${index}`}
             width={300}
             height={200} 
+            className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
             />
         </div>
       ))}
