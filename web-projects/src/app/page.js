@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import Masonry from 'react-masonry-css';
 import Image from "next/image";
+import gifs from "../../public/assets/js/gifs";
 import gif1 from '../../public/assets/gifs/theme-clock.gif';
 import gif2 from '../../public/assets/gifs/kinetic-css-loader.gif';
 
@@ -91,14 +92,15 @@ const Grid = () => {
       className="flex w-full mx-auto my-3"
       columnClassName="my-masonry-grid_column"
     >
-      {gifUrls.map((item, index) => (
+      {gifs.map((gif, index) => (
         <div key={index} className="p-2">
-          {/* Check if the item is an Image component or a string URL */}
-          {typeof item === 'string' ? (
-            <img src={item} alt={`GIF ${index}`} className="w-full mb-4" />
-          ) : (
-            item
-          )}
+          <Image
+            src={gif}
+            alt={`GIF ${index}`}
+            width={300}
+            height={200} 
+            layout="responsive"
+            />
         </div>
       ))}
     </Masonry>
