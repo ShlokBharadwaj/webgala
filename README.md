@@ -4,7 +4,7 @@ Crafting Web Elegance, One webgala at a time.
 
 ## Live Site
 
-The live site for the application can be accessed [here](https://webgala.netlify.app/).
+The live site for the application can be accessed [here](https://webgala.vercel.app/).
 
 ## Installation
 
