@@ -15,7 +15,17 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['media0.giphy.com', 'media1.giphy.com', 'media2.giphy.com', 'avatars.githubusercontent.com', 'source.unsplash.com', 'images.unsplash.com', 'randomuser.me', 'image.tmdb.org',],
+    domains: [
+      'media0.giphy.com',
+      'media1.giphy.com',
+      'media2.giphy.com',
+      'avatars.githubusercontent.com',
+      'source.unsplash.com',
+      'images.unsplash.com',
+      'randomuser.me',
+      'image.tmdb.org',
+      'www.freepnglogos.com',
+    ],
   },
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './NetflixNavigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRightFromBracket, faBars } from '@fortawesome/free-solid-svg-icons';
+import Image from "next/image";
 
 const NetflixNavigation = () => {
 
@@ -38,7 +39,7 @@ const NetflixNavigation = () => {
                             <button className={`${styles.navBtn} ${styles.closeBtn}`} onClick={handleCloseClick}>
                                 <FontAwesomeIcon icon={faArrowRightFromBracket} className={styles.closeIcon} />
                             </button>
-                            <img src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix's logo" className={styles.logo} />
+                            <Image src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="netflix's logo" className={styles.logo} height={100} width={100}/>
 
                             <ul className={styles.list}>
                                 {navItems.map((item, index) => (
