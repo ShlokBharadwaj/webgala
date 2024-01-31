@@ -2,7 +2,11 @@ import React, { useRef, useEffect } from 'react';
 import styles from './VerifyAccountUI.module.css';
 
 const VerifyAccountUI = () => {
-    const numberRefs = Array.from({ length: 6 }, () => useRef());
+    
+    const numberRefs = [];
+    for (let i = 0; i < 6; i++) {
+        numberRefs.push(useRef());
+    }
 
     useEffect(() => {
         const handleKeyDown = (e, idx) => {
