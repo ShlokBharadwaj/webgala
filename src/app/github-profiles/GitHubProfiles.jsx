@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import axios from 'axios';
 import styles from './GitHubProfiles.module.css';
+import Image from "next/image";
 
 const APIURL = 'https://api.github.com/users/';
 
@@ -67,7 +68,13 @@ const GitHubProfiles = () => {
         return (
             <div className={styles.card}>
                 <div>
-                    <img src={userData.avatar_url} alt={userData.name} className={styles.avatar} />
+                    <Image
+                        src={userData.avatar_url}
+                        alt={userData.name}
+                        className={styles.avatar} 
+                        width={200}
+                        height={200}
+                        />
                 </div>
                 <div className={styles.userInfo}>
                     <h2>{userID}</h2>
