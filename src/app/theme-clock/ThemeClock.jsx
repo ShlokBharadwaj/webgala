@@ -23,32 +23,31 @@ const ThemeClock = () => {
         return (num - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
     };
 
-    const setClock = () => {
-        const time = new Date();
-        const month = time.toLocaleString('default', { month: 'short' }).toUpperCase();
-        const day = time.toLocaleString('default', { weekday: 'short' }).toUpperCase();
-        const date = time.getDate();
-        const hours = time.getHours();
-        const hoursForClock = hours % 12 || 12;
-        const minutes = time.getMinutes();
-        const seconds = time.getSeconds();
-        const ampm = hours >= 12 ? 'PM' : 'AM';
-
-        setTimeData({
-            ...timeData,
-            month,
-            day,
-            date,
-            hours,
-            hoursForClock,
-            minutes,
-            seconds,
-            ampm,
-        });
-    };
-
     useEffect(() => {
-        setClock();
+        const setClock = () => {
+            const time = new Date();
+            const month = time.toLocaleString('default', { month: 'short' }).toUpperCase();
+            const day = time.toLocaleString('default', { weekday: 'short' }).toUpperCase();
+            const date = time.getDate();
+            const hours = time.getHours();
+            const hoursForClock = hours % 12 || 12;
+            const minutes = time.getMinutes();
+            const seconds = time.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+
+            setTimeData({
+                ...timeData,
+                month,
+                day,
+                date,
+                hours,
+                hoursForClock,
+                minutes,
+                seconds,
+                ampm,
+            });
+        };
+
         const intervalId = setInterval(setClock, 1000);
 
         return () => clearInterval(intervalId);
