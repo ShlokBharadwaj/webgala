@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styles from './MobileTabNavigation.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBlog, faBriefcase, faHouseChimney, faImagePortrait } from '@fortawesome/free-solid-svg-icons';
+import Image from "next/image";
 
 const MobileTabNavigation = () => {
 
@@ -40,11 +41,13 @@ const MobileTabNavigation = () => {
             <div className={styles.mobileContainer}>
                 {
                     imgUrls.map((imgs, index) => (
-                        <img
+                        <Image
                             key={index}
                             src={imgs.url}
                             alt={imgs.alt}
                             className={`${styles.content} ${index === activeIndex ? styles.show : ''}`}
+                            height={500}
+                            width={500}
                         />
                     ))
                 }
