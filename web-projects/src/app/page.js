@@ -79,7 +79,7 @@ const Grid = () => {
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white text-center py-4 mt-auto">
-      <p>&copy; 2024 Shlok Bharadwaj. All rights reserved.</p>
+      <p>&copy; 2022-2024 <a href="https://github.com/ShlokBharadwaj" target="_blank" rel="noopener noreferrer" className='text-blue-500'>Shlok Bharadwaj</a>.  All rights reserved.</p>
     </footer>
   );
 };
@@ -89,11 +89,10 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Head>
-        <title>Your Landing Page</title>
-        <meta name="description" content="Your landing page description" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>WebGala</title>
+        <meta name="description" content="Crafting Web Elegance, One WebGala at a time." />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
-
       <Navbar />
       <main className="flex-grow">
         <Grid />
