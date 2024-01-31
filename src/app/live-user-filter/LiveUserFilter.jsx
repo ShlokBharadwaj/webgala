@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import styles from './LiveUserFilter.module.css';
+import Image from "next/image";
 
 const LiveUserFilter = () => {
     const [users, setUsers] = useState([]);
@@ -24,18 +25,18 @@ const LiveUserFilter = () => {
         fetchData();
     }, []);
 
-    useEffect(() => {
-        filterData(searchTerm);
-    }, [searchTerm]);
-
-    const filterData = (term) => {
+    const filterData = useCallback((term) => {
         const filteredData = users.filter((user) => {
             const fullName = `${user.name.title} ${user.name.first} ${user.name.last}`;
             const location = `${user.location.city}, ${user.location.country} - ${user.location.postcode}`;
             return fullName.toLowerCase().includes(term.toLowerCase()) || location.toLowerCase().includes(term.toLowerCase());
         });
         setFilteredUsers(filteredData);
-    };
+    });
+
+    useEffect(() => {
+        filterData(searchTerm);
+    }, [searchTerm, filterData]);
 
     return (
         <div className={styles.parentContainer}>
@@ -62,7 +63,7 @@ const LiveUserFilter = () => {
                         filteredUsers.length > 0 ? (
                             filteredUsers.map((user) => (
                                 <li key={user.login.uuid} className={styles.userListItem}>
-                                    <img src={user.picture.large} alt={user.name.first} />
+                                    <Image src={user.picture.large} alt={user.name.first} height={100} width={100} />
                                     <div className={styles.userInfo}>
                                         <h4>{`${user.name.title} ${user.name.first} ${user.name.last}`}</h4>
                                         <p>
