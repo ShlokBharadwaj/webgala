@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeartCrack, faHeart, faHeartCircleCheck } from '@fortawesome/free-solid-svg-icons';
 import styles from './FeedbackUIDesign.module.css';
+import Image from "next/image";
 
 const FeedbackUIDesign = () => {
     const [selectedRating, setSelectedRating] = useState(null);
@@ -48,9 +49,11 @@ const FeedbackUIDesign = () => {
                                 className={`${styles.rating} ${selectedRating === index ? styles.active : ''}`}
                                 onClick={() => handleRatingClick(index)}
                             >
-                                <img
+                                <Image
                                     src={`https://media${index}.giphy.com/media/${getImageUrl(index)}`}
                                     alt={`Rating ${index}`}
+                                    width={100}
+                                    height={100}
                                 />
                                 <small>{['Unhappy', 'Neutral', 'Happy'][index]}</small>
                             </div>
