@@ -21,7 +21,7 @@ const LoginSignup = () => {
                         <button className={styles.signInBtn} onClick={handleSignInClick}>Sign in</button>
                     </div>
                     <div className={`${styles.box} ${styles.signUp}`}>
-                        <h2>Don't have an Account?</h2>
+                        <h2>Don&apos;t have an Account?</h2>
                         <button className={styles.signUpBtn} onClick={handleSignUpClick}>Sign up</button>
                     </div>
                 </div>
