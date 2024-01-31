@@ -1,12 +1,16 @@
 'use client';
 
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect, createRef } from 'react';
 import styles from './DragNDrop.module.css';
 
 const DragNDrop = () => {
   const fillRef = useRef(null);
-  const emptiesRefs = Array.from({ length: 5 }, () => useRef(null));
+  const [emptiesRefs, setEmptiesRefs] = useState([]);
   const [currentDropTarget, setCurrentDropTarget] = useState(null);
+
+  useEffect(() => {
+    setEmptiesRefs((emptiesRefs) => Array(5).fill().map((_, i) => emptiesRefs[i] || createRef()));
+  }, []);
 
   const handleDragStart = (e) => {
     fillRef.current.style.backgroundImage = 'none';
