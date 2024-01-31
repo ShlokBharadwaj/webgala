@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import styles from './DrinkWater.module.css';
 
 const DrinkWater = () => {
@@ -10,16 +10,13 @@ const DrinkWater = () => {
   const totalCups = 8;
   const [cups, setCups] = useState(Array(totalCups).fill(false));
 
-  useEffect(() => {
-    updateBigCups();
-  }, [cups]);
-
+  
   const highlightCups = (idx) => {
     const newCups = cups.map((cup, cupIndex) => cupIndex <= idx);
     setCups(newCups);
   };
-
-  const updateBigCups = () => {
+  
+  const updateBigCups = useCallback(() => {
     const fullCups = cups.filter((cup) => cup).length;
     const percentageHeight = (fullCups / totalCups) * 100;
 
@@ -33,7 +30,7 @@ const DrinkWater = () => {
     } else {
       percentageRef.current.style.visibility = 'visible';
     }
-
+    
     if (fullCups === totalCups) {
       remainedRef.current.style.visibility = 'hidden';
       remainedRef.current.style.height = 0;
@@ -41,8 +38,12 @@ const DrinkWater = () => {
       remainedRef.current.style.visibility = 'visible';
       litersRef.current.innerText = `${(2 - (250 * fullCups) / 1000).toFixed(2)}L Remains`;
     }
-  };
-
+  }, [cups, totalCups]);
+  
+  useEffect(() => {
+    updateBigCups();
+  }, [updateBigCups]);
+  
   return (
     <div className={styles.container}>
       <h1 className={styles.h1}>Drink Water</h1>
