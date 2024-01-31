@@ -1,28 +1,30 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, createRef } from 'react';
 import styles from './VerifyAccountUI.module.css';
 
 const VerifyAccountUI = () => {
-    const numberRefs = Array.from({ length: 6 }, () => useRef(null));
 
-    const handleKeyDown = (e, idx) => {
-        if (e.key >= 0 && e.key <= 9) {
-            numberRefs[idx].current.value = '';
-            setTimeout(() => numberRefs[idx + 1]?.current?.focus(), 10);
-        } else if (e.key === 'Backspace') {
-            setTimeout(() => numberRefs[idx - 1]?.current?.focus(), 10);
-        }
-    };
+    const numberRefs = Array(6).fill().map(() => createRef());
 
     useEffect(() => {
-        numberRefs.forEach((ref, idx) => {
+        const handleKeyDown = (e, idx) => {
+            if (e.key >= 0 && e.key <= 9) {
+                numberRefs[idx].current.value = '';
+                setTimeout(() => numberRefs[idx + 1]?.current?.focus(), 10);
+            } else if (e.key === 'Backspace') {
+                setTimeout(() => numberRefs[idx - 1]?.current?.focus(), 10);
+            }
+        };
+
+        const numbers = numberRefs.map((ref, idx) => {
             ref.current.addEventListener('keydown', (e) => handleKeyDown(e, idx));
+            return ref.current;
         });
 
-        numberRefs[0]?.current?.focus();
+        numbers[0]?.focus();
 
         return () => {
-            numberRefs.forEach((ref, idx) => {
-                ref.current.removeEventListener('keydown', (e) => handleKeyDown(e, idx));
+            numbers.forEach((num, idx) => {
+                num.removeEventListener('keydown', (e) => handleKeyDown(e, idx));
             });
         };
     }, [numberRefs]);
@@ -50,6 +52,6 @@ const VerifyAccountUI = () => {
             </div>
         </div>
     );
-};
+}
 
 export default VerifyAccountUI;
