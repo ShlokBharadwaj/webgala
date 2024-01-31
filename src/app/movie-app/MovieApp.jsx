@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './MovieApp.module.css';
+import Image from "next/image";
 
 const MovieApp = () => {
 
@@ -49,7 +50,7 @@ const MovieApp = () => {
                         key={movie.id}
                         className={styles.movie}
                     >
-                        <img src={`${IMG_PATH}${movie.poster_path}`} alt={movie.title} />
+                        <Image src={`${IMG_PATH}${movie.poster_path}`} alt={movie.title} className={styles.imgs} width={1000} height={50}/>
                         <div className={styles.movieInfo}>
                             <h3>{movie.title}</h3>
                             <span className={`${styles.voteAverage} ${movie.vote_average < 5
