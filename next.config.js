@@ -15,7 +15,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ['media0.giphy.com', 'media1.giphy.com', 'media2.giphy.com','avatars.githubusercontent.com', 'source.unsplash.com'],
+    domains: ['media0.giphy.com', 'media1.giphy.com', 'media2.giphy.com','avatars.githubusercontent.com', 'source.unsplash.com', 'images.unsplash.com'],
   },
 };
 
