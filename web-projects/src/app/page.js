@@ -8,14 +8,27 @@ import Link from "next/link";
 
 // Navbar component
 const Navbar = () => {
+
   return (
-    <nav className="bg-gray-800 p-4">
-      <div className="container mx-auto flex items-center justify-between">
-        <div className="text-white font-bold text-xl">Web Projects logo</div>
+    <nav className="bg-slate-800 p-2">
+      <div className="container mx-auto flex items-center justify-center h-16">
+        <Link href="/" legacyBehavior>
+          <a>
+            <Image
+              src="/assets/logos/webgala-logos_white.png"
+              alt="WebGala logo"
+              width={100}
+              height={100}
+              className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out object-contain h-full"
+            />
+          </a>
+        </Link>
       </div>
     </nav>
   );
 };
+
+
 
 // Grid component
 const Grid = () => {
