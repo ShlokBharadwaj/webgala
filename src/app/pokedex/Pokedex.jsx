@@ -39,9 +39,13 @@ const Pokedex = () => {
         for (let i = 1; i <= totalPokemonCount; i++) {
             const pokemon = await fetchPokemon(i);
             data.push(pokemon);
+            if (i % 20 === 0) {
+                setLoading(false);
+                setPokemonData(data);
+            }
         }
-        setPokemonData(data);
         setLoading(false);
+        setPokemonData(data);
     };
 
     const fetchPokemon = async (id) => {
