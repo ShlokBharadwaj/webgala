@@ -24,11 +24,10 @@ const FeedbackUIDesign = () => {
                     <strong>Thank You!</strong>
                     <br />
                     <strong>Feedback: {feedbackText}</strong>
-                    <p>We appreciate your feedback and we'll try to improve our customer support!</p>
+                    <p>We appreciate your feedback and we&apos;ll try to improve our customer support!</p>
                 </div>
             );
 
-            // Set buttonClicked to true after submitting the response
             setButtonClicked(true);
         }
     };
