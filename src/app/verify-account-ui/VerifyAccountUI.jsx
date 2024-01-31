@@ -3,7 +3,7 @@ import styles from './VerifyAccountUI.module.css';
 
 const VerifyAccountUI = () => {
 
-    const numberRefs = Array(6).fill().map(() => useRef());
+    const numberRefs = Array.from({ length: 6 }, () => useRef(null));
 
     useEffect(() => {
         const handleKeyDown = (e, idx) => {
@@ -15,19 +15,12 @@ const VerifyAccountUI = () => {
             }
         };
 
-        const numbers = numberRefs.map((ref, idx) => {
+        numberRefs.forEach((ref, idx) => {
             ref.current.addEventListener('keydown', (e) => handleKeyDown(e, idx));
-            return ref.current;
         });
 
-        numbers[0]?.focus();
-
-        return () => {
-            numbers.forEach((num, idx) => {
-                num.removeEventListener('keydown', (e) => handleKeyDown(e, idx));
-            });
-        };
-    }, [numberRefs]);
+        numberRefs[0]?.current?.focus();
+    }, []);
 
     return (
         <div className={styles.container}>
