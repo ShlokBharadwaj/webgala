@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import styles from './RotatingNavigation.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faEnvelope, faHome, faTimes, faUserAlt } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 const LoremParagraph = () => {
     const paragraphs = [
@@ -49,20 +50,20 @@ const RotatingNavigation = () => {
                     <small>Some Author</small>
                     <LoremParagraph />
                     <h3>Some Dog</h3>
-                    <img src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="unsplash.com" />
+                    <Image src="https://images.unsplash.com/photo-1552053831-71594a27632d?q=80&w=1924&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="unsplash.com" className={styles.imgs} height={1000} width={1000}/>
                     <LoremParagraph />
                 </div>
             </div>
             <nav>
                 <ul>
                     <li>
-                        <FontAwesomeIcon icon={faHome} className={styles.icon}/>Home
+                        <FontAwesomeIcon icon={faHome} className={styles.icon} />Home
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={faUserAlt} className={styles.icon}/>About
+                        <FontAwesomeIcon icon={faUserAlt} className={styles.icon} />About
                     </li>
                     <li>
-                        <FontAwesomeIcon icon={faEnvelope} className={styles.icon}/>Contact
+                        <FontAwesomeIcon icon={faEnvelope} className={styles.icon} />Contact
                     </li>
                 </ul>
             </nav>
