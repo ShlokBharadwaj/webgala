@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './ImageCarousel.module.css';
+import Image from "next/image";
 
 const ImageCarousel = () => {
     const images = [
@@ -46,7 +47,14 @@ const ImageCarousel = () => {
             <div className={styles.carousel}>
                 <div ref={containerRef} className={styles.imageContainer} style={{ transform: `translateX(${calculateTranslation()})` }}>
                     {images.map((src, index) => (
-                        <img key={index} src={src} alt={`Image ${index + 1}`} onClick={() => changeImage(index)} />
+                        <Image
+                            key={index}
+                            src={src}
+                            alt={`Image ${index + 1}`}
+                            onClick={() => changeImage(index)} 
+                            width={530}
+                            height={500}
+                            />
                     ))}
                 </div>
                 <div className={styles.buttonsContainer}>
