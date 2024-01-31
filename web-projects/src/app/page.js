@@ -28,8 +28,6 @@ const Navbar = () => {
   );
 };
 
-
-
 // Grid component
 const Grid = () => {
 
