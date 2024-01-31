@@ -5,10 +5,10 @@ import Masonry from 'react-masonry-css';
 import Image from "next/image";
 import gifs from "../../public/assets/js/gifs";
 import Link from "next/link";
+import { useState } from "react";
 
 // Navbar component
 const Navbar = () => {
-
   return (
     <nav className="bg-slate-800 p-2">
       <div className="container mx-auto flex items-center justify-center h-16">
@@ -30,36 +30,48 @@ const Navbar = () => {
 
 // Grid component
 const Grid = () => {
+  const [loading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+  }
 
   return (
-    <Masonry
-      breakpointCols={{
-        default: 4,
-        3000: 6,
-        2000: 5,
-        1200: 3,
-        900: 2,
-        600: 1,
-      }}
-      className="flex w-full mx-auto my-3"
-      columnClassName="my-masonry-grid_column"
-    >
-      {gifs.map((gifObj, index) => (
-        <div key={index} className="p-2">
-          <Link href={gifObj.link} legacyBehavior>
-            <a>
-              <Image
-                src={gifObj.gif}
-                alt={`GIF ${index}`}
-                width={300}
-                height={200}
-                className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
-              />
-            </a>
-          </Link>
+    <>
+      {loading &&
+        <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 text-white z-50">
+          Loading...
         </div>
-      ))}
-    </Masonry>
+      }
+      <Masonry
+        breakpointCols={{
+          default: 4,
+          3000: 6,
+          2000: 5,
+          1200: 3,
+          900: 2,
+          600: 1,
+        }}
+        className="flex w-full mx-auto my-3"
+        columnClassName="my-masonry-grid_column"
+      >
+        {gifs.map((gifObj, index) => (
+          <div key={index} className="p-2">
+            <Link href={gifObj.link} legacyBehavior>
+              <a onClick={handleClick}>
+                <Image
+                  src={gifObj.gif}
+                  alt={`GIF ${index}`}
+                  width={300}
+                  height={200}
+                  className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
+                />
+              </a>
+            </Link>
+          </div>
+        ))}
+      </Masonry>
+    </>
   );
 };
 
