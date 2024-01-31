@@ -74,6 +74,9 @@ const PasswordGenerator = () => {
 
     const handlePassLenChange = e => {
         const length = parseInt(e.target.value, 10);
+        if (isNaN(length) || length < 8 || length > 25) {
+            return;
+        }
         setPasswordLength(length);
     };
 
