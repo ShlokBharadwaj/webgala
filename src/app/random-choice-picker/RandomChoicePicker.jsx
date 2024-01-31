@@ -94,9 +94,9 @@ const RandomChoicePicker = () => {
     <div className={styles.container}>
       <div className={styles.choiceContainer}>
         <h3>
-          Enter all of the choices divided by space(' ').
+          Enter all of the choices divided by space(&apos;&nbsp;&apos;).
           <br />
-          Press Enter when you're done.
+          Press Enter when you&apos;re done.
         </h3>
         <textarea placeholder="Enter your choices here..." ref={textareaRef} onKeyUp={handleKeyUp}></textarea>
         <div ref={tagsContainerRef}>
