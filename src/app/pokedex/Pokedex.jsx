@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Pokedex.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRandom, faSpinner } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 const Pokedex = () => {
 
@@ -73,9 +74,13 @@ const Pokedex = () => {
         return (
             <div key={pokemon.id} className={styles.pokemon} style={{ backgroundColor: color }}>
                 <div className={styles.imgContainer}>
-                    <img
+                    <Image
                         src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png`}
-                        alt={`${pokemon.name}'s picture`} />
+                        alt={`${pokemon.name}'s picture`} 
+                        className={styles.pokeImg}
+                        height={96}
+                        width={96}
+                        />
                 </div>
                 <div className={styles.pokeInfo}>
                     <span className={styles.pokeNum}>#{pokemon.id}</span>

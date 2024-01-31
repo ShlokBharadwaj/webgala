@@ -25,6 +25,7 @@ const nextConfig = {
       'randomuser.me',
       'image.tmdb.org',
       'www.freepnglogos.com',
+      'raw.githubusercontent.com',
     ],
   },
 };

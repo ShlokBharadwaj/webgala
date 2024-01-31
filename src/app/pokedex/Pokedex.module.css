@@ -68,7 +68,7 @@
     align-items: center;
 }
 
-.pokemon .imgContainer img {
+.pokeImg {
     max-width: 90%;
     max-height: 90%;
 }
