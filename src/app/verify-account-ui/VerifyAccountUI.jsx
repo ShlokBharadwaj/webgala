@@ -2,25 +2,30 @@ import React, { useRef, useEffect } from 'react';
 import styles from './VerifyAccountUI.module.css';
 
 const VerifyAccountUI = () => {
-
     const numberRefs = Array.from({ length: 6 }, () => useRef(null));
 
-    useEffect(() => {
-        const handleKeyDown = (e, idx) => {
-            if (e.key >= 0 && e.key <= 9) {
-                numberRefs[idx].current.value = '';
-                setTimeout(() => numberRefs[idx + 1]?.current?.focus(), 10);
-            } else if (e.key === 'Backspace') {
-                setTimeout(() => numberRefs[idx - 1]?.current?.focus(), 10);
-            }
-        };
+    const handleKeyDown = (e, idx) => {
+        if (e.key >= 0 && e.key <= 9) {
+            numberRefs[idx].current.value = '';
+            setTimeout(() => numberRefs[idx + 1]?.current?.focus(), 10);
+        } else if (e.key === 'Backspace') {
+            setTimeout(() => numberRefs[idx - 1]?.current?.focus(), 10);
+        }
+    };
 
+    useEffect(() => {
         numberRefs.forEach((ref, idx) => {
             ref.current.addEventListener('keydown', (e) => handleKeyDown(e, idx));
         });
 
         numberRefs[0]?.current?.focus();
-    }, []);
+
+        return () => {
+            numberRefs.forEach((ref, idx) => {
+                ref.current.removeEventListener('keydown', (e) => handleKeyDown(e, idx));
+            });
+        };
+    }, [numberRefs]);
 
     return (
         <div className={styles.container}>
@@ -45,6 +50,6 @@ const VerifyAccountUI = () => {
             </div>
         </div>
     );
-}
+};
 
 export default VerifyAccountUI;
