@@ -38,7 +38,7 @@ const gifs = [
     { link: '/quiz-app', gif: '/assets/gifs/quiz-app.gif' },
     { link: '/random-choice-picker', gif: '/assets/gifs/random-choice-picker.gif' },
     { link: '/random-image-feed', gif: '/assets/gifs/random-image-feed.gif' },
-    { link: '/verify-account', gif: '/assets/gifs/verify-account.gif' },
+    { link: '/verify-account-ui', gif: '/assets/gifs/verify-account.gif' },
     { link: '/auto-text-effect', gif: '/assets/gifs/auto-text-effect.gif' },
     { link: '/rotating-navigation', gif: '/assets/gifs/rotating-navigation.gif' },
     { link: '/scroll-animation', gif: '/assets/gifs/scroll-animation.gif' },
