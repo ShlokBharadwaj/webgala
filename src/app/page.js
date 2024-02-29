@@ -60,7 +60,7 @@ const Grid = () => {
             <Link href={videoObj.link} legacyBehavior>
               <a onClick={handleClick}>
                 <video
-                  src={videoObj.video} // This now points to the MP4 video
+                  src={videoObj.video}
                   alt={`Video ${index}`}
                   width={300}
                   height={200}
