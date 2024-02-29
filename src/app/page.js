@@ -59,12 +59,15 @@ const Grid = () => {
           <div key={index} className="p-2">
             <Link href={gifObj.link} legacyBehavior>
               <a onClick={handleClick}>
-                <Image
-                  src={gifObj.gif}
-                  alt={`GIF ${index}`}
+                <video
+                  src={gifObj.gif} // This now points to the MP4 video
+                  alt={`Video ${index}`}
                   width={300}
                   height={200}
                   className="cursor-pointer hover:scale-90 transition-all duration-300 ease-in-out"
+                  autoPlay
+                  loop
+                  muted
                 />
               </a>
             </Link>

@@ -26,6 +26,7 @@ const nextConfig = {
       'image.tmdb.org',
       'www.freepnglogos.com',
       'raw.githubusercontent.com',
+      'res.cloudinary.com',
     ],
   },
 };
