@@ -3,7 +3,7 @@
 import Head from 'next/head';
 import Masonry from 'react-masonry-css';
 import Image from "next/image";
-import gifs from "../../public/assets/js/gifs";
+import videos from "../../public/assets/js/videos";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -55,12 +55,12 @@ const Grid = () => {
         className="flex w-full mx-auto my-3"
         columnClassName="my-masonry-grid_column"
       >
-        {gifs.map((gifObj, index) => (
+        {videos.map((videoObj, index) => (
           <div key={index} className="p-2">
-            <Link href={gifObj.link} legacyBehavior>
+            <Link href={videoObj.link} legacyBehavior>
               <a onClick={handleClick}>
                 <video
-                  src={gifObj.gif} // This now points to the MP4 video
+                  src={videoObj.video} // This now points to the MP4 video
                   alt={`Video ${index}`}
                   width={300}
                   height={200}
