@@ -8,6 +8,22 @@
     flex-wrap: wrap;
     margin: 0;
     padding-top: 3rem;
-    background-image: linear-gradient(to right, #8ecae6, #219ebc);
+    background-image: linear-gradient(to right, #219ebc, #8ecae6);
     min-height: 100vh;
+}
+
+.createNote {
+    background-color: #219ebc;
+    color: #fff;
+    position: fixed;
+    top: 1.25rem;
+    right: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.createNote:active {
+    transform: scale(0.95);
 }
