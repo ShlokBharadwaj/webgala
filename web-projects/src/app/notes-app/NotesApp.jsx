@@ -54,7 +54,7 @@ const NotesApp = () => {
   return (
     <div className={styles.container}>
       <button className={styles.createNote} onClick={() => addNewNote()}>
-        <FontAwesomeIcon icon={faPlusSquare} />
+        <FontAwesomeIcon icon={faPlusSquare} className={styles.plusStyle}/>
         Add Note
       </button>
 
