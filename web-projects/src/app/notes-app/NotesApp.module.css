@@ -27,3 +27,12 @@
 .createNote:active {
     transform: scale(0.95);
 }
+
+.note {
+    background-color: #fff;
+    color: #111;
+    box-shadow: 0 0 10px 4px rgba(0,0,0,0.3);
+    margin: 30px 20px;
+    height: 400px;
+    width: 400px;
+}
